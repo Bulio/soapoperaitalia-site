@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tradimento: anticipazioni e trame | Soap Opera Italia</title>
-<meta name="description" content="Anticipazioni, trame e novità di Tradimento. Aggiornamenti settimanali.">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://soapoperaitalia.com/serie/tradimento/">
-<meta property="og:title" content="Tradimento: anticipazioni e trame | Soap Opera Italia">
-<meta property="og:description" content="Anticipazioni, trame e novità di Tradimento. Aggiornamenti settimanali.">
+<title>Cerca | Soap Opera Italia</title>
+<meta name="description" content="Cerca tra le anticipazioni di Soap Opera Italia.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://soapoperaitalia.com/cerca/">
+<meta property="og:title" content="Cerca | Soap Opera Italia">
+<meta property="og:description" content="Cerca tra le anticipazioni di Soap Opera Italia.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Soap Opera Italia">
-<meta property="og:url" content="https://soapoperaitalia.com/serie/tradimento/">
+<meta property="og:url" content="https://soapoperaitalia.com/cerca/">
 <meta property="og:image" content="https://soapoperaitalia.com/social.svg">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,6 @@
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="stylesheet" href="/style.css">
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Tradimento"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -33,13 +32,45 @@
   <a class="logo" href="/">Soap Opera Italia</a>
   <p>Anticipazioni, trame e news dalle soap in onda in Italia</p>
 </div></header>
-<nav class="serie"><div class="wrap"><a href="/">Home</a><a href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a><a href="/serie/forbidden-fruit/">Forbidden Fruit</a><a href="/serie/far-away/">Far Away</a><a href="/serie/la-promessa/">La Promessa</a><a href="/serie/endless-love/">Endless Love</a><a href="/serie/tradimento/" class="attiva">Tradimento</a></div></nav>
+<nav class="serie"><div class="wrap"><a href="/">Home</a><a href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a><a href="/serie/forbidden-fruit/">Forbidden Fruit</a><a href="/serie/far-away/">Far Away</a><a href="/serie/la-promessa/">La Promessa</a><a href="/serie/endless-love/">Endless Love</a><a href="/serie/tradimento/">Tradimento</a></div></nav>
 <main><div class="wrap">
-<div class="briciole"><a href="/">Home</a> › Tradimento</div>
-<h1 style="font-size:32px;margin:0 0 10px">Tradimento: anticipazioni e trame</h1>
-<p style="color:var(--testo-tenue);margin:0 0 18px">Tutte le anticipazioni di Tradimento pubblicate su Soap Opera Italia, dalla più recente.</p>
-<div class="onda"><span class="tv">📺</span><span><strong>Tradimento</strong> — Canale 5 · in streaming su Mediaset Infinity</span></div>
-<div class="griglia"><p>Non ci sono ancora anticipazioni pubblicate su Tradimento.</p></div>
+<div class="pagina">
+<h1>Cerca nel sito</h1>
+<p><input type="search" id="ricerca" placeholder="Serie, personaggio, parola nel titolo…"
+  style="width:100%;max-width:480px;padding:12px 14px;font-size:17px;border:1px solid var(--bordo);border-radius:8px"></p>
+<div id="risultati" class="griglia" style="margin-top:22px"></div>
+<p id="vuoto" style="color:var(--testo-tenue);display:none">Nessun risultato. Prova con il nome della serie.</p>
+</div>
+<script>
+(function() {
+  var box = document.getElementById('risultati'), vuoto = document.getElementById('vuoto'),
+      campo = document.getElementById('ricerca'), indice = null;
+  function mostra(lista) {
+    box.innerHTML = lista.map(function(r) {
+      return '<article class="scheda">'
+        + '<a href="' + r.u + '"><div class="foto">' + (r.f ? '<img src="' + r.f + '" alt="" loading="lazy">' : '') + '</div></a>'
+        + '<div class="corpo"><span class="serie">' + r.s + '</span>'
+        + '<h3><a href="' + r.u + '">' + r.t + '</a></h3>'
+        + '<div class="quando">' + r.d + '</div></div></article>';
+    }).join('');
+    vuoto.style.display = lista.length ? 'none' : 'block';
+  }
+  function cerca() {
+    if (!indice) return;
+    var q = campo.value.trim().toLowerCase();
+    if (!q) { box.innerHTML = ''; vuoto.style.display = 'none'; return; }
+    mostra(indice.filter(function(r) {
+      return (r.t + ' ' + r.s + ' ' + (r.x || '')).toLowerCase().indexOf(q) !== -1;
+    }).slice(0, 24));
+  }
+  fetch('/indice-ricerca.json').then(function(r){return r.json()}).then(function(d) {
+    indice = d;
+    var q = new URLSearchParams(location.search).get('q');
+    if (q) { campo.value = q; cerca(); }
+  });
+  campo.addEventListener('input', cerca);
+})();
+</script>
 </div></main>
 <footer><div class="wrap">
   <strong>Soap Opera Italia</strong> — Anticipazioni, trame e news dalle soap in onda in Italia

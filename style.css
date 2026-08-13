@@ -34,7 +34,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* testata */
 .testata { background: var(--brand); color: #fff; padding: 30px 0 26px; }
 .testata h1, .testata .logo { margin: 0; font-size: 40px; font-weight: 800; letter-spacing: -.5px;
-  line-height: 1.1; color: #fff; }
+  line-height: 1.1; color: #fff; display: inline-block; }
 .testata a.logo:hover { text-decoration: none; }
 .testata p { margin: 6px 0 0; opacity: .9; font-size: 15px; }
 
@@ -51,21 +51,40 @@ main { padding: 26px 0 40px; }
 .briciole { font-size: 13px; color: var(--testo-tenue); margin-bottom: 14px; }
 .briciole a { color: var(--testo-tenue); }
 
+/* apertura in evidenza (home) */
+.apertura { position: relative; border-radius: 10px; overflow: hidden; margin-bottom: 26px;
+  background: #000; }
+.apertura img { width: 100%; aspect-ratio: 16/7; object-fit: cover; opacity: .62; }
+.apertura .velo { position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 26px 28px; background: linear-gradient(transparent 30%, rgba(0,0,0,.72)); }
+.apertura .serie { align-self: flex-start; font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: #fff; background: var(--brand); padding: 4px 10px; border-radius: 3px; }
+.apertura h2 { margin: 10px 0 6px; font-size: 32px; line-height: 1.15; }
+.apertura h2 a { color: #fff; }
+.apertura .quando { color: #ffffffcc; font-size: 14px; }
+@media (max-width: 700px) {
+  .apertura img { aspect-ratio: 16/10; }
+  .apertura h2 { font-size: 22px; }
+}
+
+.sezione-titolo { display: flex; align-items: baseline; gap: 14px; margin: 34px 0 16px;
+  border-bottom: 2px solid var(--bordo); padding-bottom: 8px; }
+.sezione-titolo h2 { margin: 0; font-size: 22px; }
+.sezione-titolo a.tutte { font-size: 14px; margin-left: auto; white-space: nowrap; }
+
 /* griglia schede */
 .griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px; }
 .scheda { border: 1px solid var(--bordo); border-radius: 8px; overflow: hidden; background: #fff;
   display: flex; flex-direction: column; transition: box-shadow .15s ease, transform .15s ease; }
 .scheda:hover { box-shadow: 0 6px 22px rgba(0,0,0,.10); transform: translateY(-2px); }
-.scheda .foto { aspect-ratio: 16/9; background: var(--sfondo-tenue) center/cover no-repeat; }
+.scheda .foto { aspect-ratio: 16/9; background: var(--sfondo-tenue); }
+.scheda .foto img { width: 100%; height: 100%; object-fit: cover; }
 .scheda .corpo { padding: 14px 16px 18px; }
 .scheda .serie { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
   letter-spacing: .6px; color: #fff; background: var(--brand); padding: 3px 8px; border-radius: 3px; }
 .scheda h3 { margin: 10px 0 8px; font-size: 19px; line-height: 1.3; }
 .scheda h3 a { color: var(--testo); }
 .scheda .quando { font-size: 13px; color: var(--testo-tenue); }
-.scheda.grande { grid-column: span 2; }
-.scheda.grande h3 { font-size: 25px; }
-@media (max-width: 700px) { .scheda.grande { grid-column: span 1; } }
 
 /* articolo */
 .articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
@@ -88,6 +107,23 @@ main { padding: 26px 0 40px; }
 .riquadro h3 { margin: 0 0 8px; font-size: 17px; }
 .riquadro p { margin: 0; font-size: 16px; }
 
+/* dove vederla */
+.onda { display: flex; gap: 10px; align-items: flex-start; background: var(--sfondo-tenue);
+  border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
+  font-size: 15px; }
+.onda .tv { font-size: 18px; line-height: 1.4; }
+
+/* condividi */
+.condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
+.condividi span { font-size: 13px; text-transform: uppercase; letter-spacing: .5px;
+  color: var(--testo-tenue); font-weight: 700; }
+.condividi a { display: inline-block; padding: 8px 14px; border-radius: 6px; color: #fff;
+  font-size: 14px; font-weight: 600; }
+.condividi a:hover { text-decoration: none; opacity: .9; }
+.condividi .wa { background: #25d366; }
+.condividi .fb { background: #1877f2; }
+.condividi .tg { background: #229ed9; }
+
 aside .box { border: 1px solid var(--bordo); border-radius: 8px; padding: 16px 18px; margin-bottom: 22px; }
 aside .box h3 { margin: 0 0 12px; font-size: 15px; text-transform: uppercase; letter-spacing: .5px;
   color: var(--testo-tenue); }
@@ -97,7 +133,16 @@ aside li { margin-bottom: 9px; font-size: 15px; line-height: 1.4; }
   border-radius: 6px; font-weight: 600; font-size: 15px; }
 .bottone:hover { background: var(--brand-dark); text-decoration: none; }
 
+/* pagine di servizio */
+.pagina { max-width: 760px; }
+.pagina h1 { font-size: 32px; }
+.pagina h2 { font-size: 22px; margin-top: 30px; }
+
+/* annunci: nessuno spazio riservato finche' non esistono (zero CLS) */
+.annuncio { margin: 24px 0; text-align: center; }
+.annuncio ins { display: block; }
+
 footer { background: var(--brand-dark); color: #fff; margin-top: 50px; padding: 32px 0 26px; font-size: 14px; }
 footer a { color: #fff; text-decoration: underline; }
 footer .fdisclaimer { opacity: .78; margin-top: 14px; line-height: 1.55; }
-footer .fserie { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 0; }
+footer .fserie, footer .flegali { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 0; }
