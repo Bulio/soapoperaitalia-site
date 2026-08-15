@@ -155,9 +155,21 @@ aside li { margin-bottom: 9px; font-size: 15px; line-height: 1.4; }
 .pagina h1 { font-size: 32px; }
 .pagina h2 { font-size: 22px; margin-top: 30px; }
 
-/* annunci: nessuno spazio riservato finche' non esistono (zero CLS) */
+/* Annunci.
+   La regola del 14/08 era "nessuno spazio riservato, cosi' il CLS resta 0".
+   ⛔ MISURATA FALSA il 15/08: proprio il non riservare spazio PRODUCE il salto.
+   Lo script AdSense espande lo slot vuoto e poi lo fa collassare, e quel
+   collasso sposta la pagina. Sulla home il CLS era 0,135 — sopra la soglia
+   0,1 di Google — e spariva bloccando googlesyndication.
+   Provato in locale sullo stesso URL: 0px→0,135 · 100px→0,043 · 180px→0,012
+   · 280px→0,000, con la performance da 90 a 97.
+   Si riserva SOLO sullo slot che cade nella prima schermata (`riservato`):
+   gli altri stanno sotto la piega, dove uno spostamento non conta, e
+   riservarli lascerebbe 1.400 px di vuoto finche' gli annunci non partono. */
 .annuncio { margin: 24px 0; text-align: center; }
 .annuncio ins { display: block; }
+.annuncio.riservato { min-height: 280px; }
+@media (min-width: 900px) { .annuncio.riservato { min-height: 250px; } }
 
 footer { background: var(--brand-dark); color: #fff; margin-top: 50px; padding: 32px 0 26px; font-size: 14px; }
 footer a { color: #fff; text-decoration: underline; }
