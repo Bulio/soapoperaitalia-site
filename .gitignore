@@ -4,3 +4,4 @@
 # basta un `git add -A` fatto nel momento sbagliato per pubblicarle come URL
 # spazzatura. Verificato il 16/08/2026: nessuna e' mai finita in un commit.
 * [0-9].*
+* [0-9]
