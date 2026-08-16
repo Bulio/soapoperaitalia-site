@@ -1,0 +1,6 @@
+# Copie di conflitto create da iCloud sul Desktop: "index 2.html", "style 3.css",
+# "foto 2.jpg". Sono byte-identiche all'originale e il build le cancella (azzera
+# out/ tranne .git e CNAME), ma ricompaiono in continuazione. Senza questa riga
+# basta un `git add -A` fatto nel momento sbagliato per pubblicarle come URL
+# spazzatura. Verificato il 16/08/2026: nessuna e' mai finita in un commit.
+* [0-9].*
