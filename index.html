@@ -125,6 +125,14 @@ main { padding: 26px 0 40px; }
 .video .telaio { position: relative; padding-top: 56.25%; border-radius: 8px; overflow: hidden;
   background: #000; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.altri-video { margin: 28px 0 8px; }
+.altri-video h2 { font-size: 20px; margin: 0 0 12px; }
+.altri-video ul { list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.altri-video a { display: flex; flex-direction: column; gap: 7px; text-decoration: none; }
+.altri-video img { width: 100%; height: auto; border-radius: 8px; display: block; }
+.altri-video span { font-size: 14.5px; line-height: 1.35; }
+.altri-video a:hover span { text-decoration: underline; }
 .video .nota { font-size: 14px; color: var(--testo-tenue); padding-top: 8px; }
 
 /* facade del video: miniatura statica, il player YouTube (1 MB) si carica
@@ -240,7 +248,7 @@ if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=nu
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 21 agosto 2026</span>
+  <span class="oggi">domenica 23 agosto 2026</span>
   <span class="ultima">| HERCAI — Dopo la verità su Miran, cosa può succedere adesso</span>
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
