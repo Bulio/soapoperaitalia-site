@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Terra Amara: Dopo la tragedia di Mujgan, cosa può succedere adesso", "datePublished": "2026-08-20", "dateModified": "2026-08-26", "description": "Ora che Zuleyha è partita e Mujgan non c'è più, la domanda vera è: cosa succederà adesso a Cukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate. Restate fino alla fine per la domanda più delicata di tutte.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/terra-amara/terra-amara-dopo-la-tragedia-di-mujgan-cosa-puo-succedere-adesso/", "image": ["https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "TERRA AMARA: Dopo la tragedia di Mujgan, cosa può succedere adesso 👀", "description": "Ora che Zuleyha è partita e Mujgan non c'è più, la domanda vera è: cosa succederà adesso a Cukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate. Restate fino alla fine per la domanda più delicata di tutte.", "thumbnailUrl": "https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg", "uploadDate": "2026-08-20T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/OsF6H6VufLc"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Terra Amara: Dopo la tragedia di Mujgan, cosa può succedere adesso", "datePublished": "2026-08-20", "dateModified": "2026-08-29", "description": "Ora che Zuleyha è partita e Mujgan non c'è più, la domanda vera è: cosa succederà adesso a Cukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate. Restate fino alla fine per la domanda più delicata di tutte.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/terra-amara/terra-amara-dopo-la-tragedia-di-mujgan-cosa-puo-succedere-adesso/", "image": ["https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "TERRA AMARA: Dopo la tragedia di Mujgan, cosa può succedere adesso 👀", "description": "Ora che Zuleyha è partita e Mujgan non c'è più, la domanda vera è: cosa succederà adesso a Cukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate. Restate fino alla fine per la domanda più delicata di tutte.", "thumbnailUrl": "https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg", "uploadDate": "2026-08-20T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/OsF6H6VufLc"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Terra Amara", "item": "https://soapoperaitalia.com/serie/terra-amara/"}, {"@type": "ListItem", "position": 3, "name": "Terra Amara: Dopo la tragedia di Mujgan, cosa può succedere adesso"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -328,6 +360,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Ora che Zuleyha è partita e Mujgan non c&#x27;è più, la domanda vera è: cosa succederà adesso a Cukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti.</strong></p>
   <p>Partiamo da quello che sappiamo: Sermin ha scoperto la vera identità di Umit come figlia segreta di Sevda, una rivelazione che, una volta resa pubblica, potrebbe cambiare completamente gli equilibri di potere all&#x27;interno della tenuta.</p>
+<h2>Cosa succede a Fikret dopo la morte di Mujgan</h2>
 <p>La prima grande domanda aperta riguarda il futuro di Fikret. Riuscirà a superare il senso di colpa per la morte di Mujgan, o questa tragedia lo spingerà a tornare sui propri passi, riaccendendo la vendetta contro Demir che sembrava ormai abbandonata per sempre?</p>
 <p>Secondo fronte: cosa succederà tra Demir e Zuleyha ora che lei è partita definitivamente con i figli. Demir tenterà di riconquistarla, o accetterà finalmente le conseguenze delle proprie azioni, lasciandola costruire una nuova vita lontano da lui?</p>
 <p>Terzo fronte: il destino del piccolo Kerem Ali, rimasto orfano di madre e affidato temporaneamente a Fekeli. Come cambierà la sua vita in una famiglia già segnata da tanto dolore?</p>
@@ -335,10 +368,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Quarto fronte, quello più delicato dal punto di vista sociale: come reagirà Sevda quando scoprirà che Sermin conosce ormai la verità su Umit. Cercherà di comprare il suo silenzio, o la situazione degenererà in un confronto pubblico dalle conseguenze imprevedibili?</p>
 <p>Quinto fronte: il rapporto tra Umit e Demir, ormai al centro di uno scandalo che coinvolge l&#x27;intera famiglia Yaman. Con Zuleyha ormai lontana, la loro relazione potrà finalmente uscire allo scoperto, o si complicherà ulteriormente con la scoperta della vera identità di Umit?</p>
 <p>Un ultimo fronte, quello con cui chiudiamo questa analisi: cosa ci racconta questa vicenda sul tema del destino in Terra Amara? La tragedia di Mujgan dimostra ancora una volta come, in questo universo narrativo, la felicità appena conquistata possa essere spazzata via in un istante, un tema che continuerà probabilmente a essere centrale per il resto della stagione.</p>
+<h2>Come Fekeli gestirà Kerem Ali e Fikret</h2>
 <p>Sesto fronte, spesso sottovalutato ma potenzialmente decisivo: il ruolo di Fekeli nei prossimi sviluppi. Con Fikret devastato dal dolore e Mujgan non più presente, Fekeli si ritrova a dover gestire contemporaneamente la crescita del piccolo Kerem Ali e il sostegno psicologico al nipote, un doppio impegno che potrebbe metterlo a dura prova nelle prossime settimane, considerando anche la sua età e i propri acciacchi di salute già accennati in puntate precedenti.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Settimo fronte: le conseguenze economiche della partenza di Zuleyha sulla gestione della tenuta. Pur non essendo lei direttamente coinvolta nella gestione operativa dell&#x27;azienda agricola, la sua assenza potrebbe comunque influenzare gli equilibri familiari legati all&#x27;eredità e alla proprietà, temi che in Terra Amara non sono mai stati secondari rispetto alle vicende sentimentali dei personaggi.</p>
 <p>Ottavo fronte, quello più delicato dal punto di vista legale: cosa succederà quando, inevitabilmente, la verità sull&#x27;identità di Umit come figlia di Sevda diventerà di dominio pubblico. Potrebbero aprirsi questioni legate all&#x27;eredità, al riconoscimento di parentela, e persino a vecchi segreti di famiglia mai del tutto chiariti riguardo all&#x27;abbandono della bambina anni prima.</p>
+<h2>Perché Zuleyha potrebbe tornare a Cukurova</h2>
 <p>Nono fronte: il possibile ritorno di Zuleyha a Cukurova, anche solo temporaneo, magari legato a questioni pratiche riguardanti Adnan o la gestione di beni lasciati in sospeso. Un ritorno del genere potrebbe riaprire ferite ancora fresche, sia con Demir che con l&#x27;intera comunità della tenuta.</p>
 <p>Decimo fronte, quello più speculativo tra tutti: l&#x27;ipotesi, circolata anche tra alcuni fan più attenti, che l&#x27;incidente aereo possa nascondere risvolti ancora sconosciuti, magari legati a nemici storici della famiglia Yaman mai completamente sconfitti nelle stagioni precedenti. Al momento si tratta solo di un&#x27;ipotesi non confermata, ma la storia di Terra Amara ci ha insegnato a non escludere mai nulla del tutto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -347,8 +382,10 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Tredicesimo fronte, legato più da vicino alla dimensione economica della trama: cosa ne sarà del progetto lavorativo che aveva portato Mujgan a Istanbul. È possibile che questa opportunità professionale, rimasta ormai orfana della persona che avrebbe dovuto realizzarla, venga in qualche modo ripresa o raccontata nelle puntate successive, magari attraverso un personaggio a lei vicino che decide di portarla avanti in sua memoria.</p>
 <p>Quattordicesimo fronte: le conseguenze psicologiche a lungo termine per Adnan, il figlio di Zuleyha, costretto ad affrontare contemporaneamente la separazione dei genitori e il trasferimento in un contesto di vita completamente nuovo. Come reagirà un ragazzo della sua età a un cambiamento così radicale, e quanto influenzerà questo trauma il suo rapporto futuro con Demir?</p>
 <p>Quindicesimo fronte, quello che chiude questa lunga rassegna di possibili sviluppi: il modo in cui Sevda deciderà di affrontare Umit una volta che la verità sarà emersa del tutto. Sceglierà finalmente di rivelarle la verità di propria iniziativa, anticipando Sermin, oppure continuerà a nascondersi dietro bugie sempre più difficili da sostenere, rischiando che sia qualcun altro a svelare tutto al posto suo?</p>
+<h2>Come cambierà la reputazione di Demir a Cukurova</h2>
 <p>Sedicesimo fronte: come cambierà la percezione pubblica di Demir all&#x27;interno della comunità di Cukurova dopo questi eventi. Un uomo abituato a essere temuto e rispettato potrebbe ora trovarsi a fare i conti con una crescente compassione mista a giudizio, un cambiamento di percezione sociale che potrebbe influenzare anche i suoi rapporti d&#x27;affari nelle prossime puntate, considerando quanto in questa comunità la reputazione personale sia spesso legata a doppio filo con il successo economico.</p>
 <p>Diciassettesimo fronte, dedicato al futuro sentimentale di Zuleyha: una volta ricostruita una nuova vita lontano da Cukurova, quanto tempo impiegherà prima di aprirsi a un nuovo capitolo sentimentale, e quanto influenzerà questa scelta, se mai arriverà, gli equilibri familiari legati ad Adnan e al rapporto ormai compromesso con Demir?</p>
+<h2>Quale ruolo avrà Fusun accanto a Sermin</h2>
 <p>Diciottesimo fronte: il possibile coinvolgimento di Fusun nelle prossime mosse di Sermin riguardo al segreto su Umit. Le due donne dovranno decidere insieme come e quando utilizzare questa informazione, un processo decisionale che potrebbe generare tensioni anche all&#x27;interno della loro stessa alleanza, specialmente se dovessero emergere interessi divergenti tra loro.</p>
 <p>Diciannovesimo fronte, quasi conclusivo: il ruolo che la memoria di Mujgan continuerà a giocare nella vita di Fikret, anche a distanza di tempo. Spesso, in Terra Amara, i personaggi scomparsi restano comunque presenti attraverso ricordi, oggetti simbolici o scelte future ispirate dalla loro eredità emotiva, ed è probabile che anche in questo caso la sceneggiatura scelga di onorare Mujgan in questo modo, piuttosto che lasciarla semplicemente alle spalle come un capitolo chiuso.</p>
 <p>Ventesimo e ultimo fronte di questa lunga analisi: quanto tempo impiegherà Cukurova, come comunità intera, a tornare a una parvenza di normalità dopo una giornata così carica di eventi drammatici. La risposta a questa domanda, probabilmente, arriverà solo con il passare delle prossime puntate, ma è chiaro fin da ora che nulla, a Cukurova, potrà tornare esattamente come prima.</p>

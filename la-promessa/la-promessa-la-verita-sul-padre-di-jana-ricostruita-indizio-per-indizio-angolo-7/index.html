@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La Promessa, la verità sul padre di Jana ricostruita indizio per indizio", "datePublished": "2026-08-02", "dateModified": "2026-08-14", "description": "Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all'improvviso: è il risultato di una catena precisa di eventi, che oggi.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/la-promessa/la-promessa-la-verita-sul-padre-di-jana-ricostruita-indizio-per-indizio-angolo-7/", "image": ["https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "LA PROMESSA — La verità sul padre di Jana ricostruita indizio per indizio (Angolo 7: timeline cronologica)", "description": "Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all'improvviso: è il risultato di una catena precisa di eventi, che oggi.", "thumbnailUrl": "https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg", "uploadDate": "2026-08-02T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/xouyPseF4u0"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La Promessa, la verità sul padre di Jana ricostruita indizio per indizio", "datePublished": "2026-08-02", "dateModified": "2026-08-29", "description": "Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all'improvviso: è il risultato di una catena precisa di eventi, che oggi.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/la-promessa/la-promessa-la-verita-sul-padre-di-jana-ricostruita-indizio-per-indizio-angolo-7/", "image": ["https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "LA PROMESSA — La verità sul padre di Jana ricostruita indizio per indizio (Angolo 7: timeline cronologica)", "description": "Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all'improvviso: è il risultato di una catena precisa di eventi, che oggi.", "thumbnailUrl": "https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg", "uploadDate": "2026-08-02T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/xouyPseF4u0"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "La Promessa", "item": "https://soapoperaitalia.com/serie/la-promessa/"}, {"@type": "ListItem", "position": 3, "name": "La Promessa, la verità sul padre di Jana ricostruita indizio per indizio"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -330,11 +362,13 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p>Bentornati su Soap Opera Italia, la casa delle anticipazioni delle vostre soap del cuore. Mettete un like e iscrivetevi al canale, ci aiuta molto. Ricostruiamo insieme questa cronologia.</p>
 <p>Passo uno, il punto di partenza: il passato di Don Alonso da giovane, prima ancora di diventare marchese. Non essendo il primogenito della famiglia Luján, Alonso cresce senza il peso dell&#x27;eredità, e questo gli permette di vivere una giovinezza libera da responsabilità, fatta di relazioni che nessuno gli chiede mai di spiegare. È il primo tassello, quello che rende tutto il resto possibile.</p>
 <p>Passo due: l&#x27;incontro con Dolores, la donzella al servizio della famiglia. È da questa relazione, vissuta ben prima del matrimonio di Alonso, che nascono due figli: Mariana e Marcos, oggi conosciuti come Jana e Curro. Una relazione tenuta nascosta, come richiedeva l&#x27;epoca e la rigida gerarchia sociale tra nobiltà e servitù raccontata dalla serie.</p>
+<h2>Chi sono i figli segreti di Alonso</h2>
 <p>Passo tre: la morte del fratello maggiore di Alonso, che lo costringe a diventare erede dei Luján da un giorno all&#x27;altro. È il momento in cui la sua vita cambia radicalmente, ma è anche il momento in cui il suo passato, con Dolores e con i due figli segreti, viene lasciato alle spalle, non affrontato, non risolto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Passo quattro, molto più recente: Dolores scrive una lettera, pensata per raggiungere Alonso in futuro, molti anni prima della sua morte. È la mossa che, con il tempo, farà esplodere l&#x27;intera vicenda: un documento che aspetta pazientemente il momento giusto per arrivare nelle mani del marchese.</p>
 <p>Passo cinque: arrivano dalla Spagna le informazioni sulla paternità del signorino Manuel. Si scopre che donna Cruz è stata infedele ad Alonso, e che il vero padre di Manuel è il capitano Lorenzo Dellamata. Questo passaggio, apparentemente slegato dalla storia di Jana, è in realtà decisivo: serve a escludere ogni possibile legame di sangue tra Manuel e Jana, prima che la verità su di lei venga svelata.</p>
 <p>Passo sei, il momento clou: la lettera di Dolores raggiunge finalmente Alonso. È lì che la verità esplode: il vero padre di Jana è lui, il marchese Don Alonso de Luján. Jana e Curro sono suoi figli, nati dalla relazione con Dolores prima del suo matrimonio.</p>
+<h2>Perché Jana e Manuel possono restare insieme</h2>
 <p>Passo sette, la conseguenza più attesa da tutti: la storia tra Jana e Manuel. Grazie al passaggio numero cinque, sappiamo già che Manuel non è figlio di Alonso, quindi non è fratello di Jana. I due possono continuare ad amarsi, senza il peso di un legame di sangue che li avrebbe dovuti dividere per sempre.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Ricostruita così, passo dopo passo, questa vicenda mostra quanto la sceneggiatura abbia lavorato con precisione: ogni tassello, anche quelli apparentemente più lontani come la storia di Cruz e Manuel, era in realtà necessario per arrivare a questo punto in modo credibile.</p>
@@ -346,6 +380,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Ed è proprio questa doppia cronologia, quella visibile sullo schermo e quella nascosta nel passato dei personaggi, a rendere La Promessa una delle produzioni più solide del suo genere: ogni rivelazione non nasce dal nulla, ma è il frutto di una storia più lunga, scritta con l&#x27;obiettivo preciso di reggere fino a questo momento, e probabilmente anche oltre.</p>
 <p>Proviamo anche a immaginare come si intreccerà questa cronologia con quella di altri fili narrativi ancora aperti nella tenuta. Raramente, in una soap corale come questa, una rivelazione di questa portata resta isolata dal resto della trama: è più probabile che nelle prossime settimane vedremo questa cronologia intrecciarsi con altre vicende, altri segreti, altri personaggi che finora sono rimasti sullo sfondo. Ricostruire passo dopo passo come sono arrivate le rivelazioni ci aiuta anche a capire meglio come riconoscere, in tempo reale, i prossimi indizi che la sceneggiatura lascerà cadere lungo il cammino.</p>
 <p>Vale la pena anche notare come questa cronologia, se confrontata con quella di altre grandi rivelazioni della soap, segua uno schema ricorrente nella scrittura di La Promessa: un evento apparentemente secondario che si rivela poi cruciale, seguito da una rivelazione centrale, e infine da una serie di conseguenze a catena che si propagano su più personaggi contemporaneamente. Riconoscere questo schema aiuta anche a orientarsi meglio nelle prossime trame della serie, sapendo che ogni dettaglio apparentemente minore potrebbe nascondere un significato più profondo.</p>
+<h2>Quanto tempo separa Alonso e Dolores dalla lettera</h2>
 <p>Un&#x27;ultima considerazione riguarda il ruolo del tempo in questa cronologia: mesi, forse anni, separano l&#x27;incontro tra Alonso e Dolores dal momento in cui la lettera raggiunge finalmente il marchese. È un lasso di tempo che permette alla sceneggiatura di costruire un vero senso di inevitabilità: qualunque cosa fosse successa nel frattempo, quella lettera era destinata ad arrivare, prima o poi, cambiando per sempre gli equilibri della tenuta.</p>
 <p>Chiudiamo questa cronologia con una riflessione finale: ricostruire gli eventi passo dopo passo, come abbiamo fatto oggi, non serve solo a capire come siamo arrivati fin qui, ma anche a prepararci meglio a leggere i prossimi sviluppi della trama, riconoscendo gli indizi prima ancora che diventino rivelazioni conclamate. È un esercizio che rende la visione di una soap come questa ancora più coinvolgente, quasi un gioco parallelo alla trama stessa.</p>
   </div>

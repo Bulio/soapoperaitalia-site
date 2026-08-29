@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Endless Love, prima e dopo: come sono cambiati Neslihan e Burak dalla fine della serie", "datePublished": "2026-08-03", "dateModified": "2026-08-14", "description": "Dalla fine di Endless Love a oggi, la vita di Neslihan Atagul e Burak Ozcivit è cambiata profondamente. Oggi vi raccontiamo cosa è successo ai due protagonisti dopo la conclusione della serie che li ha resi celebri in tutto il.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/endless-love/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s/", "image": ["https://soapoperaitalia.com/img/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "ENDLESS LOVE — Prima e dopo: come sono cambiati Neslihan e Burak dalla fine della serie", "description": "Dalla fine di Endless Love a oggi, la vita di Neslihan Atagul e Burak Ozcivit è cambiata profondamente. Oggi vi raccontiamo cosa è successo ai due protagonisti dopo la conclusione della serie che li ha resi celebri in tutto il.", "thumbnailUrl": "https://soapoperaitalia.com/img/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s.jpg", "uploadDate": "2026-08-03T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/F-VWLhob_h0"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Endless Love, prima e dopo: come sono cambiati Neslihan e Burak dalla fine della serie", "datePublished": "2026-08-03", "dateModified": "2026-08-29", "description": "Dalla fine di Endless Love a oggi, la vita di Neslihan Atagul e Burak Ozcivit è cambiata profondamente. Oggi vi raccontiamo cosa è successo ai due protagonisti dopo la conclusione della serie che li ha resi celebri in tutto il.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/endless-love/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s/", "image": ["https://soapoperaitalia.com/img/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "ENDLESS LOVE — Prima e dopo: come sono cambiati Neslihan e Burak dalla fine della serie", "description": "Dalla fine di Endless Love a oggi, la vita di Neslihan Atagul e Burak Ozcivit è cambiata profondamente. Oggi vi raccontiamo cosa è successo ai due protagonisti dopo la conclusione della serie che li ha resi celebri in tutto il.", "thumbnailUrl": "https://soapoperaitalia.com/img/endless-love-prima-e-dopo-come-sono-cambiati-neslihan-e-burak-dalla-fine-della-s.jpg", "uploadDate": "2026-08-03T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/F-VWLhob_h0"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Endless Love", "item": "https://soapoperaitalia.com/serie/endless-love/"}, {"@type": "ListItem", "position": 3, "name": "Endless Love, prima e dopo: come sono cambiati Neslihan e Burak dalla fine della serie"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -326,12 +358,14 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Dalla fine di Endless Love a oggi, la vita di Neslihan Atagul e Burak Ozcivit è cambiata profondamente. Oggi vi raccontiamo cosa è successo ai due protagonisti dopo la conclusione della serie che li ha resi celebri in tutto il mondo.</strong></p>
   <p>Al momento delle riprese di Endless Love, sia Neslihan Atagul che Burak Ozcivit erano già affermati nel panorama televisivo turco, ma la serie ha rappresentato per entrambi un punto di svolta a livello internazionale, portando i loro nomi in tutto il mondo grazie al successo della coppia Kemal e Nihan.</p>
+<h2>Come è cambiata la vita privata di Neslihan Atagul</h2>
 <p>Da allora, Neslihan Atagul ha consolidato la propria vita privata, diventando madre e continuando a costruire la propria famiglia insieme al marito Kadir Dogulu, mantenendo comunque una presenza attiva nel mondo della recitazione con nuovi progetti televisivi che hanno confermato il suo talento oltre il ruolo di Nihan.</p>
 <p>Burak Ozcivit, dal canto suo, ha proseguito la propria carriera con ruoli sempre più importanti, diventando uno dei volti più richiesti della televisione turca, mentre nella vita privata ha costruito la propria famiglia lontano dai riflettori, mantenendo sempre un profilo riservato riguardo alla vita personale.</p>
 <p>Interessante notare come entrambi, nonostante il tempo trascorso, restino ancora oggi indissolubilmente legati nell&#x27;immaginario dei fan ai personaggi di Kemal e Nihan, un&#x27;eredità che testimonia quanto la loro interpretazione sia rimasta impressa nel pubblico internazionale, anche a distanza di anni.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Vale la pena anche ricordare come la serie stessa abbia continuato a vivere grazie alle piattaforme di streaming internazionali, permettendo a nuove generazioni di spettatori di scoprire questa storia d&#x27;amore, spesso proprio a partire dalle versioni integrali delle scene più celebri.</p>
 <p>Guardando indietro a questo percorso, è evidente quanto Endless Love abbia rappresentato non solo un successo televisivo, ma un vero e proprio trampolino di lancio internazionale per entrambi gli attori, un&#x27;eredità che continua a portare nuovi spettatori a scoprire questa storia ancora oggi.</p>
+<h2>Quali scelte professionali ha fatto Neslihan dopo Nihan</h2>
 <p>Guardando più da vicino il percorso professionale di Neslihan Atagul dopo la fine della serie, va detto che l&#x27;attrice ha continuato a essere una presenza costante nel panorama televisivo turco, scegliendo con attenzione i propri progetti successivi e dimostrando, anche al di fuori del ruolo di Nihan, una versatilità interpretativa che le ha permesso di non restare incasellata in un solo tipo di personaggio.</p>
 <p>Anche sul fronte personale, la vita di Neslihan ha continuato a evolversi con naturalezza: il matrimonio con Kadir Dogulu e la nascita della figlia hanno rappresentato per lei una fase importante, vissuta con la discrezione che da sempre caratterizza il suo rapporto con i media, mantenendo un equilibrio tra visibilità professionale e riservatezza sulla vita privata.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -340,12 +374,15 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Interessante notare come, in numerose interviste rilasciate nel corso degli anni, entrambi gli attori abbiano parlato con affetto del periodo di Endless Love, riconoscendo quanto quel ruolo abbia rappresentato una svolta professionale importante, pur sottolineando la necessità di essere riconosciuti anche per i progetti successivi alla serie.</p>
 <p>Va anche ricordato l&#x27;impatto che Endless Love ha avuto sulla percezione internazionale della televisione turca in generale: il successo di Kemal e Nihan ha aperto la strada a molte altre produzioni turche esportate in tutto il mondo, contribuendo a consolidare un genere che oggi ha un pubblico fedele e appassionato su scala globale.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<h2>Cosa hanno detto Neslihan e Burak in intervista</h2>
 <p>Guardando quindi al percorso complessivo di questi due attori, dal set di Endless Love fino ai progetti più recenti, emerge un quadro fatto di crescita professionale costante, scelte ponderate e un legame ormai indissolubile con i personaggi che li hanno resi celebri, un&#x27;eredità che entrambi sembrano vivere con equilibrio, senza lasciarsene definire completamente.</p>
 <p>Ripercorrendo con più attenzione il periodo immediatamente successivo alla fine delle riprese, va detto che entrambi gli attori si sono trovati ad affrontare una sfida comune a molti interpreti protagonisti di serie di enorme successo: dimostrare al pubblico e agli addetti ai lavori di poter interpretare ruoli diversi, lontani dall&#x27;immaginario così fortemente legato a Kemal e Nihan, senza però rinnegare l&#x27;importanza di quel capitolo nella propria carriera.</p>
 <p>Per Neslihan Atagul, questo percorso si è tradotto in scelte progettuali orientate verso personaggi con sfumature diverse rispetto a Nihan, dimostrando una versatilità che le ha permesso di consolidare la propria reputazione professionale anche al di fuori del contesto della serie che l&#x27;ha resa celebre a livello internazionale.</p>
 <p>Anche Burak Ozcivit ha seguito un percorso simile, scegliendo ruoli capaci di mostrare registri differenti rispetto a quello di Kemal, un lavoro di costruzione dell&#x27;immagine professionale che richiede tempo, pazienza e scelte ponderate, soprattutto quando si parte da un personaggio così identificativo e amato da un pubblico internazionale così vasto.</p>
+<h2>Come è rimasto il rapporto tra Neslihan e Burak</h2>
 <p>Va anche sottolineato come il rapporto tra i due attori, una volta conclusa la serie, sia rimasto professionale e rispettoso, con occasionali apparizioni congiunte in eventi legati al mondo della televisione turca, momenti che i fan hanno sempre accolto con grande entusiasmo, rivedendo per qualche istante quella stessa alchimia che aveva reso Kemal e Nihan una delle coppie più amate della televisione internazionale.</p>
 <p>Un ulteriore aspetto da considerare riguarda il modo in cui il pubblico più giovane, che scopre oggi la serie per la prima volta grazie allo streaming, si avvicina agli attori: spesso questi nuovi spettatori conoscono Neslihan e Burak esclusivamente attraverso i loro ruoli più recenti, per poi scoprire solo in un secondo momento il loro passato in Endless Love, un percorso di scoperta invertito rispetto a quello vissuto dai fan storici della serie.</p>
+<h2>Perché Neslihan e Burak restano legati a Kemal e Nihan</h2>
 <p>Guardando quindi all&#x27;insieme di questo percorso, dal set di Endless Love fino ai giorni nostri, resta evidente come entrambi gli attori abbiano saputo gestire con equilibrio un&#x27;eredità artistica così importante, continuando a costruire carriere solide senza mai perdere il legame speciale, costruito negli anni, con il pubblico che li ha conosciuti per la prima volta proprio attraverso la storia di Kemal e Nihan.</p>
 <p>Un&#x27;ultima riflessione merita spazio in questo confronto tra prima e dopo: il modo in cui entrambi gli attori, pur avendo costruito famiglie e percorsi professionali distinti dopo la fine della serie, continuano a essere accostati l&#x27;uno all&#x27;altra ogni volta che si parla di Endless Love, un legame artistico che, indipendentemente dalle rispettive vite private separate, resta indissolubilmente scolpito nella memoria collettiva del pubblico internazionale.</p>
 <p>Vale la pena anche notare come questo tipo di eredità, capace di attraversare gli anni senza perdere forza, sia raro anche nel mondo delle soap opera, un genere che pure produce ogni anno decine di coppie protagoniste in tutto il mondo, ma che raramente riesce a generare un legame capace di restare così vivido nella memoria del pubblico a distanza di tanto tempo dalla conclusione della storia.</p>

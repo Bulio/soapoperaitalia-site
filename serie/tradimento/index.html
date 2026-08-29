@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,7 +318,7 @@ if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=nu
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -298,8 +330,12 @@ if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=nu
 <main><div class="wrap">
 <div class="briciole"><a href="/">Home</a> › Tradimento</div>
 <h1 style="font-size:32px;margin:0 0 10px">Tradimento: anticipazioni e trame</h1>
-<p class="intro-serie">Le anticipazioni di Tradimento partono da una donna, la giudice Güzide, che dopo una vita passata a decidere sul destino degli altri scopre di essere stata ingannata dalle persone più vicine. Da lì la serie turca si allarga a segreti di famiglia, figli, bugie che durano da decenni e conti da regolare. In questa pagina trovi tutte le trame che pubblichiamo, dalla più recente: anticipazioni settimanali e riassunti puntata per puntata.</p>
-<div class="onda"><span class="tv">📺</span><span><strong>Tradimento</strong> — Canale 5 · in streaming su Mediaset Infinity</span></div>
+<div class="intro-serie"><p>Chi cerca <strong>Tradimento anticipazioni</strong> vuole capire dove va a parare la storia della giudice Güzide, cioè quanto in profondità arriva la bugia che le hanno raccontato in casa. In questa pagina raccogliamo le trame che pubblichiamo sulla serie turca, dalla più recente alla più vecchia: riassunti delle puntate, anticipazioni settimanali e i passaggi che spostano gli equilibri tra i personaggi. Sopra l'elenco trovi le informazioni che servono per orientarsi: di cosa parla la serie, chi sono Güzide e le persone che le stanno attorno, quali attori le interpretano, quante puntate esistono e dove si vedono in TV e in streaming.</p></div>
+<div class="onda"><span class="tv">📺</span><span><strong>Tradimento</strong> — Serie conclusa in Italia · le puntate su Mediaset Infinity</span></div>
+
+
+<section class="pillar"><h2>Di cosa parla Tradimento</h2><p>Il titolo originale è <em>Aldatmak</em> e la serie è girata a Istanbul. Güzide Özgüder è un giudice del tribunale della famiglia: per lavoro decide da anni sulle vite degli altri, su separazioni e affidamenti, e lo fa con la convinzione di avere alle spalle una famiglia in ordine. Poi scopre che il marito Tarık ha costruito accanto alla loro un'altra vita, e che quella scoperta non è un fatto isolato ma il primo filo di un groviglio che coinvolge i figli, i soldi e persone che credeva estranee. Da lì in avanti la donna che giudicava si ritrova a dover ricostruire tutto, comprese le proprie certezze.</p></section><section class="pillar"><h2>Chi è Güzide e chi sono i personaggi di Tradimento</h2><p><strong>Güzide Özgüder</strong> è la protagonista, giudice di famiglia. <strong>Tarık Yenersoy</strong> è suo marito. I figli sono <strong>Ozan</strong>, <strong>Oylum</strong>, che Güzide e Tarık hanno adottato, e Dündar. C'è poi <strong>Öykü</strong>, la bambina nata dalla relazione di Tarık con <strong>Yeşim Denizeren</strong>: è lei il punto in cui la doppia vita del marito diventa impossibile da nascondere. Accanto a Güzide restano il fratello Ümit, l'amica e collega Nazan, anche lei giudice, e Ali Sezai Okuyan. Dall'altra parte ci sono gli affari della famiglia Kaşifoğlu, con Oltan e il figlio Tolga.</p></section><section class="pillar"><h2>Il cast di Tradimento</h2><p>La serie è diretta da Murat Saraçoğlu, scritta da Yıldız Tunç e prodotta da Tims&amp;B Productions. Questi sono gli interpreti principali:</p><ul><li><strong>Güzide Özgüder</strong>, interpretata da Vahide Perçin</li><li><strong>Tarık Murat Yenersoy</strong>, interpretato da Mustafa Uğurlu</li><li><strong>Ali Sezai Okuyan</strong>, interpretato da Ercan Kesal</li><li><strong>Oylum Yenersoy</strong>, interpretata da Feyza Sevil Güngör</li><li><strong>Ozan Yenersoy</strong>, interpretato da Yusuf Çim</li><li><strong>Yeşim Denizeren</strong>, interpretata da Asena Girişken</li><li><strong>Oltan Kaşifoğlu</strong>, interpretato da Cem Bender</li><li><strong>Tolga Kaşifoğlu</strong>, interpretato da Caner Şahin</li></ul></section><section class="pillar"><h2>Quante puntate ha Tradimento</h2><p>In Turchia la serie è composta da 71 puntate divise in due stagioni, andate in onda in prima serata su ATV dal 22 settembre 2022 al 6 giugno 2024: trentacinque puntate la prima stagione, trentasei la seconda. Sono episodi lunghi, poco più di due ore l'uno. Per l'Italia lo stesso materiale è stato rimontato in puntate molto più corte, tra venticinque e cinquanta minuti, e il conteggio cambia parecchio: la versione italiana arriva a 315 puntate. È il motivo per cui i numeri che si leggono in giro non coincidono mai.</p></section><section class="pillar"><h2>Dove vedere Tradimento in TV e in streaming</h2><p>In Italia la messa in onda si è chiusa. Tradimento è arrivata su <strong>Canale 5</strong> il 1º dicembre 2024, tra pomeriggio e prima serata, e ha mandato l'ultima puntata il 28 novembre 2025; le repliche su <strong>Rete 4</strong> sono finite nel giugno 2026. In chiaro, quindi, non c'è più: quello che resta sono le puntate su <strong>Mediaset Infinity</strong>, dove la serie è raccolta per intero. Non indichiamo una rete al presente né un orario, perché sarebbero una promessa che il palinsesto non mantiene: se arriverà una riproposizione, avrà una collocazione tutta sua. Chi comincia adesso la trova già completa, dalla prima puntata all'ultima, e non deve aspettare niente.</p></section>
+<h2 class="titolo-elenco">Tutte le anticipazioni di Tradimento</h2>
 <div class="griglia"><p>Non ci sono ancora anticipazioni pubblicate su Tradimento.</p></div>
 
 </div></main>

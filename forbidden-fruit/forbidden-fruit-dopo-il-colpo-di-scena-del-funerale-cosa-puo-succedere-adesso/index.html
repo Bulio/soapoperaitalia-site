@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso", "datePublished": "2026-08-03", "dateModified": "2026-08-14", "description": "Ora che Yildiz è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/forbidden-fruit/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso/", "image": ["https://soapoperaitalia.com/img/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "FORBIDDEN FRUIT: Dopo il colpo di scena del funerale, cosa può succedere adesso", "description": "Ora che Yildiz è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.", "thumbnailUrl": "https://soapoperaitalia.com/img/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso.jpg", "uploadDate": "2026-08-03T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/CDIIeK_Iz9k"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso", "datePublished": "2026-08-03", "dateModified": "2026-08-29", "description": "Ora che Yildiz è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/forbidden-fruit/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso/", "image": ["https://soapoperaitalia.com/img/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "FORBIDDEN FRUIT: Dopo il colpo di scena del funerale, cosa può succedere adesso", "description": "Ora che Yildiz è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.", "thumbnailUrl": "https://soapoperaitalia.com/img/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso.jpg", "uploadDate": "2026-08-03T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/CDIIeK_Iz9k"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Forbidden Fruit", "item": "https://soapoperaitalia.com/serie/forbidden-fruit/"}, {"@type": "ListItem", "position": 3, "name": "Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -327,6 +359,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p><strong>Ora che Yildiz è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate.</strong></p>
   <p>Partiamo da quello che sappiamo: Yildiz detiene ufficialmente il controllo dell&#x27;impero Argun, ma la sua posizione resta estremamente fragile, circondata da rivali pronti ad approfittare di ogni segno di debolezza.</p>
 <p>La prima grande domanda aperta riguarda proprio Ender e Asya. Riusciranno a trovare un&#x27;alleanza, seppur temporanea, pur di riprendersi almeno una parte del potere perduto, o la rabbia reciproca le porterà a distruggersi a vicenda accusandosi di aver fallito nel proteggere la propria posizione?</p>
+<h2>Chi è l&#x27;erede segreto rivelato da Mert</h2>
 <p>Secondo fronte: la carta dell&#x27;erede segreto giocata da Mert. Chi è davvero questa persona, e quale ruolo avrà nelle prossime puntate? La sua rivelazione potrebbe ribaltare ancora una volta tutti gli equilibri di potere costruiti fino a questo momento.</p>
 <p>Terzo fronte, quello più inquietante: la possibilità che Halit sia davvero ancora vivo. Se così fosse, quale sarebbe la sua prossima mossa? Tornare all&#x27;improvviso per riprendersi tutto con la forza, o lasciare che il caos consumi la propria famiglia come ultima e definitiva vendetta?</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -335,15 +368,19 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Un ultimo fronte, quello con cui chiudiamo questa analisi: cosa ci racconta questa vicenda sul significato più ampio di eredità e potere in una famiglia costruita su segreti e inganni come quella di Forbidden Fruit? La parola eredità, in questa storia, non ha mai significato solo denaro e proprietà, ma controllo assoluto sulle vite di chi resta.</p>
 <p>Prima di addentrarci in ogni singolo fronte aperto da questo colpo di scena, vale la pena ricordare che raramente una sceneggiatura lascia così tante domande irrisolte contemporaneamente. Di solito le grandi produzioni preferiscono dosare i propri misteri uno alla volta, ma qui ci troviamo davanti a un vero e proprio ventaglio di possibilità che si intrecciano tra loro, rendendo particolarmente difficile prevedere con certezza quale direzione prenderà la trama nelle prossime settimane.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<h2>Perché i soci di Halit potrebbero abbandonare Yildiz</h2>
 <p>Tornando al primo fronte, quello della posizione di Yildiz, è importante sottolineare quanto la sua fragilità non riguardi solo gli attacchi diretti degli altri eredi, ma anche la gestione pratica di un impero fatto di rapporti commerciali costruiti da Halit in decenni di attività. Se non riuscirà a dimostrare rapidamente di essere all&#x27;altezza del compito, anche i soci più fedeli al patriarca potrebbero iniziare a cercare altrove garanzie di stabilità, mettendo a rischio l&#x27;intera struttura economica della famiglia.</p>
 <p>Sul secondo fronte, quello di Ender e Asya, vale la pena considerare anche uno scenario alternativo rispetto alla semplice alleanza o alla reciproca distruzione: e se una delle due decidesse di tradire l&#x27;altra proprio nel momento di massima vulnerabilità, sfruttando la disperazione comune per ottenere un vantaggio personale? Conoscendo la storia della famiglia Argun, fatta di lealtà sempre instabili e alleanze di comodo, questo scenario non sembra affatto improbabile.</p>
+<h2>Come Halit potrebbe muoversi se tornasse</h2>
 <p>Approfondendo il terzo fronte, quello dell&#x27;erede segreto rivelato da Mert, ci si può chiedere anche quale sarà il suo impatto sulla percezione pubblica della famiglia, al di là delle sole dinamiche interne. Se questa persona dovesse rivelarsi legata a segreti particolarmente scomodi del passato di Halit, la reputazione stessa dell&#x27;impero Argun potrebbe subire un colpo difficile da riparare, con conseguenze che andrebbero ben oltre la semplice successione patrimoniale.</p>
 <p>Sul quarto fronte, quello riguardante il possibile ritorno di Halit, merita attenzione anche uno scenario meno discusso finora: e se il patriarca, tornando, non cercasse affatto di riprendersi il controllo con la forza, ma decidesse invece di osservare in silenzio come si evolve la situazione, intervenendo solo nel momento più strategico possibile, magari proprio quando Yildiz sarà più vulnerabile agli attacchi degli altri eredi? Sarebbe coerente con il suo modo di operare, sempre calcolato e mai impulsivo.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Approfondendo il quinto fronte, quello del futuro di Alican, vale la pena considerare come la sua eventuale alleanza con Yildiz, di cui abbiamo già parlato, potrebbe rappresentare la chiave per la sua crescita personale all&#x27;interno della trama. Trovarsi costretto a scegliere un ruolo attivo potrebbe trasformarlo, nel giro di poche puntate, da personaggio secondario a uno dei protagonisti più interessanti da seguire, proprio per la sua natura ancora incerta e non del tutto corrotta dalle logiche di potere della famiglia.</p>
 <p>Sul sesto fronte, quello delle conseguenze esterne, è interessante anche considerare il ruolo che potrebbero giocare le autorità competenti, qualora emergessero elementi concreti a supporto dell&#x27;ipotesi che la morte di Halit sia stata effettivamente una messinscena. Un&#x27;indagine ufficiale aggiungerebbe un ulteriore livello di pressione sulla famiglia, costringendo Yildiz e gli altri eredi a gestire contemporaneamente sia le lotte di potere interne sia uno scrutinio esterno decisamente scomodo.</p>
+<h2>Quale ruolo avrà Kaya in casa Argun</h2>
 <p>Vale infine la pena aggiungere un settimo fronte, forse il più trasversale di tutti: il ruolo di Kaya nelle prossime puntate. Il suo rapporto teso con Ender, unito alla distanza mantenuta durante la cerimonia funebre, lo rende una sorta di jolly nella partita che si sta giocando in casa Argun, capace potenzialmente di ribaltare gli equilibri a favore di chiunque riuscisse a guadagnarsi la sua fiducia nelle settimane a venire.</p>
 <p>Un ottavo fronte, meno evidente ma comunque significativo, riguarda il rapporto tra Yildiz e il personale della villa nelle settimane a venire. Guadagnarsi la lealtà di chi per anni ha risposto esclusivamente agli ordini di Halit non sarà affatto semplice, e ogni singola decisione presa dalla nuova erede verrà osservata con attenzione da uno staff ancora incerto su chi rappresenti davvero l&#x27;autorità in casa Argun. Un errore di gestione, anche piccolo, potrebbe minare ulteriormente una posizione già di per sé fragile.</p>
+<h2>Chi potrebbe approfittare del caos in famiglia Argun</h2>
 <p>Un nono fronte da considerare riguarda invece il possibile coinvolgimento di figure esterne alla famiglia, penso ad esempio ad avvocati o consulenti che potrebbero approfittare della confusione generale per inserirsi nelle dinamiche di potere, offrendo consigli a Yildiz o agli altri eredi in cambio di un ruolo di influenza all&#x27;interno della gestione futura dell&#x27;impero. In situazioni di crisi come questa, raramente mancano opportunisti pronti a proporsi come salvatori.</p>
 <p>Infine, un decimo e ultimo fronte riguarda il modo in cui questa vicenda potrebbe influenzare la percezione pubblica dell&#x27;intera famiglia Argun al di fuori della cerchia più stretta di soci e collaboratori. Un nome storicamente associato a potere e rispetto, seppur ottenuto con metodi non sempre limpidi, rischia ora di essere macchiato da scandali, sospetti e voci incontrollate, e ricostruire questa reputazione potrebbe rivelarsi tanto complicato quanto vincere la battaglia interna per il controllo dell&#x27;eredità.</p>
 <p>Mettendo insieme tutti questi fronti, appare chiaro che il colpo di scena del funerale non sia un punto di arrivo, ma piuttosto un punto di partenza per una fase completamente nuova della storia della famiglia Argun, una fase in cui ogni singolo personaggio dovrà ridefinire priorità, alleanze e persino la propria identità all&#x27;interno di equilibri di potere ormai completamente stravolti.</p>

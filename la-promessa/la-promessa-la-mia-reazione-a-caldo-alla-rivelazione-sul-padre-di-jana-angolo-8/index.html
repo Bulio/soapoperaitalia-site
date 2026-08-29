@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La Promessa, la mia reazione a caldo alla rivelazione sul padre di Jana", "datePublished": "2026-08-02", "dateModified": "2026-08-14", "description": "Devo essere onesta con voi: quando è arrivata la conferma su chi fosse davvero il padre di Jana, sono rimasta a bocca aperta, e non credo di essere l'unica. Dopo mesi di teorie su Gregorio, sul Barone di Linaa, su qualsiasi nome ci venisse in mente.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/la-promessa/la-promessa-la-mia-reazione-a-caldo-alla-rivelazione-sul-padre-di-jana-angolo-8/", "image": ["https://i.ytimg.com/vi/gISqozNynU0/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "LA PROMESSA — La mia reazione a caldo alla rivelazione sul padre di Jana (Angolo 8: reazione/commento)", "description": "Devo essere onesta con voi: quando è arrivata la conferma su chi fosse davvero il padre di Jana, sono rimasta a bocca aperta, e non credo di essere l'unica. Dopo mesi di teorie su Gregorio, sul Barone di Linaa, su qualsiasi nome ci venisse in mente.", "thumbnailUrl": "https://i.ytimg.com/vi/gISqozNynU0/maxresdefault.jpg", "uploadDate": "2026-08-02T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/gISqozNynU0"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La Promessa, la mia reazione a caldo alla rivelazione sul padre di Jana", "datePublished": "2026-08-02", "dateModified": "2026-08-29", "description": "Devo essere onesta con voi: quando è arrivata la conferma su chi fosse davvero il padre di Jana, sono rimasta a bocca aperta, e non credo di essere l'unica. Dopo mesi di teorie su Gregorio, sul Barone di Linaa, su qualsiasi nome ci venisse in mente.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/la-promessa/la-promessa-la-mia-reazione-a-caldo-alla-rivelazione-sul-padre-di-jana-angolo-8/", "image": ["https://i.ytimg.com/vi/gISqozNynU0/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "LA PROMESSA — La mia reazione a caldo alla rivelazione sul padre di Jana (Angolo 8: reazione/commento)", "description": "Devo essere onesta con voi: quando è arrivata la conferma su chi fosse davvero il padre di Jana, sono rimasta a bocca aperta, e non credo di essere l'unica. Dopo mesi di teorie su Gregorio, sul Barone di Linaa, su qualsiasi nome ci venisse in mente.", "thumbnailUrl": "https://i.ytimg.com/vi/gISqozNynU0/maxresdefault.jpg", "uploadDate": "2026-08-02T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/gISqozNynU0"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "La Promessa", "item": "https://soapoperaitalia.com/serie/la-promessa/"}, {"@type": "ListItem", "position": 3, "name": "La Promessa, la mia reazione a caldo alla rivelazione sul padre di Jana"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -328,18 +360,22 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Devo essere onesta con voi: quando è arrivata la conferma su chi fosse davvero il padre di Jana, sono rimasta a bocca aperta, e non credo di essere l&#x27;unica. Dopo mesi di teorie su Gregorio, sul Barone di Linaa, su qualsiasi nome ci venisse in mente, la verità era molto più semplice e allo stesso tempo molto più dolorosa di quanto immaginassi. Oggi voglio raccontarvi a caldo cosa penso di questa rivelazione, scena per scena, e perché credo sia uno dei colpi di scena meglio costruiti dell&#x27;intera stagione.</strong></p>
   <p>Bentornati su Soap Opera Italia, la casa delle anticipazioni delle vostre soap del cuore. Mettete un like e iscrivetevi al canale, così potete seguire ogni mia reazione a caldo su questa storia. Ora entriamo nel vivo.</p>
+<h2>Chi è il vero padre di Jana</h2>
 <p>La prima cosa che mi ha colpita è la scelta di partire dalla vicenda di Manuel, prima ancora di toccare Jana. Sinceramente, all&#x27;inizio pensavo fosse solo un intreccio secondario, la storia di Cruz infedele al marchese, il vero padre di Manuel che si scopre essere il capitano Lorenzo Dellamata. Poi, quando ho capito il perché di questa scelta narrativa, ho dovuto fare i complimenti agli sceneggiatori: serviva a proteggere la storia d&#x27;amore tra Jana e Manuel, escludendo in anticipo il rischio di un incesto. Una mossa intelligente, quasi chirurgica.</p>
 <p>E poi arriva il colpo vero: Don Alonso è il padre di Jana. Vi confesso che la prima reazione che ho avuto è stata di incredulità, perché in fondo Alonso è sempre stato raccontato come un uomo con un forte senso del dovere verso la famiglia Luján. Scoprire che ha un passato così nascosto, così umano, con tutte le sue debolezze e i suoi errori giovanili, lo rende improvvisamente un personaggio molto più complesso di quanto pensassi.</p>
 <p>Quello che mi ha emozionata di più, però, è il modo in cui questa verità arriva: attraverso una lettera di Dolores, scritta anni prima della sua morte. C&#x27;è qualcosa di profondamente struggente nell&#x27;idea di una donna che, sapendo di non poter dire certe cose a voce, decide di affidarle alla carta, aspettando che arrivino al destinatario nel momento giusto, anche dopo la sua morte. Non è solo un espediente di trama, è un modo per dare a Dolores una voce che continua a farsi sentire anche da lontano.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Penso anche a Jana e Curro, e a quanto deve essere strano scoprire, da adulti, che la persona che chiami &quot;fratello&quot; o &quot;sorella&quot; lo è davvero, ma per motivi completamente diversi da quelli che pensavi. E penso ad Alonso, che deve fare i conti non solo con due figli in più, ma con il fatto di averli, per anni, semplicemente ignorati, magari senza nemmeno saperlo con certezza fino a questo momento.</p>
+<h2>Perché Jana e Manuel possono restare insieme</h2>
 <p>La parte che, da spettatrice, mi lascia più sollevata è ovviamente il destino di Jana e Manuel: possono continuare ad amarsi, perché non sono fratelli. E qui devo dire che apprezzo la scelta della sceneggiatura di non giocare con gli spettatori più del necessario su questo fronte: la questione viene chiarita, non lasciata a marcire in un limbo di ambiguità per episodi e episodi.</p>
 <p>C&#x27;è anche un altro aspetto che continuo a rimuginare: il modo in cui questa rivelazione ridefinisce, con effetto retroattivo, il rapporto tra Alonso e i suoi due figli segreti. Ripensando a scene già viste, a piccoli gesti di attenzione che sembravano casuali, mi rendo conto che c&#x27;era già tutto davanti ai nostri occhi, solo che non avevamo gli strumenti per leggerlo correttamente. È il segno di una scrittura che sa costruire nel tempo, senza avere fretta di rivelare tutto subito, ed è proprio questo tipo di pazienza narrativa che apprezzo di più in una soap ben fatta.</p>
 <p>Un&#x27;altra cosa che mi ha colpita, forse più a livello personale che analitico, è la figura di Dolores. Non l&#x27;abbiamo mai vista in scena in questa fase della storia, eppure la sua presenza si sente in ogni riga di questa rivelazione. È il classico caso di un personaggio che, pur assente fisicamente, riesce a muovere l&#x27;intera trama grazie a una scelta fatta anni prima: scrivere quella lettera. Mi chiedo quanto peso avrà la sua memoria nelle prossime puntate, ora che la verità è emersa, e se vedremo altri frammenti del suo passato con Alonso raccontati magari in un flashback.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>E infine, la domanda che davvero non riesco a togliermi dalla testa: se Dolores non avesse mai scritto quella lettera, saremmo mai arrivati a questa verità? O sarebbe rimasta sepolta per sempre, portando con sé anche il destino di Jana e Manuel verso un futuro completamente diverso? È il tipo di domanda che non ha una risposta certa, ma che dice molto su quanto, in questa storia, i destini dei personaggi dipendano da scelte fatte da chi, ormai, non è più in scena per vederne le conseguenze.</p>
+<h2>Perché la rivelazione fa soffrire Alonso e Manuel</h2>
 <p>Vi confesso anche un&#x27;altra cosa: guardando questa rivelazione, non ho potuto fare a meno di pensare a quanto sia raro, in una soap, che un colpo di scena riesca a essere allo stesso tempo devastante e liberatorio per gli stessi personaggi coinvolti. Di solito le grandi rivelazioni portano solo dolore, o solo sollievo. Qui abbiamo entrambe le cose contemporaneamente, in proporzioni diverse per ogni personaggio coinvolto: dolore per Alonso e per Manuel, sollievo per Jana, e per la coppia protagonista un misto complicato delle due cose. È una scrittura che rifiuta le semplificazioni, e per questo la trovo particolarmente riuscita.</p>
 <p>E chiudo con un pensiero più personale: seguo soap come questa da anni, e raramente mi capita di dover fermare la puntata per assorbire quello che ho appena visto. Questa rivelazione è stata una di quelle rare volte. Non tanto per il &quot;chi&quot;, quanto per il &quot;come&quot;: il modo in cui ogni dettaglio si è incastrato, il modo in cui una lettera scritta da una donna che non vedremo mai in scena ha potuto ribaltare così tanti equilibri contemporaneamente. È la dimostrazione di quanto possa essere potente una scrittura che ha pazienza, che sa aspettare il momento giusto prima di scoprire le proprie carte.</p>
+<h2>Perché Dolores ha nascosto la verità per anni</h2>
 <p>Se devo essere ancora più sincera, quello che mi resta addosso dopo aver visto questa rivelazione non è tanto la sorpresa in sé, quanto la tristezza sottile della storia di Dolores. Una donna che ha amato in silenzio, che ha cresciuto due figli sapendo di non poter mai dire loro apertamente chi fosse il padre, e che ha dovuto affidare l&#x27;unica verità importante della sua vita a un pezzo di carta, sperando che arrivasse a destinazione nel momento giusto. È una storia dentro la storia, quasi più struggente di quella di Jana e Manuel, ed è proprio per questo che continuerò a seguire ogni sviluppo con particolare attenzione nelle prossime puntate.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Un&#x27;altra cosa che voglio condividere con voi: guardando questa rivelazione, mi sono resa conto di quanto sia raro trovare, in una soap, un intreccio così ben calibrato tra dramma familiare e dramma sociale. Non stiamo parlando solo di segreti personali, ma di un intero sistema di classe che ha reso necessario nascondere questa verità per una generazione intera. È un livello di profondità che eleva La Promessa al di sopra di molte altre produzioni simili.</p>

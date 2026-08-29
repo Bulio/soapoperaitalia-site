@@ -195,6 +195,38 @@ main { padding: 26px 0 40px; }
   border: 1px solid var(--bordo); border-radius: 8px; padding: 12px 16px; margin: 0 0 22px;
   font-size: 15px; }
 .onda .tv { font-size: 18px; line-height: 1.4; }
+.intro-serie p { margin: 0 0 12px; }
+.intro-serie p:last-child { margin-bottom: 0; }
+
+/* ── contenuto pillar della pagina serie ────────────────────────────────────
+   Prima qui c'era solo la griglia di schede: 545 parole, nessun H2. Questa
+   pagina intercetta «<serie> anticipazioni» — la query di testa — e si prende
+   il 52% delle impressioni del sito, quindi il testo che arriva prima
+   dell'elenco e' la cosa piu' letta che pubblichiamo. Larghezza di riga tenuta
+   a 68ch come negli articoli: qui si legge, non si scorre. */
+.pillar { max-width: 68ch; margin: 0 0 26px; }
+.pillar h2 { font-family: var(--serif); font-size: 23px; line-height: 1.25;
+  margin: 26px 0 10px; }
+.pillar p { margin: 0 0 12px; line-height: 1.65; }
+.pillar ul { margin: 0 0 12px; padding-left: 22px; }
+.pillar li { margin: 0 0 5px; line-height: 1.6; }
+.titolo-elenco { font-family: var(--serif); font-size: 23px; margin: 30px 0 16px;
+  padding-top: 20px; border-top: 1px solid var(--bordo); }
+
+/* «Da leggere prima»: l'uscita rapida verso i pezzi che rispondono davvero.
+   Sta in alto perche' chi arriva da Google ha gia' una domanda in testa. */
+.migliori { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 8px; padding: 14px 18px 16px; margin: 0 0 24px; max-width: 68ch; }
+.migliori h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--testo-tenue); margin: 0 0 10px; font-family: inherit; font-weight: 700; }
+.migliori ul { margin: 0; padding-left: 20px; }
+.migliori li { margin: 0 0 7px; line-height: 1.45; }
+.migliori li:last-child { margin-bottom: 0; }
+
+/* Rimando al sito gemello, quando la serie appartiene all'altro dominio. */
+.gemello { border-left: 3px solid var(--accento); background: var(--sfondo-tenue);
+  padding: 12px 16px; margin: 0 0 24px; max-width: 68ch; }
+.gemello p { margin: 0; font-size: 15px; line-height: 1.55; }
 
 /* condividi */
 .condividi { display: flex; gap: 10px; align-items: center; margin: 26px 0 6px; flex-wrap: wrap; }
@@ -286,12 +318,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu", "datePublished": "2026-08-14", "dateModified": "2026-08-14", "description": "C'è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come…", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/hercai/hercai-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/", "image": ["https://i.ytimg.com/vi/taHJ4-rEuzE/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu", "description": "C'è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come…", "thumbnailUrl": "https://i.ytimg.com/vi/taHJ4-rEuzE/maxresdefault.jpg", "uploadDate": "2026-08-14T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/taHJ4-rEuzE"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu", "datePublished": "2026-08-14", "dateModified": "2026-08-29", "description": "C'è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come…", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/hercai/hercai-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/", "image": ["https://i.ytimg.com/vi/taHJ4-rEuzE/maxresdefault.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu", "description": "C'è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come…", "thumbnailUrl": "https://i.ytimg.com/vi/taHJ4-rEuzE/maxresdefault.jpg", "uploadDate": "2026-08-14T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/taHJ4-rEuzE"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Hercai", "item": "https://soapoperaitalia.com/serie/hercai/"}, {"@type": "ListItem", "position": 3, "name": "HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu"}]}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">venerdì 28 agosto 2026</span>
+  <span class="oggi">sabato 29 agosto 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -306,7 +338,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <article>
   <h1>HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Sadoglu</h1>
   <div class="firma">Redazione Soap Opera Italia · venerdì 14 agosto 2026</div>
-  
+  <div class="onda"><span class="tv">📺</span><span><strong>Hercai</strong> — Serie conclusa in Italia · andata in onda su Real Time, in streaming su discovery+</span></div>
   
   <p class="occhiello">C&#x27;è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come…</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -327,7 +359,8 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </div>
   <div class="corpo">
   <p><strong></strong></p>
-  <p>C&#x27;è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come cambia tutto dopo questa rivelazione.</p>
+  <h2>Cosa lega davvero Miran e Hazar dopo la lettera</h2>
+<p>C&#x27;è un prima e un dopo, nella famiglia Sadoglu, che segna un confine netto: prima della lettera di Dilşah, e dopo. Prima, Hazar era solo un membro della famiglia con un passato mai davvero indagato. Dopo, potrebbe essere il vero padre di Miran. Oggi confrontiamo, rapporto per rapporto, come cambia tutto dopo questa rivelazione.</p>
 <p>Il rapporto tra Miran e Hazar. Prima: un legame familiare formale, distante, segnato da sospetti e accuse dirette sulla morte di Dilşah. Dopo: un legame di sangue che nessuno dei due aveva mai affrontato apertamente, ma che ora rischia di ridefinire completamente la loro relazione.</p>
 <p>Il rapporto tra Miran e Azize. Prima, un legame di fiducia costruito nel tempo, nonostante le manipolazioni della nonna. Dopo la scoperta del suo coinvolgimento in questa vicenda, quella fiducia si incrina profondamente, lasciando spazio a un sospetto che difficilmente potrà essere del tutto ricomposto.</p>
 <p>Il rapporto tra Esma e Miran. Prima, un legame affettuoso ma distante, tipico di chi ha servito una famiglia per una vita intera. Dopo, quando la verità verrà rivelata, Esma dovrà affrontare le conseguenze di anni di silenzio, un peso che potrebbe complicare irrimediabilmente il loro rapporto.</p>
@@ -335,19 +368,23 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Il rapporto tra Reyan e Miran. Prima, un amore messo alla prova dalle manipolazioni esterne di Azize e dai dubbi seminati da Firat. Dopo, la determinazione di Reyan nel difendere la verità e nel sostenere Miran attraverso questa rivelazione rafforza il loro legame, rendendolo ancora più solido.</p>
 <p>Il rapporto tra Hazar e la memoria di Dilşah. Prima, un capitolo del passato mai davvero affrontato apertamente. Dopo la lettera, diventa il centro di tutta la vicenda, la prova di un amore mai dimenticato e di una verità che Dilşah stessa ha scelto di proteggere fino alla fine.</p>
 <p>E infine, il rapporto tra il pubblico e la percezione di Azize. Prima, una manipolatrice spietata ma comunque parte integrante della famiglia. Dopo aver scoperto quanto lontano sia disposta a spingersi pur di mantenere il controllo, la sua immagine si carica di un&#x27;ombra ancora più cupa, ridefinendo il modo in cui gli spettatori guarderanno ogni sua futura mossa.</p>
+<h2>Perché Firat rischia di perdere l&#x27;amicizia di Miran</h2>
 <p>Il rapporto tra Firat e Miran. Prima, un&#x27;amicizia solida, costruita su anni di fiducia reciproca, nonostante le piccole gelosie mai del tutto dichiarate. Dopo che i dubbi seminati da Firat sulla fedeltà di Reyan verranno smascherati, quella fiducia rischia di incrinarsi profondamente, lasciando Miran a chiedersi quanto delle parole del suo confidente fosse davvero genuino e quanto invece calcolato per allontanarlo da Reyan.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Il rapporto tra Nasuh e il resto della famiglia. Prima, la figura del patriarca era percepita come un punto fermo, capace di mediare le tensioni più forti tra i vari membri della tenuta. Dopo la sua scelta di allontanarsi temporaneamente dalla villa, questo ruolo di garanzia viene meno proprio nel momento di maggiore bisogno, lasciando un vuoto che altri, come Cihan e Handan, sono pronti a colmare con le proprie ambizioni personali.</p>
 <p>Il rapporto tra Azat, Elif e le rispettive famiglie. Prima, due giovani che vivevano le proprie vite lontano dalle grandi manovre di potere degli adulti. Dopo il piano orchestrato da Cihan e Handan per un matrimonio combinato, la loro storia personale viene improvvisamente subordinata a logiche familiari più grandi, un cambiamento che promette di generare nuove tensioni proprio mentre la famiglia Sadoglu è già scossa dalla vicenda di Miran.</p>
+<h2>Perché Hazar diventa centrale dopo la rivelazione</h2>
 <p>Il rapporto tra il pubblico e la figura di Hazar. Prima della rivelazione, molti spettatori lo consideravano poco più di un personaggio di contorno, coinvolto nelle dinamiche familiari senza un vero peso narrativo proprio. Dopo aver scoperto il suo possibile ruolo di padre biologico di Miran, la sua figura acquista una centralità completamente nuova, costringendo il pubblico a rivedere ogni sua scena precedente sotto una luce diversa.</p>
 <p>Il rapporto tra Miran e la propria identità. Prima, un uomo sicuro delle proprie radici, per quanto complicate fossero le dinamiche della sua famiglia. Dopo, dovrà fare i conti con una domanda che tocca il nucleo stesso di chi è: se un legame di sangue diverso da quello che ha sempre creduto possa davvero cambiare il modo in cui percepisce se stesso, il proprio passato e le persone che lo circondano.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Infine, il rapporto tra gli spettatori e l&#x27;intera saga della famiglia Sadoglu. Prima di questa rivelazione, molti seguivano la storia principalmente per gli intrighi di potere e i drammi sentimentali. Dopo aver scoperto quanto profondamente i segreti del passato possano ancora incidere sul presente, la percezione della serie si arricchisce di un livello ulteriore, quello di una riflessione più ampia su quanto la verità, prima o poi, trovi sempre un modo per riemergere, qualunque sia il prezzo da pagare per proteggerla.</p>
 <p>Il rapporto tra Azize e i suoi vecchi alleati all&#x27;interno della famiglia. Prima, un fronte compatto costruito su anni di favori reciproci e paure condivise nei confronti della sua autorità. Dopo l&#x27;inizio della sua caduta, molti di questi alleati iniziano a valutare in silenzio se convenga ancora restarle accanto, o se sia più prudente prendere le distanze prima che la situazione precipiti del tutto.</p>
 <p>Il rapporto tra Hazar e il proprio ruolo all&#x27;interno della tenuta. Prima, un uomo che si accontentava di una posizione defilata, quasi marginale, rispetto alle grandi decisioni familiari. Dopo la rivelazione della sua possibile paternità, si troverà costretto a ridefinire completamente il proprio posto in una gerarchia che per anni lo ha tenuto ai margini, con tutte le difficoltà e le opportunità che questo cambiamento porterà inevitabilmente con sé.</p>
+<h2>Perché Miran dovrà rileggere tutta la propria infanzia</h2>
 <p>Il rapporto tra Miran e i ricordi della propria infanzia. Prima, memorie serene, per quanto segnate dalla perdita precoce della madre, vissute come un capitolo doloroso ma chiuso della propria vita. Dopo la rivelazione, quegli stessi ricordi dovranno essere riletti sotto una luce completamente diversa, con la consapevolezza che alcune persone che credeva di conoscere fino in fondo custodivano in realtà un segreto capace di riscrivere il senso di quei momenti.</p>
 <p>Il rapporto tra la servitù della villa e la famiglia Sadoglu nel suo complesso. Prima, una distanza netta e rispettosa, fatta di ruoli ben definiti e mai messi in discussione. Dopo aver scoperto quanto Esma, una semplice domestica, custodisse in realtà uno dei segreti più importanti dell&#x27;intera famiglia, quella distanza percepita rischia di incrinarsi, ricordando a tutti quanto le apparenze, anche quelle più consolidate, possano nascondere realtà completamente diverse.</p>
 <p>Il rapporto tra il pubblico e il concetto stesso di famiglia all&#x27;interno della saga. Prima di questa rivelazione, la famiglia Sadoglu veniva percepita come un blocco unico, seppur segnato da conflitti interni ricorrenti. Dopo aver scoperto quanto profondamente un segreto vecchio di una generazione possa ancora incidere sugli equilibri presenti, lo spettatore è portato a interrogarsi su cosa significhi davvero appartenere a una famiglia quando le sue fondamenta stesse si scoprono costruite, almeno in parte, su un&#x27;omissione così importante, un interrogativo che accompagnerà probabilmente la narrazione ben oltre la semplice rivelazione della paternità di Miran.</p>
+<h2>Come cambia lo scontro tra Reyan e Azize</h2>
 <p>Il rapporto tra Reyan e Azize, infine. Prima, un confronto continuo fatto di sospetti reciproci, in cui Reyan cercava di dimostrare il proprio valore agli occhi di una famiglia che la osservava sempre con diffidenza. Dopo che il ruolo di Azize in questa vicenda diventerà chiaro a tutti, quel confronto si trasformerà probabilmente in qualcosa di più netto e definitivo, con Reyan finalmente libera dal bisogno di dimostrare alcunché, forte della consapevolezza di essere sempre stata dalla parte giusta in questa lunga battaglia familiare.</p>
 <p>Guardare questa storia attraverso la lente del prima e del dopo ci aiuta a capire quanto un solo segreto, se tenuto nascosto abbastanza a lungo, possa arrivare a ridisegnare quasi ogni singolo legame all&#x27;interno di una famiglia, ricordandoci perché continuiamo a seguire Hercai con tanta passione settimana dopo settimana, sempre curiosi di scoprire quale rapporto cambierà per primo davanti ai nostri occhi.</p>
 <p>Il rapporto tra Cihan, Handan e il resto della famiglia Sadoglu. Prima, i due si muovevano con discrezione, quasi in secondo piano rispetto ai grandi drammi dei protagonisti principali. Dopo l&#x27;inizio della crisi generata dalla lettera di Dilşah, la loro ambizione trova terreno fertile proprio nel caos generale, permettendo loro di rafforzare la propria posizione tra gli Aslanbey senza attirare troppa attenzione su di sé, un cambiamento silenzioso ma potenzialmente decisivo per gli equilibri di potere futuri tra le due famiglie.</p>
