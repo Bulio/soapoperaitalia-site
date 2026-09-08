@@ -21,7 +21,7 @@
 <link rel="alternate" type="application/rss+xml" title="Soap Opera Italia" href="/feed.xml">
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-<link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+
 <style>:root {
   --brand: #1f4f7a;
   --brand-dark: #153651;
@@ -216,6 +216,9 @@ aside .yt-box .bottone { display: block; }
 .altri-video span { font-size: 14.5px; line-height: 1.35; }
 .altri-video a:hover span { text-decoration: underline; }
 .video .nota { font-size: 14px; color: var(--testo-tenue); padding-top: 8px; }
+.video.in-arrivo .telaio img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: .92; }
+.video.in-arrivo .nota { font-size: 15px; color: var(--testo); }
 
 /* facade del video: miniatura statica, il player YouTube (1 MB) si carica
    solo al click. L'immagine occupa esattamente il riquadro gia' riservato,
@@ -359,15 +362,11 @@ footer .fserie, footer .flegali { display: flex; flex-wrap: wrap; gap: 8px 16px;
 </style>
 <script>function imgFb(el){var l=[];try{l=JSON.parse(el.dataset.fb||"[]")}catch(e){}
 if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=null}}</script>
-<script>function ytGo(b){var f=document.createElement("iframe");
-f.src="https://www.youtube-nocookie.com/embed/"+b.dataset.yt+"?autoplay=1";
-f.title=b.getAttribute("aria-label")||"Video";
-f.allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
-f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778653397776213" crossorigin="anonymous"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre", "datePublished": "2026-08-03", "dateModified": "2026-08-29", "description": "Costruire un finale di stagione capace di intrecciare uno scandalo di plagio, un salvataggio eroico e un triangolo sentimentale non è un lavoro semplice. Oggi vi portiamo dietro le quinte di come nasce un finale così denso di colpi di scena al.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-il-finale-scioccante-plagio-eroi-nascosti-e-triangoli/", "image": ["https://soapoperaitalia.com/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}, "video": {"@type": "VideoObject", "name": "IL PARADISO DELLE SIGNORE 9 — Dietro il finale di stagione più intenso di sempre (Angolo 5: dietro le quinte)", "description": "Costruire un finale di stagione capace di intrecciare uno scandalo di plagio, un salvataggio eroico e un triangolo sentimentale non è un lavoro semplice. Oggi vi portiamo dietro le quinte di come nasce un finale così denso di colpi di scena al.", "thumbnailUrl": "https://soapoperaitalia.com/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg", "uploadDate": "2026-08-03T12:00:00Z", "embedUrl": "https://www.youtube.com/embed/gnA7DWwLqY0"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre", "datePublished": "2026-08-03", "dateModified": "2026-08-29", "description": "Costruire un finale di stagione capace di intrecciare uno scandalo di plagio, un salvataggio eroico e un triangolo sentimentale non è un lavoro semplice. Oggi vi portiamo dietro le quinte di come nasce un finale così denso di colpi di scena al.", "inLanguage": "it-IT", "mainEntityOfPage": "https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-il-finale-scioccante-plagio-eroi-nascosti-e-triangoli/", "image": ["https://soapoperaitalia.com/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg"], "author": {"@type": "Organization", "name": "Soap Opera Italia", "url": "https://soapoperaitalia.com/chi-siamo/"}, "publisher": {"@type": "Organization", "name": "Soap Opera Italia", "logo": {"@type": "ImageObject", "url": "https://soapoperaitalia.com/favicon.svg"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soapoperaitalia.com/"}, {"@type": "ListItem", "position": 2, "name": "Il Paradiso delle Signore", "item": "https://soapoperaitalia.com/serie/il-paradiso-delle-signore/"}, {"@type": "ListItem", "position": 3, "name": "Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre"}]}</script>
 </head>
 <body>
@@ -392,18 +391,9 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="onda"><span class="tv">📺</span><span><strong>Il Paradiso delle Signore</strong> — Rai 1, dal lunedì al venerdì · in streaming su RaiPlay</span></div>
   <figure class="copertina"><img src="/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg" alt="Il Paradiso delle Signore"><figcaption>Il Paradiso delle Signore (foto ufficiale)</figcaption></figure>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-  <div class="video">
-  <div class="telaio">
-    <button type="button" class="avvia" data-yt="gnA7DWwLqY0"
-      aria-label="Riproduci il video: Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre" onclick="ytGo(this)">
-      <img src="/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg" alt="Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre" width="1280" height="720"
-        decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/gnA7DWwLqY0/hqdefault.jpg&quot;, &quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)">
-      <span class="tasto" aria-hidden="true"></span>
-    </button>
-  </div>
-  <p class="nota">Il video con tutte le anticipazioni, sul canale Soap Opera Italia.</p>
-  <noscript><p class="nota"><a href="https://www.youtube.com/watch?v=gnA7DWwLqY0"
-    rel="noopener">Guarda il video su YouTube</a>.</p></noscript>
+  <div class="video in-arrivo">
+  <div class="telaio"><img src="/img/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang.jpg" alt="Il Paradiso delle Signore" width="1280" height="720" decoding="async"></div>
+  <p class="nota">Il video con tutte le anticipazioni arriva a breve sul canale Soap Opera Italia. <a href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1" rel="noopener">Iscriviti per non perderlo</a>.</p>
 </div>
   <div class="corpo">
   <p><strong>Costruire un finale di stagione capace di intrecciare uno scandalo di plagio, un salvataggio eroico e un triangolo sentimentale non è un lavoro semplice. Oggi vi portiamo dietro le quinte di come nasce un finale così denso di colpi di scena al Paradiso delle Signore.</strong></p>
