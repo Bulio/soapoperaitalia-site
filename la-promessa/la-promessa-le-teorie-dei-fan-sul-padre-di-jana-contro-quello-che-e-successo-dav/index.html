@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/la-promessa/">La Promessa</a> › La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/la-promessa/">La Promessa</a>
   <h1>La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero</h1>
-  <div class="firma">Redazione Soap Opera Italia · domenica 2 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-02">domenica 2 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Per mesi, tra commenti e video di teorie, il pubblico de La Promessa si è scervellato per capire chi fosse il vero padre di Jana. Alcune teorie erano credibili, altre decisamente campate in aria. Oggi mettiamo a confronto quello che i fan avevano.</p><ol><li><a href="#c1">Chi credevano i fan fosse il padre di Jana</a></li><li><a href="#c2">Perché serviva escludere un legame tra Jana e Manuel</a></li><li><a href="#c3">Cosa hanno sbagliato tutte le teorie dei fan</a></li><li><a href="#c4">Quali teorie sostenevano che Dolores fosse ancora viva</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>La Promessa</strong> — Rete 4 · in streaming su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Per mesi, tra commenti e video di teorie, il pubblico de La Promessa si è scervellato per capire chi fosse il vero padre di Jana. Alcune teorie erano credibili, altre decisamente campate in aria. Oggi mettiamo a confronto quello che i fan avevano.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/roNqOujET5M/maxresdefault.jpg" alt="La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/roNqOujET5M/hqdefault.jpg 480w, https://i.ytimg.com/vi/roNqOujET5M/sddefault.jpg 640w, https://i.ytimg.com/vi/roNqOujET5M/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/roNqOujET5M/hqdefault.jpg&quot;, &quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -360,44 +410,66 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Per mesi, tra commenti e video di teorie, il pubblico de La Promessa si è scervellato per capire chi fosse il vero padre di Jana. Alcune teorie erano credibili, altre decisamente campate in aria. Oggi mettiamo a confronto quello che i fan avevano immaginato con quello che è successo davvero, e vi assicuriamo che il divario tra fantasia e realtà, in questo caso, è enorme.</strong></p>
   <p>Ora vediamo insieme queste teorie, una per una.</p>
-<h2>Chi credevano i fan fosse il padre di Jana</h2>
+<h2 id="c1">Chi credevano i fan fosse il padre di Jana</h2>
 <p>Teoria numero uno, la più diffusa: il padre di Jana sarebbe Gregorio, il maggiordomo finito in prigione dopo aver tentato di uccidere Pía. Una teoria nata probabilmente dal fascino del personaggio negativo, dal bisogno di collegare due trame torbide della soap in un&#x27;unica grande cospirazione. Il problema è che non aveva alcuna base narrativa reale: nessun indizio nella trama ha mai davvero collegato Gregorio a Dolores o alla nascita di Jana. Realtà: falsa.</p>
 <p>Teoria numero due: il Barone di Linaja. Anche questa ipotesi ha girato parecchio, forse per il fascino del titolo nobiliare e per l&#x27;idea di un segreto ancora più scandaloso legato all&#x27;aristocrazia. Ma anche qui, nessun elemento concreto della trama sosteneva questa idea. Realtà: falsa, e per certi versi anche la teoria meno fondata tra tutte quelle circolate.</p>
 <p>Teoria numero tre, meno diffusa ma comunque presente nei commenti più attenti: che il segreto riguardasse in qualche modo il passato di Alonso stesso, senza però arrivare a immaginare che fosse lui il padre diretto. Alcuni fan avevano notato quanto la sceneggiatura insistesse sul passato &quot;scapestrato&quot; del marchese da giovane, un dettaglio che, con il senno di poi, era in realtà un indizio enorme lasciato in bella vista.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Ed ecco la realtà, quella confermata: il vero padre di Jana è Don Alonso de Luján in persona. Lui e la donzella Dolores hanno avuto due figli, Mariana e Marcos, oggi conosciuti come Jana e Curro. Una relazione nata quando Alonso era ancora giovane, prima di ereditare il titolo di marchese dal fratello maggiore, in un periodo della sua vita vissuto senza il peso delle responsabilità che lo avrebbero definito da adulto.</p>
 <p>Quello che rende questa rivelazione ancora più interessante è come arriva: attraverso una lettera scritta da Dolores molti anni prima della sua morte, pensata proprio per raggiungere Alonso in un momento come questo. Nessuna delle teorie circolate online aveva previsto questo dettaglio, concentrate com&#x27;erano su chi fosse il colpevole, più che su come la verità sarebbe venuta a galla.</p>
-<h2>Perché serviva escludere un legame tra Jana e Manuel</h2>
+<h2 id="c2">Perché serviva escludere un legame tra Jana e Manuel</h2>
 <p>C&#x27;è poi un ultimo elemento che quasi nessun fan aveva collegato: la questione di Manuel. Le informazioni sulla sua vera paternità, quella del capitano Lorenzo de la Mata al posto del marchese, sono arrivate proprio a ridosso della rivelazione su Jana, e non per caso. Serviva a escludere ogni possibile legame di sangue tra Jana e Manuel, proteggendo così la loro storia d&#x27;amore. Pochissimi fan avevano previsto che le due vicende sarebbero state collegate in questo modo.</p>
 <p>Quindi, il verdetto finale sul grande processo alle teorie dei fan: le ipotesi più gridate, quelle su Gregorio e sul Barone di Linaja, erano completamente sbagliate. La teoria più silenziosa, quella legata al passato di Alonso, era invece quella che si avvicinava di più alla verità.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>C&#x27;era anche una quarta teoria, minoritaria ma persistente nei forum più specializzati, secondo cui il padre di Jana sarebbe stato un personaggio mai apparso in scena, un uomo del passato di Dolores completamente estraneo alla famiglia Luján. Questa teoria nasceva dal desiderio di alcuni fan di vedere un colpo di scena &quot;esterno&quot;, capace di introdurre un nuovo personaggio nella trama. Anche questa ipotesi si è rivelata sbagliata: la sceneggiatura ha scelto la strada opposta, quella di un segreto che resta interamente dentro la famiglia che già conosciamo, rendendo la rivelazione ancora più dolorosa perché arriva da così vicino.</p>
 <p>Una quinta teoria, forse la più cinica tra quelle circolate, sosteneva che l&#x27;intera storia della paternità fosse un espediente della sceneggiatura per separare Jana e Manuel senza dover inventare un vero motivo drammatico, una specie di scorciatoia narrativa. Anche questa lettura si è rivelata sbagliata, e in un certo senso capovolta: la rivelazione, lungi dal separare i due innamorati, è proprio ciò che permette alla loro storia di continuare senza l&#x27;ombra dell&#x27;incesto che alcuni fan più pessimisti temevano da tempo.</p>
-<h2>Cosa hanno sbagliato tutte le teorie dei fan</h2>
+<h2 id="c3">Cosa hanno sbagliato tutte le teorie dei fan</h2>
 <p>È interessante notare come, messe tutte insieme, le teorie sbagliate condividessero un errore comune: cercavano tutte un colpevole esterno, un cattivo riconoscibile su cui scaricare la responsabilità del segreto. La realtà scelta dagli sceneggiatori è invece più sottile e più umana: nessun cattivo, nessuna cospirazione, solo un uomo giovane che ha fatto scelte di cui non ha mai dovuto rispondere, e una donna che ha portato quel segreto in silenzio fino alla fine dei suoi giorni. È un tipo di verità meno spettacolare delle teorie dei fan, ma proprio per questo più credibile, e più dolorosa.</p>
 <p>Vale la pena ricordare anche come sono nate, storicamente, queste teorie all&#x27;interno della community dei fan. Molte partivano da dettagli minimi: un&#x27;inquadratura più lunga del solito su un personaggio, una battuta ambigua, un silenzio che sembrava carico di significato. È il tipo di lettura ossessiva del testo che caratterizza da sempre i fandom delle soap più seguite, capaci di costruire teorie elaborate partendo da indizi che, spesso, sono in realtà scelte puramente registiche o di montaggio, senza alcun significato nascosto. Questo non significa che analizzare i dettagli sia inutile, anzi: come abbiamo visto negli angoli precedenti di questa nostra serie, alcuni indizi erano davvero lì, seminati con intenzione. Il difficile è sempre distinguere il segnale vero dal rumore di fondo.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>C&#x27;è infine un ultimo aspetto da considerare: il modo in cui questa specifica rivelazione ha spiazzato anche i fan più esperti, quelli abituati a prevedere gli sviluppi di questo tipo di soap grazie all&#x27;esperienza accumulata su produzioni simili. Il fatto che una trama così attesa abbia comunque sorpreso un pubblico agguerrito e preparato dice molto sulla qualità della scrittura di La Promessa, capace di rispettare le convenzioni del genere senza però diventare prevedibile.</p>
-<h2>Quali teorie sostenevano che Dolores fosse ancora viva</h2>
+<h2 id="c4">Quali teorie sostenevano che Dolores fosse ancora viva</h2>
 <p>Se dovessimo stilare una classifica delle teorie più creative circolate online, al primo posto per fantasia metteremmo probabilmente quella secondo cui l&#x27;intera storia della paternità sarebbe stata un sogno o un&#x27;allucinazione di uno dei personaggi, una lettura tipica di chi segue troppe soap contemporaneamente e inizia a mescolare le convenzioni di generi diversi. Al secondo posto, quella secondo cui Dolores sarebbe in realtà ancora viva, nascosta da qualche parte, pronta a ricomparire in prima persona invece che tramite una semplice lettera. Nessuna delle due si è avverata, ma entrambe raccontano quanto il pubblico fosse desideroso di un colpo di scena ancora più grande di quello, già enorme, che poi è stato effettivamente confermato.</p>
 <p>E se guardiamo a come i creatori della serie hanno gestito il rilascio delle informazioni, notiamo una strategia molto studiata: ogni tanto veniva confermata una teoria minore, giusto per tenere alta l&#x27;attenzione del pubblico e la sensazione che le proprie ipotesi valessero qualcosa, mentre la vera bomba veniva tenuta nascosta fino al momento perfetto. È una tecnica narrativa raffinata, che alterna piccole soddisfazioni per lo spettatore a grandi sorprese finali, mantenendo l&#x27;equilibrio perfetto tra prevedibilità e stupore.</p>
 <p>Chiudiamo con un&#x27;ultima osservazione: le teorie sbagliate, per quanto lontane dalla verità, non sono mai state del tutto inutili per il pubblico. Discuterne, confrontarsi nei commenti, costruire ipotesi alternative fa parte del piacere di seguire una soap come questa in tempo reale, insieme a una community di appassionati. Anche quando si sbaglia, il percorso di analisi collettiva arricchisce l&#x27;esperienza dello spettatore, rendendo la rivelazione finale ancora più soddisfacente quando finalmente arriva.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=8xAL36DD-jE" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/8xAL36DD-jE/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — 5 indizi che avevano già svelato chi era il vero padre di Jana (Angolo 3: Top ind</span></a></li><li><a href="https://www.youtube.com/watch?v=y9qMHskHiiM" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/y9qMHskHiiM/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Avevi capito chi era davvero il padre di Jana? Mettiti alla prova (Angolo 4: quiz</span></a></li><li><a href="https://www.youtube.com/watch?v=xkbxQIfNuUA" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/xkbxQIfNuUA/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Il vero padre di Jana: la rivelazione che cambia tutto (Angolo 1: Recap classico)</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Voi a quale teoria credevate di più prima di questa rivelazione? E ora che conoscete la verità, quale altro colpo di scena pensate che i fan non abbiano ancora previsto in questa storia?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=roNqOujET5M">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di La Promessa</h2><div class="griglia"><article class="scheda">
+  <a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/OYyHpOcfSKU/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/"><div class="foto"><img src="https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero — https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/&text=La Promessa, le teorie dei fan sul padre di Jana contro quello che è successo davvero" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">LA PROMESSA — Le teorie dei fan sul padre di Jana contro quello che è successo davvero (Angolo 6: teorie vs realtà)</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=roNqOujET5M">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di La Promessa</h3><ol class="numerata"><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>LA PROMESSA — Le teorie dei fan sul padre di Jana contro quello che è successo davvero (Angolo 6: teorie vs realtà)</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su La Promessa</h3><ul><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

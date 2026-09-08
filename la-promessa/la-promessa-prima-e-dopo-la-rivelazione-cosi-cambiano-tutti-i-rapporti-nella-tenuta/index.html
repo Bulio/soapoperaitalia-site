@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/la-promessa/">La Promessa</a> › LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/la-promessa/">La Promessa</a>
   <h1>LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</h1>
-  <div class="firma">Redazione Soap Opera Italia · giovedì 3 settembre 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-09-03">giovedì 3 settembre 2026</time></span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">C&#x27;è un prima e un dopo, nella tenuta de La Promessa, che segna un confine netto: prima della lettera di Dolores, e dopo. Prima, Alonso era solo il marchese, un uomo di potere con un passato vago e mai davvero indagato. Dopo, è un padre che ha ignorato due figli per una vita intera. Prima, Jana era solo una ragazza cresciuta nella tenuta. Dopo, è l&#x27;erede segreta di uno dei nomi più importanti della zona. Oggi confrontiamo, rapporto per rapporto, come cambia tutto dopo questa rivelazione. Restate fino alla fine per il cambiamento più sottile, quello che riguarda Curro.</p><ol><li><a href="#c1">Come cambia il rapporto tra Alonso e Jana</a></li><li><a href="#c2">Cosa significa per Alonso la lettera di Dolores</a></li><li><a href="#c3">Come guarderemo adesso le scene tra Alonso e Curro</a></li><li><a href="#c4">Chi e&#x27; il figlio legittimo tra Curro e Manuel</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>La Promessa</strong> — Rete 4 · in streaming su Mediaset Infinity</span></div>
   
-  <p class="occhiello">C&#x27;è un prima e un dopo, nella tenuta de La Promessa, che segna un confine netto: prima della lettera di Dolores, e dopo. Prima, Alonso era solo il marchese, un uomo di potere con un passato vago e mai davvero indagato. Dopo, è un padre che ha ignorato due figli per una vita intera. Prima, Jana era solo una ragazza cresciuta nella tenuta. Dopo, è l&#x27;erede segreta di uno dei nomi più importanti della zona. Oggi confrontiamo, rapporto per rapporto, come cambia tutto dopo questa rivelazione. Restate fino alla fine per il cambiamento più sottile, quello che riguarda Curro.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/LBj-wojhyEs/maxresdefault.jpg" alt="LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg 480w, https://i.ytimg.com/vi/LBj-wojhyEs/sddefault.jpg 640w, https://i.ytimg.com/vi/LBj-wojhyEs/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg&quot;, &quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -361,21 +411,21 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p><strong>C&#x27;è un prima e un dopo, nella tenuta de La Promessa, che segna un confine netto: prima della lettera di Dolores, e dopo. Prima, Alonso era solo il marchese, un uomo di potere con un passato vago e mai davvero indagato.</strong></p>
   <p>Il rapporto tra Alonso e Jana. Prima: un rapporto formale, quello tra un marchese e una ragazza della tenuta, distante per definizione sociale. Dopo: un legame di sangue che nessuno dei due aveva scelto consapevolmente, ma che ora esiste e va affrontato. Alonso dovrà decidere se e come riconoscere Jana, e Jana dovrà capire cosa significa avere improvvisamente un padre con un nome, un titolo, e un&#x27;intera eredità alle spalle.</p>
 <p>Il rapporto tra Alonso e Curro. Stesso discorso di Jana, ma con una differenza: Curro, come fratello di Jana, si ritrova coinvolto in questa rivoluzione familiare senza nemmeno essere stato lui il centro dell&#x27;indagine. Prima era un ragazzo della tenuta con la sua vita, i suoi rapporti, i suoi progetti. Dopo, anche lui deve fare i conti con un padre che non ha mai davvero conosciuto come tale.</p>
-<h2>Come cambia il rapporto tra Alonso e Jana</h2>
+<h2 id="c1">Come cambia il rapporto tra Alonso e Jana</h2>
 <p>Il rapporto tra Jana e Manuel. Qui il cambiamento va nella direzione opposta rispetto a quello che molti fan temevano. Prima di questa rivelazione, c&#x27;era il rischio concreto che i due si scoprissero fratelli, con tutto il dolore che questo avrebbe comportato per la loro storia d&#x27;amore. Dopo, sappiamo che Manuel non è figlio di Alonso, quindi non è fratello di Jana: la coppia può continuare a stare insieme, con un ostacolo enorme finalmente tolto di mezzo.</p>
 <p>Il rapporto tra Manuel e Cruz. Qui il cambiamento è quasi opposto e speculare a quello di Jana con Alonso. Prima, Manuel considerava Cruz sua madre e il marchese suo padre, un&#x27;identità solida e mai messa in discussione. Dopo, scopre che sua madre lo ha ingannato per anni insieme al capitano Lorenzo Dellamata, il suo vero padre. Il rapporto con Cruz, quindi, si complica enormemente: fiducia tradita, identità da ricostruire.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Cosa significa per Alonso la lettera di Dolores</h2>
+<h2 id="c2">Cosa significa per Alonso la lettera di Dolores</h2>
 <p>Il rapporto tra Alonso e la memoria di Dolores. Prima, Dolores era solo un capitolo chiuso del passato, forse nemmeno più ricordato con precisione. Dopo la lettera, diventa la donna che gli ha dato due figli e che, anche da morta, ha trovato il modo di fargli sapere la verità. È un rapporto che si riattiva, seppur postumo, con un peso emotivo completamente nuovo.</p>
 <p>E infine, il rapporto tra Jana e Curro come coppia di fratelli. Prima, erano fratelli e basta, con la loro complicità quotidiana. Dopo questa rivelazione, quella complicità acquista un significato più profondo: non sono solo cresciuti insieme, condividono davvero lo stesso sangue, la stessa storia nascosta, lo stesso padre che ora dovranno imparare a conoscere insieme.</p>
 <p>C&#x27;è anche un rapporto meno ovvio che vale la pena analizzare: quello tra Jana e il resto della servitù della tenuta. Prima della rivelazione, Jana era una di loro, cresciuta con le stesse regole, gli stessi doveri, la stessa posizione sociale subalterna rispetto alla famiglia Luján. Dopo, se la sua vera identità dovesse diventare pubblica, quella posizione cambierebbe radicalmente, e con essa cambierebbero anche gli equilibri con chi, fino a ieri, la considerava un&#x27;uguale. Non è raro, in situazioni simili raccontate da altre soap, che un cambiamento di status così repentino porti con sé anche invidie, distanze nuove, persino diffidenza da parte di chi resta indietro.</p>
 <p>Anche il rapporto tra Alonso e la propria immagine pubblica merita una riflessione. Prima della lettera, il marchese poteva permettersi di presentarsi come un uomo integro, rispettabile, un pilastro morale della tenuta. Dopo, dovrà fare i conti con la possibilità che il proprio passato, se venisse reso pubblico, possa incrinare quell&#x27;immagine agli occhi degli altri nobili e della società che frequenta. È un rischio reputazionale che si somma al peso emotivo della scoperta, e che potrebbe influenzare pesantemente ogni sua decisione nelle prossime puntate.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Come guarderemo adesso le scene tra Alonso e Curro</h2>
+<h2 id="c3">Come guarderemo adesso le scene tra Alonso e Curro</h2>
 <p>Infine, c&#x27;è un cambiamento che riguarda il pubblico stesso, più che i personaggi: il modo in cui guarderemo, da qui in avanti, ogni scena tra Alonso, Jana e Curro. Sapendo quello che sappiamo, ogni sguardo, ogni gesto di attenzione del marchese verso i due giovani acquisterà un significato diverso, più denso, più carico di sottotesto. È uno dei motivi per cui rivelazioni come questa cambiano per sempre il modo di seguire una storia, anche quando i personaggi coinvolti non ne sono ancora del tutto consapevoli.</p>
 <p>C&#x27;è anche un cambiamento più sottile che riguarda il rapporto tra Manuel e la tenuta stessa, il luogo fisico in cui è cresciuto. Prima, ogni angolo di quella proprietà rappresentava per lui un pezzo della propria eredità, un futuro già scritto. Dopo, quegli stessi luoghi diventano quasi estranei, testimoni silenziosi di un&#x27;identità che non gli appartiene più nel modo in cui pensava. È un cambiamento di percezione più che materiale, ma capace di pesare quanto qualsiasi altro cambiamento più concreto.</p>
 <p>E non dimentichiamo il rapporto, finora appena accennato, tra Cruz e Alonso. Prima della rivelazione, erano legati dal matrimonio e dalla gestione condivisa della tenuta, con Cruz nel ruolo di madre del presunto erede. Dopo, quel legame si complica ulteriormente: Alonso scopre di essere stato inconsapevolmente coinvolto, come marito tradito, in un inganno che dura da anni, proprio mentre lui stesso nascondeva un segreto altrettanto grande riguardo a Jana e Curro. Due tradimenti paralleli, scoperti quasi nello stesso momento, che rendono il rapporto tra i due coniugi uno dei più fragili di tutta la tenuta da qui in avanti.</p>
-<h2>Chi e&#x27; il figlio legittimo tra Curro e Manuel</h2>
+<h2 id="c4">Chi e&#x27; il figlio legittimo tra Curro e Manuel</h2>
 <p>Anche il rapporto tra Curro e Manuel merita attenzione in questo confronto prima e dopo. Prima, erano legati da un rapporto di conoscenza reciproca tipico di chi cresce nello stesso ambiente, senza particolari legami di sangue percepiti. Dopo questa rivelazione, la loro posizione si inverte quasi completamente: Curro scopre di essere figlio legittimo del marchese, mentre Manuel scopre di non esserlo affatto. Due traiettorie opposte che si incrociano proprio nel momento in cui la gerarchia informale della tenuta viene riscritta, con conseguenze dirette anche sul modo in cui i due giovani si relazioneranno tra loro d&#x27;ora in avanti, non più su un piano di presunta parità.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Un ultimo confronto, forse il più delicato: il rapporto tra Jana e la propria immagine di sé. Prima, si vedeva come una ragazza della tenuta con un futuro limitato dalle proprie origini sociali. Dopo questa rivelazione, deve reimparare a vedersi come l&#x27;erede di uno dei nomi più importanti della zona, un cambiamento identitario che va ben oltre il semplice riconoscimento formale da parte di Alonso, toccando il modo più profondo in cui una persona percepisce il proprio posto nel mondo.</p>
@@ -384,19 +434,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=gISqozNynU0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/gISqozNynU0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — La mia reazione a caldo alla rivelazione sul padre di Jana (Angolo 8: reazione/co</span></a></li><li><a href="https://www.youtube.com/watch?v=xkbxQIfNuUA" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/xkbxQIfNuUA/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Il vero padre di Jana: la rivelazione che cambia tutto (Angolo 1: Recap classico)</span></a></li><li><a href="https://www.youtube.com/watch?v=qcf7plyW-3k" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/qcf7plyW-3k/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Dietro la rivelazione sul padre di Jana: chi sono gli attori dietro questa trama </span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Secondo voi, quale di questi rapporti cambierà più drasticamente nelle prossime puntate: quello tra Alonso e Jana, o quello tra Manuel e Cruz? E pensate che Curro reagirà diversamente da Jana a questa scoperta?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=LBj-wojhyEs">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di La Promessa</h2><div class="griglia"><article class="scheda">
+  <a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/OYyHpOcfSKU/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta — https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/&text=LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">LA PROMESSA: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta 👀</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=LBj-wojhyEs">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di La Promessa</h3><ol class="numerata"><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li><li><a href="/la-promessa/la-promessa-avevi-capito-chi-era-davvero-il-padre-di-jana-mettiti-alla-prova-ang/">La Promessa, avevi capito chi era davvero il padre di Jana? Mettiti alla prova</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>LA PROMESSA: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta 👀</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su La Promessa</h3><ul><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li><li><a href="/la-promessa/la-promessa-avevi-capito-chi-era-davvero-il-padre-di-jana-mettiti-alla-prova-ang/">La Promessa, avevi capito chi era davvero il padre di Jana? Mettiti alla prova</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

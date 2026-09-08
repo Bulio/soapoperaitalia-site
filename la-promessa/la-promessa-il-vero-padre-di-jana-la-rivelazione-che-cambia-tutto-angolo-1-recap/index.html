@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/la-promessa/">La Promessa</a> › La Promessa, il vero padre di Jana: la rivelazione che cambia tutto</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/la-promessa/">La Promessa</a>
   <h1>La Promessa, il vero padre di Jana: la rivelazione che cambia tutto</h1>
-  <div class="firma">Redazione Soap Opera Italia · domenica 2 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-02">domenica 2 agosto 2026</time></span><span>aggiornato il 5 settembre 2026</span><span>15 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Per mesi il pubblico de La Promessa si è fatto le domande più assurde su chi fosse davvero il padre di Jana. C&#x27;è chi giurava fosse Gregorio, il maggiordomo finito in prigione dopo aver tentato di uccidere Pía. C&#x27;è chi si era convinto fosse.</p><ol><li><a href="#c1">Chi è il vero padre di Jana e Curro</a></li><li><a href="#c2">Come Alonso scopre di avere altri due figli</a></li><li><a href="#c3">Perché Dolores ha scritto una lettera invece di parlare</a></li><li><a href="#c4">Cosa perde Manuel con la rivelazione sul marchese</a></li><li><a href="#c5">Cosa farà Alonso dopo la lettera di Dolores</a></li><li><a href="#c6">Come reagirà Curro alla verità sul padre</a></li><li><a href="#c7">Quando entrerà in scena il capitano Lorenzo</a></li><li><a href="#c8">Quanto credito morale resta ad Alonso nella tenuta</a></li><li><a href="#c9">Quali indizi puntavano su Alonso e Dolores</a></li><li><a href="#c10">Perché Jana e Curro sono fratelli di sangue</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>La Promessa</strong> — Rete 4 · in streaming su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Per mesi il pubblico de La Promessa si è fatto le domande più assurde su chi fosse davvero il padre di Jana. C&#x27;è chi giurava fosse Gregorio, il maggiordomo finito in prigione dopo aver tentato di uccidere Pía. C&#x27;è chi si era convinto fosse.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: La Promessa, il vero padre di Jana: la rivelazione che cambia tutto" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/xkbxQIfNuUA/maxresdefault.jpg" alt="La Promessa, il vero padre di Jana: la rivelazione che cambia tutto" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/xkbxQIfNuUA/hqdefault.jpg 480w, https://i.ytimg.com/vi/xkbxQIfNuUA/sddefault.jpg 640w, https://i.ytimg.com/vi/xkbxQIfNuUA/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/xkbxQIfNuUA/hqdefault.jpg&quot;, &quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -362,47 +412,47 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p>E ora cominciamo, perché c&#x27;è tanto da raccontare.</p>
 <p>Partiamo da un punto che sembra scollegato, ma che in realtà è la chiave di tutto: la paternità del signorino Manuel. Dalla Spagna arrivano informazioni che ribaltano quello che tutti davano per scontato. Donna Cruz, si scopre, è stata infedele al marchese Don Alonso, e questo significa una cosa enorme: Manuel non è figlio del marchese. È figlio del capitano Lorenzo de la Mata, l&#x27;amante con cui Cruz ha avuto una relazione tenuta segreta per anni, ingannando il marito e facendo passare quel bambino come suo.</p>
 <p>Perché è così importante partire da qui prima di arrivare a Jana? Perché se Manuel fosse davvero figlio di Alonso, e quindi fratello di Jana, la loro storia d&#x27;amore sarebbe un incesto. Ed è proprio per escludere questo scenario che la verità viene finalmente a galla, con tutte le sue conseguenze.</p>
-<h2>Chi è il vero padre di Jana e Curro</h2>
+<h2 id="c1">Chi è il vero padre di Jana e Curro</h2>
 <p>E la verità è questa: il vero padre di Jana non è nessuno dei nomi che circolavano online. Il vero padre di Jana è Don Alonso de Luján, il marchese in persona. Esattamente come il fratello Curro, anche Jana è figlia sua e di Dolores, la donzella con cui Alonso ha avuto una relazione molto prima di sposarsi, quando era ancora un giovane senza responsabilità di erede.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Fermatevi un secondo a pensare a chi era Alonso da ragazzo. Non era il primogenito, quindi non aveva il peso di dover ereditare il titolo di marchese. Una vita senza quella responsabilità, per lui, ha significato anni vissuti in modo spericolato, pieno di amori passeggeri e scelte di cui, evidentemente, non ha mai dovuto rendere conto a nessuno. È un po&#x27; come succede nelle famiglie reali che conosciamo tutti: il primogenito cresce con addosso il peso dell&#x27;istituzione, mentre il secondo figlio si costruisce una vita più libera, più imprevedibile, a volte più caotica. Ad Alonso è successo esattamente questo, fino a quando la morte del fratello maggiore lo ha costretto, da un giorno all&#x27;altro, a diventare l&#x27;erede dei Luján.</p>
-<h2>Come Alonso scopre di avere altri due figli</h2>
+<h2 id="c2">Come Alonso scopre di avere altri due figli</h2>
 <p>Ma un passato così vissuto non si cancella da un momento all&#x27;altro solo perché sei diventato marchese. E la donna che ha segnato di più quel passato è stata proprio Dolores, con cui Alonso ha avuto due figli: Mariana e Marcos. O, come li conosciamo tutti nella tenuta, Jana e Curro.</p>
 <p>Quello che rende questa rivelazione ancora più forte è come arriva ad Alonso: attraverso una lettera scritta da Dolores molti anni prima della sua morte, e che solo ora sta per raggiungerlo. Immaginate la scena: un uomo che pensa di conoscere ormai ogni angolo della propria vita, che si ritrova tra le mani parole scritte da una donna che non c&#x27;è più, parole che gli rivelano di avere più figli di quanti avesse mai immaginato. Non è solo una notizia. È un pezzo del suo passato che torna a bussare alla porta proprio nel momento in cui meno se lo aspetta.</p>
 <p>E qui arriva la parte che i fan aspettavano con più ansia: cosa succede a Jana e Manuel? La buona notizia, per chi tifa per questa coppia, è che possono continuare ad amarsi senza il peso di un legame di sangue. Jana e Curro sono figli del marchese, Manuel è figlio del capitano Lorenzo: nessun incesto, nessun ostacolo di quel tipo tra i due innamorati. Quello che cambia davvero è la mappa dei rapporti di potere e di famiglia dentro la tenuta, con Alonso che dovrà fare i conti con una paternità che ha ignorato per una vita intera.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Per capire fino in fondo la portata di questa rivelazione, bisogna anche soffermarsi su chi era davvero Dolores all&#x27;interno della tenuta. Non una nobildonna, non un&#x27;ospite di riguardo, ma una donzella, cioè una domestica al servizio della famiglia. Nella rigida gerarchia sociale raccontata da La Promessa, un legame tra un futuro marchese e una donna di servizio era qualcosa che andava nascosto a ogni costo, pena lo scandalo per entrambi, ma soprattutto per lei. Dolores ha portato avanti quella relazione, ha cresciuto due figli nati da quel legame, e lo ha fatto sapendo che non avrebbe mai potuto rivendicare pubblicamente il loro vero padre. È una storia di silenzio forzato lunga quanto la vita di Jana e Curro stessi.</p>
-<h2>Perché Dolores ha scritto una lettera invece di parlare</h2>
+<h2 id="c3">Perché Dolores ha scritto una lettera invece di parlare</h2>
 <p>E proprio per questo la scelta della lettera colpisce così tanto. Dolores non ha mai avuto la possibilità, da viva, di dire ad Alonso quello che sapeva doversi dire. Ha scelto invece di affidarlo alla carta, sapendo che quelle parole lo avrebbero raggiunto solo quando lei non ci sarebbe più stata a vederne l&#x27;effetto. C&#x27;è qualcosa di profondamente calcolato e allo stesso tempo disperato in questa scelta: una donna che prepara, con largo anticipo, il momento in cui la verità dovrà per forza uscire allo scoperto, senza poter controllare come Alonso reagirà, né come reagiranno i suoi stessi figli quando lo scopriranno a loro volta.</p>
 <p>E qui si apre un altro fronte della storia, quello di Curro. Finora abbiamo parlato soprattutto di Jana, ma anche lui è coinvolto esattamente allo stesso modo: stesso padre, stessa madre, stesso segreto tenuto nascosto per una vita intera. Curro dovrà affrontare la stessa scoperta della sorella, ma probabilmente con reazioni diverse: dove Jana potrebbe lasciarsi guidare dall&#x27;emozione e dal bisogno di capire, Curro potrebbe reagire con più freddezza, o forse con più rabbia per essere stato tenuto all&#x27;oscuro così a lungo. La sceneggiatura ha già dimostrato, in altri momenti, quanto i due fratelli possano avere approcci opposti davanti alle crisi, e questa sembra la prova perfetta per vederlo di nuovo.</p>
 <p>C&#x27;è poi un dettaglio che vale la pena sottolineare, perché cambia completamente la lettura di molte scene già andate in onda: ripensando alle puntate precedenti, ogni interazione tra Alonso e i due fratelli acquista ora un peso diverso. Piccoli gesti di attenzione, sguardi che sembravano casuali, la cura quasi paterna che il marchese ha sempre riservato a Jana e Curro senza una spiegazione chiara: tutto questo, con il senno di poi, sembra avere una radice ben precisa, anche se lui stesso, fino alla lettera, non ne era consapevole. È uno di quei casi in cui la sceneggiatura ha costruito qualcosa di enorme lavorando sottotraccia, senza che il pubblico se ne accorgesse fino al momento giusto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Cosa perde Manuel con la rivelazione sul marchese</h2>
+<h2 id="c4">Cosa perde Manuel con la rivelazione sul marchese</h2>
 <p>E non dimentichiamo Manuel, che da questa storia esce con un destino ribaltato quasi allo stesso modo di Jana, solo in direzione opposta. Se per Jana la rivelazione significa scoprire un padre che non sapeva di avere, per Manuel significa perdere quello che credeva di avere sempre avuto. Due facce della stessa medaglia, due identità che si riscrivono nello stesso momento, per lo stesso motivo: i segreti di una generazione precedente che tornano a bussare, tutti insieme, proprio ora.</p>
-<h2>Cosa farà Alonso dopo la lettera di Dolores</h2>
+<h2 id="c5">Cosa farà Alonso dopo la lettera di Dolores</h2>
 <p>Partiamo da quello che è certo: Alonso, dopo aver letto la lettera di Dolores, avrà una prospettiva completamente diversa sulla propria vita. Non è più solo il marchese con un passato vagamente movimentato: è un padre che ha ignorato, senza saperlo con certezza, due figli per anni. Questo tipo di scoperta, in una soap costruita su onore, reputazione e gerarchie sociali rigide come quella de La Promessa, non può restare senza conseguenze concrete.</p>
 <p>La prima grande domanda aperta riguarda proprio il riconoscimento pubblico. Al momento non sappiamo con certezza se Alonso deciderà di collegare ufficialmente Mariana a Jana, cioè se sceglierà di rendere pubblico e formale quello che finora è rimasto un segreto di famiglia. Potrebbe farlo per senso del dovere verso i suoi veri figli, oppure potrebbe scegliere la strada più prudente, quella di gestire la cosa in privato per proteggere la reputazione di tutti, Jana compresa, in un contesto sociale che potrebbe non essere clemente con una storia del genere.</p>
 <p>Secondo fronte aperto: come reagirà Jana quando scoprirà la verità in prima persona, non solo come pubblico che la conosce già, ma come personaggio che deve elaborarla dentro la storia? È lecito aspettarsi una fase di incredulità, forse di rabbia per essere stata tenuta all&#x27;oscuro per una vita intera, e poi, probabilmente, la ricerca di un nuovo equilibrio con Alonso, un uomo che fino a ieri era solo il marchese della tenuta in cui lavorava, e che ora è suo padre.</p>
-<h2>Come reagirà Curro alla verità sul padre</h2>
+<h2 id="c6">Come reagirà Curro alla verità sul padre</h2>
 <p>Terzo fronte: cosa succede a Curro. Meno protagonista di Jana in questa vicenda specifica, ma comunque coinvolto allo stesso modo. Sarà interessante vedere se la sceneggiatura sceglierà di dargli un percorso emotivo diverso da quello della sorella, magari più pragmatico, o più arrabbiato, a seconda di come i due fratelli hanno sempre affrontato le difficoltà nella loro storia.</p>
 <p>Quarto fronte, quello più delicato dal punto di vista sociale: la posizione di Jana e Curro all&#x27;interno della gerarchia della tenuta. Se Alonso decidesse di riconoscerli ufficialmente, questo potrebbe cambiare completamente il loro status, da membri della servitù a eredi con un legame di sangue diretto con la famiglia Luján. Un cambiamento che avrebbe conseguenze enormi su tutti gli altri equilibri di potere già esistenti nella tenuta, comprese le posizioni di chi finora si considerava al sicuro nella gerarchia familiare.</p>
 <p>Quinto fronte: Jana e Manuel. Con l&#x27;ostacolo dell&#x27;incesto ormai escluso, la loro storia d&#x27;amore ha via libera dal punto di vista dei legami di sangue. Resta però da vedere come reagiranno le rispettive famiglie a un cambiamento di status così importante per Jana, e se questo influenzerà in qualche modo il loro futuro come coppia agli occhi della tenuta.</p>
 <p>Quello che possiamo dire con certezza è che questa rivelazione non è un punto di arrivo, ma un punto di partenza per una serie di conseguenze che toccheranno praticamente ogni personaggio principale della storia.</p>
 <p>Sesto fronte, forse il più trascurato finora: cosa succede a Cruz. La sua infedeltà con il capitano Lorenzo è stata il primo tassello a venire a galla, ma le conseguenze per lei non si esauriscono certo con la scoperta della vera identità di Manuel. Dovrà affrontare il giudizio di chi la circonda, probabilmente anche quello dello stesso marchese, e ricostruire un rapporto con suo figlio che ora sa di essere stato ingannato per una vita intera. È un fronte che rischia di restare in ombra rispetto al dramma più centrale di Jana, ma che potrebbe rivelarsi altrettanto ricco di sviluppi.</p>
-<h2>Quando entrerà in scena il capitano Lorenzo</h2>
+<h2 id="c7">Quando entrerà in scena il capitano Lorenzo</h2>
 <p>Settimo fronte: il ruolo del capitano Lorenzo de la Mata da qui in avanti. Fino a questo momento è rimasto una figura più citata che vista, ma una rivelazione di questa portata difficilmente può lasciarlo fuori dalla scena troppo a lungo. È plausibile aspettarsi un suo coinvolgimento diretto nelle prossime puntate, magari proprio nel momento in cui Manuel deciderà di cercare risposte sul proprio vero padre.</p>
 <p>E infine, un ottavo fronte che riguarda il futuro più a lungo termine della tenuta: come cambierà la linea di successione e la gestione del patrimonio dei Luján, ora che esistono due eredi diretti in più rispetto a quanto si pensasse fino a ieri? È una domanda che va oltre il dramma sentimentale e tocca il cuore economico e sociale di tutta la storia, e che potrebbe diventare centrale man mano che la vicenda si sviluppa nelle puntate a venire.</p>
 <p>Un nono fronte, spesso trascurato in questo tipo di analisi, riguarda l&#x27;opinione pubblica interna alla tenuta: come reagiranno gli altri nobili, gli ospiti abituali, i conoscenti di lunga data della famiglia Luján, quando la voce di questo segreto dovesse iniziare a circolare, anche solo come pettegolezzo non confermato? In un mondo dove la reputazione vale quanto il patrimonio, anche solo il sospetto potrebbe scatenare conseguenze sociali difficili da controllare, indipendentemente da cosa deciderà di fare Alonso in privato.</p>
 <p>Decimo e ultimo fronte, forse il più umano di tutti: il percorso di guarigione, se mai ci sarà, tra Alonso e i suoi due figli ritrovati. Anche nella migliore delle ipotesi, quella in cui il marchese decide di riconoscerli e di costruire con loro un rapporto vero, ci vorrà tempo perché quella relazione si trasformi in qualcosa di autentico, al di là del semplice riconoscimento formale. Jana e Curro dovranno imparare a fidarsi di un uomo che, per una vita intera, non hanno mai considerato come figura paterna, e Alonso dovrà imparare a essere presente in un ruolo che non ha mai avuto la possibilità di esercitare fino ad ora.</p>
-<h2>Quanto credito morale resta ad Alonso nella tenuta</h2>
+<h2 id="c8">Quanto credito morale resta ad Alonso nella tenuta</h2>
 <p>E se allarghiamo lo sguardo ancora oltre, possiamo anche chiederci come questa vicenda influenzerà il modo in cui altri personaggi della tenuta guarderanno ad Alonso da qui in avanti, come figura di autorità morale. Un uomo che per anni ha predicato onore e responsabilità, scoprendosi ora portatore di un segreto capace di scardinare quegli stessi valori, potrebbe perdere parte della propria credibilità agli occhi di chi lo ha sempre rispettato incondizionatamente. Sarà interessante vedere se la sceneggiatura sceglierà di mostrarci un Alonso più umile, più consapevole delle proprie fragilità, oppure un uomo che cerca in ogni modo di difendere l&#x27;immagine che si è costruito in tutti questi anni, a costo di commettere nuovi errori pur di proteggerla.</p>
 <p>Un undicesimo fronte, quello con cui chiudiamo questa lunga analisi: cosa ci racconta questa vicenda sul significato più ampio di famiglia in una società rigidamente strutturata come quella raccontata da La Promessa? Il sangue, in questa storia, si è rivelato più forte delle convenzioni sociali che per anni hanno tenuto separati Alonso e i suoi veri figli. È un tema che va oltre il semplice intrattenimento, toccando corde universali sul significato di appartenenza e riconoscimento che continueranno probabilmente a essere centrali per il resto della stagione.</p>
 <p>Chiudiamo con una domanda che riassume tutte le altre: la tenuta della famiglia Luján tornerà mai a essere quella di prima, oppure questa rivelazione ha aperto una crepa che continuerà ad allargarsi puntata dopo puntata? Da come la sceneggiatura ha costruito questa storia fino a ora, sembra difficile immaginare un ritorno alla normalità.</p>
-<h2>Quali indizi puntavano su Alonso e Dolores</h2>
+<h2 id="c9">Quali indizi puntavano su Alonso e Dolores</h2>
 <p>Secondo indizio: la figura di Dolores, la donzella. Il suo nome è sempre stato legato ad Alonso in modo più profondo di quanto sembrasse in superficie. Non una comparsa qualunque, ma la donna che, come sappiamo oggi, ha avuto con lui due figli: Mariana e Marcos, cioè Jana e Curro. Ogni volta che il suo nome tornava a galla nella narrazione, era in realtà un piccolo passo verso questa rivelazione.</p>
 <p>Terzo indizio: la lettera scritta da Dolores molti anni prima della sua morte. Una lettera che aspettava solo il momento giusto per arrivare nelle mani di Alonso. Il fatto stesso che esistesse un documento del genere, pensato per essere consegnato in futuro, era già un segnale enorme: chi scrive una lettera così, la scrive perché ha qualcosa di troppo importante da dire per lasciarlo detto a voce, o peggio, per lasciarlo non detto affatto.</p>
 <p>Quarto indizio: la scoperta collegata sul signorino Manuel. Le informazioni arrivate dalla Spagna su donna Cruz e sulla sua infedeltà con il capitano Lorenzo de la Mata non riguardavano solo Manuel. Riguardavano anche Jana, perché era necessario escludere ogni possibilità di legame di sangue tra i due prima di svelare la verità sul padre di lei. Se la sceneggiatura si è presa la briga di chiarire prima la posizione di Manuel, un motivo narrativo forte c&#x27;era di sicuro, ed era proprio proteggere la storia d&#x27;amore tra i due giovani.</p>
-<h2>Perché Jana e Curro sono fratelli di sangue</h2>
+<h2 id="c10">Perché Jana e Curro sono fratelli di sangue</h2>
 <p>Quinto e ultimo indizio, quello decisivo: il legame che è sempre esistito, anche solo a livello di sguardi e battute, tra Alonso e i destini di Jana e Curro. Non a caso i due fratelli sono sempre stati raccontati come una coppia inseparabile, cresciuta con una storia comune che andava oltre la semplice fratellanza di sangue con Vittoriano. Perché in realtà quella fratellanza di sangue vera non era con Vittoriano: era tra loro due, figli dello stesso padre, il marchese Don Alonso de Luján, e della stessa madre, Dolores.</p>
 <p>Messi insieme, questi cinque indizi raccontavano già tutto: un marchese con un passato nascosto, una donna che lo amava abbastanza da avergli dato due figli e da avergli scritto una lettera per il futuro, e due ragazzi, Jana e Curro, il cui legame speciale aveva sempre avuto una spiegazione più profonda di quanto la trama lasciasse intuire fino ad ora.</p>
 <p>Ma proviamo ad andare oltre questi cinque indizi principali, perché ce n&#x27;è un sesto, più sottile, che in pochi hanno notato: il modo in cui la servitù della tenuta ha sempre trattato Jana e Curro con una deferenza leggermente diversa rispetto agli altri domestici. Piccole attenzioni, favori che sembravano casuali, protezioni non richieste in momenti di difficoltà. In una casa dove ogni gerarchia è rigidissima e ogni comportamento ha un motivo preciso, questi dettagli non erano casuali: erano il riflesso, inconsapevole per molti, di un sangue nobile che scorreva nelle vene dei due fratelli senza che nessuno, tranne pochissimi, lo sapesse davvero.</p>
@@ -410,19 +460,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=y9qMHskHiiM" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/y9qMHskHiiM/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Avevi capito chi era davvero il padre di Jana? Mettiti alla prova (Angolo 4: quiz</span></a></li><li><a href="https://www.youtube.com/watch?v=8xAL36DD-jE" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/8xAL36DD-jE/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — 5 indizi che avevano già svelato chi era il vero padre di Jana (Angolo 3: Top ind</span></a></li><li><a href="https://www.youtube.com/watch?v=fIjVU68t1_o" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/fIjVU68t1_o/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Dopo la rivelazione sul padre di Jana, cosa può succedere adesso (Angolo 10: cons</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>E voi, ve lo aspettavate un colpo di scena così? Pensavate anche voi a Gregorio o al Barone di Linaja, oppure avevate già capito che la verità fosse molto più vicina alla famiglia di quanto sembrasse? E soprattutto: come pensate che reagirà Don Alonso quando dovrà guardare Jana negli occhi sapendo tutto questo?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=xkbxQIfNuUA">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di La Promessa</h2><div class="griglia"><article class="scheda">
+  <a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/OYyHpOcfSKU/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/"><div class="foto"><img src="https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=La Promessa, il vero padre di Jana: la rivelazione che cambia tutto — https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/&text=La Promessa, il vero padre di Jana: la rivelazione che cambia tutto" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">LA PROMESSA — Il vero padre di Jana: la rivelazione che cambia tutto (Angolo 1: Recap classico)</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=xkbxQIfNuUA">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di La Promessa</h3><ol class="numerata"><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>LA PROMESSA — Il vero padre di Jana: la rivelazione che cambia tutto (Angolo 1: Recap classico)</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su La Promessa</h3><ul><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

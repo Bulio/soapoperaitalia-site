@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a> › Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a>
   <h1>Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova</h1>
-  <div class="firma">Redazione Soap Opera Italia · lunedì 3 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-03">lunedì 3 agosto 2026</time></span><span>aggiornato il 3 settembre 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Prima di rivelarvi tutti i dettagli, voglio farvi una domanda diretta: avevi previsto che Mimmo sarebbe diventato l&#x27;eroe della stagione, o che Marcello e Rosa si sarebbero avvicinati così pericolosamente? Oggi mettiamo alla prova la vostra memoria.</p><ol><li><a href="#c1">Chi ha incastrato Tancredi nel finale di stagione</a></li><li><a href="#c2">Perché Adelaide affronta Tancredi senza un avvocato</a></li><li><a href="#c3">Perché Vittorio Conti non interviene nel magazzino</a></li><li><a href="#c4">Quale rischio giudiziario corre Tancredi</a></li><li><a href="#c5">Quanto contano Mimmo e Rita Marengo nel finale</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Il Paradiso delle Signore</strong> — Rai 1, dal lunedì al venerdì · in streaming su RaiPlay</span></div>
   <figure class="copertina"><img src="/img/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p.jpg" alt="Il Paradiso delle Signore"><figcaption>Il Paradiso delle Signore (foto ufficiale)</figcaption></figure>
-  <p class="occhiello">Prima di rivelarvi tutti i dettagli, voglio farvi una domanda diretta: avevi previsto che Mimmo sarebbe diventato l&#x27;eroe della stagione, o che Marcello e Rosa si sarebbero avvicinati così pericolosamente? Oggi mettiamo alla prova la vostra memoria.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -357,7 +407,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </div>
   <div class="corpo">
   <p><strong>Prima di rivelarvi tutti i dettagli, voglio farvi una domanda diretta: avevi previsto che Mimmo sarebbe diventato l&#x27;eroe della stagione, o che Marcello e Rosa si sarebbero avvicinati così pericolosamente? Oggi mettiamo alla prova la vostra memoria su questo finale ricchissimo di colpi di scena.</strong></p>
-  <h2>Chi ha incastrato Tancredi nel finale di stagione</h2>
+  <h2 id="c1">Chi ha incastrato Tancredi nel finale di stagione</h2>
 <p>Prima domanda: chi pensavate fosse davvero coinvolto nello scandalo del plagio ai danni di Botteri prima che Rita Marengo si presentasse con le prove? Molti fan sospettavano di Giulia Furlan direttamente, senza immaginare che dietro ci fosse la manovra calcolata di Tancredi.</p>
 <p>Seconda domanda: avevate previsto che sarebbe stato proprio Mimmo, il personaggio più defilato della stagione, a salvare Enrico dall&#x27;attacco del sicario? O vi aspettavate un intervento più diretto da parte di Vittorio o della polizia già presente in zona?</p>
 <p>Terza domanda, forse la più difficile: pensavate che Marcello e Rosa sarebbero arrivati così vicini a un bacio, interrotto proprio da una telefonata di Adelaide? Quanti di voi avevano già intuito la tensione crescente tra i due nelle puntate precedenti?</p>
@@ -368,7 +418,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Settima domanda, per chi ama analizzare i dettagli produttivi: secondo voi, quanto tempo hanno impiegato gli sceneggiatori per costruire un finale capace di intrecciare tre filoni narrativi così diversi senza farli entrare in conflitto tra loro? Chi segue la serie da anni sa quanto lavoro richieda un equilibrio del genere.</p>
 <p>Ottava domanda: pensavate che Rita Marengo sarebbe tornata proprio nel momento più delicato per il Paradiso, con Tancredi ormai saldamente al comando della nuova linea di moda? O vi aspettavate che le prove del plagio emergessero in un modo completamente diverso, magari attraverso un&#x27;indagine interna avviata da Marcello stesso?</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Perché Adelaide affronta Tancredi senza un avvocato</h2>
+<h2 id="c2">Perché Adelaide affronta Tancredi senza un avvocato</h2>
 <p>Nona domanda, dedicata a chi segue con attenzione i rapporti familiari: quanti di voi avevano previsto che sarebbe stata proprio Adelaide, e non un avvocato o un intermediario, a confrontarsi direttamente con Tancredi? Conoscendo il suo carattere, era forse l&#x27;unico epilogo davvero plausibile.</p>
 <p>Decima domanda, un po&#x27; più sottile: avevate notato la crescente freddezza tra Tancredi e Giulia Furlan nelle puntate precedenti al finale, o vi è sfuggita completamente fino a quando lo scandalo non è esploso del tutto?</p>
 <p>Undicesima domanda: secondo voi, Ciro Puglisi avrebbe cambiato idea sulla relazione tra Agata e Mimmo anche senza un gesto eclatante come quello del salvataggio, semplicemente vedendo la costanza e la sincerità del ragazzo nel tempo, oppure serviva davvero un episodio così forte per convincerlo?</p>
@@ -377,18 +427,18 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Come avrete notato, ognuna di queste domande nasconde un piccolo indizio su quanto la sceneggiatura di questa stagione abbia lavorato nei dettagli, costruendo un finale capace di premiare chi guarda con attenzione ogni singola scena, ogni singolo sguardo, ogni singola pausa nei dialoghi tra i personaggi.</p>
 <p>Chi risponde correttamente alla maggior parte di queste domande dimostra non solo una buona memoria, ma anche una vera capacità di lettura dei dettagli nascosti che rendono Il Paradiso delle Signore una delle serie più amate e seguite dal pubblico italiano, capace di intrecciare dramma, giustizia e sentimento in un equilibrio che poche altre produzioni riescono a raggiungere con la stessa naturalezza.</p>
 <p>Tredicesima domanda: secondo voi, quanti fan avevano davvero intuito che il primario colluso con il latitante sarebbe stato il vero innesco del pericolo per Enrico, oppure la maggior parte si aspettava una minaccia proveniente da un fronte completamente diverso?</p>
-<h2>Perché Vittorio Conti non interviene nel magazzino</h2>
+<h2 id="c3">Perché Vittorio Conti non interviene nel magazzino</h2>
 <p>Quattordicesima domanda: pensavate che Vittorio Conti avrebbe avuto un ruolo più attivo nella gestione del pericolo dentro il magazzino, magari intervenendo direttamente, o vi aspettavate che fosse proprio un personaggio secondario come Mimmo a risolvere la situazione?</p>
 <p>Quindicesima domanda, dedicata ai più romantici: quanti di voi speravano segretamente che il bacio tra Marcello e Rosa non venisse interrotto, nonostante le conseguenze che questo avrebbe comportato per il loro rapporto con Adelaide?</p>
 <p>Sedicesima domanda: avevate previsto che sarebbe stata Agata, e non qualcun altro, a capire per prima la vera natura di Mimmo, oppure pensavate che ci sarebbe voluto ancora più tempo prima che i due si avvicinassero davvero?</p>
 <p>Diciassettesima domanda, per i più esperti di dinamiche familiari: quanto pensavate fosse forte il legame tra Adelaide e Tancredi prima di questo scandalo? La delusione della contessa vi è sembrata proporzionata alla gravità del gesto del nipote?</p>
-<h2>Quale rischio giudiziario corre Tancredi</h2>
+<h2 id="c4">Quale rischio giudiziario corre Tancredi</h2>
 <p>Diciottesima domanda, l&#x27;ultima di questo lungo quiz: se doveste scommettere su un solo colpo di scena per l&#x27;inizio della decima stagione, quale sarebbe? La reazione di Adelaide alla verità su Marcello e Rosa, o le conseguenze legali per Tancredi dopo la denuncia?</p>
 <p>Vi invitiamo a prendervi qualche minuto per rispondere con calma a ognuna di queste domande prima di scorrere i commenti degli altri spettatori, per non farvi influenzare dalle risposte altrui e mettere davvero alla prova la vostra memoria e il vostro intuito narrativo.</p>
 <p>Chi ha seguito con attenzione ogni singola puntata di questa stagione saprà sicuramente rispondere con sicurezza alla maggior parte di queste domande, mentre chi si è perso qualche episodio potrebbe scoprire di aver sottovalutato alcuni dettagli fondamentali per comprendere appieno la complessità di questo finale di stagione.</p>
 <p>Un quiz come questo, del resto, non serve soltanto a intrattenere, ma anche a dimostrare quanto la scrittura di questa stagione abbia lavorato su più livelli contemporaneamente, intrecciando indizi visivi, dialoghi apparentemente innocui e sviluppi psicologici dei personaggi secondari, in un equilibrio che raramente si vede in una soap opera di produzione italiana.</p>
 <p>Vale la pena ricordare anche come alcune di queste domande abbiano una risposta ancora aperta, destinata a essere chiarita solo con l&#x27;arrivo della decima stagione: è proprio questa incertezza residua a rendere l&#x27;attesa ancora più stimolante per chi segue la serie con la costanza e la passione che merita.</p>
-<h2>Quanto contano Mimmo e Rita Marengo nel finale</h2>
+<h2 id="c5">Quanto contano Mimmo e Rita Marengo nel finale</h2>
 <p>Non dimentichiamo poi che ogni quiz di questo tipo è anche un&#x27;occasione per rivalutare personaggi che spesso restano in ombra rispetto ai protagonisti principali: pensare con attenzione a domande su Mimmo, su Rita Marengo o sulla famiglia Puglisi ci ricorda quanto il Paradiso delle Signore costruisca il proprio successo su un cast corale ricco di sfumature, dove ogni figura, anche la più defilata, può rivelarsi decisiva per l&#x27;andamento della trama generale.</p>
 <p>Prima di chiudere definitivamente questo quiz, un&#x27;ultima riflessione: rispondere con onestà a queste domande, senza barare guardando in anticipo i commenti degli altri spettatori, è il modo migliore per capire quanto davvero conosciate questa storia nei suoi dettagli più nascosti, e quanto siate pronti ad affrontare i colpi di scena che la decima stagione ha sicuramente in serbo per tutti noi.</p>
 <p>E voi, quante di queste diciotto domande siete davvero riusciti a rispondere senza esitazioni, e quante invece vi hanno fatto scoprire di aver guardato questo finale con meno attenzione di quanto pensaste?</p>
@@ -396,19 +446,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=pfZ8Zy0eDVs" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/pfZ8Zy0eDVs/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9 — Mimmo: da poliziotto sospeso a eroe del grande magazzino (Angolo </span></a></li><li><a href="https://www.youtube.com/watch?v=qyDvumS7IgM" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/qyDvumS7IgM/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9 — 5 indizi che avevano già svelato il finale scioccante (Angolo 3: </span></a></li><li><a href="https://www.youtube.com/watch?v=yor2NmxIvNE" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/yor2NmxIvNE/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9 — Prima e dopo il finale: così cambiano tutti i rapporti (Angolo 9:</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Quante di queste domande avete indovinato?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=C-UV70NwfeU">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Il Paradiso delle Signore</h2><div class="griglia"><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/"><div class="foto"><img src="https://i.ytimg.com/vi/2s6mHizXbXs/hqdefault.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></h3>
+    <div class="quando">2 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/Y-cUcGFxnAs/hqdefault.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/">Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026</a></h3>
+    <div class="quando">13 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/"><div class="foto"><img src="/img/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova — https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-il-finale-scioccante-plagio-eroi-nascosti-e-triangoli/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-il-finale-scioccante-plagio-eroi-nascosti-e-triangoli/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-il-finale-scioccante-plagio-eroi-nascosti-e-triangoli/&text=Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">IL PARADISO DELLE SIGNORE 9 — Avevi previsto questo finale scioccante? Mettiti alla prova (Angolo 4: quiz al pubblico)</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=C-UV70NwfeU">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Il Paradiso delle Signore</h3><ol class="numerata"><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/">Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang/">Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dopo-questo-finale-cosa-puo-succedere-nella-decima-sta/">Il Paradiso delle Signore, dopo questo finale, cosa può succedere nella decima stagione</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>IL PARADISO DELLE SIGNORE 9 — Avevi previsto questo finale scioccante? Mettiti alla prova (Angolo 4: quiz al pubblico)</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Il Paradiso delle Signore</h3><ul><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/">Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang/">Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dopo-questo-finale-cosa-puo-succedere-nella-decima-sta/">Il Paradiso delle Signore, dopo questo finale, cosa può succedere nella decima stagione</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

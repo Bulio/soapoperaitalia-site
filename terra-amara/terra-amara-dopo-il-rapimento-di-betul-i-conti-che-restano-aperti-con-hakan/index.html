@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/terra-amara/">Terra Amara</a> › Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/terra-amara/">Terra Amara</a>
   <h1>Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan</h1>
-  <div class="firma">Redazione Soap Opera Italia · giovedì 27 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-27">giovedì 27 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>6 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Cosa resta in gioco dopo il rapimento di Betül: la fotografia tornata a Hakan, i dubbi mai chiusi di Züleyha, il fatto che adesso lo sappia anche Şermin, e il motivo per cui una denuncia non arriverà mai. Perché ogni volta che Hakan difende la propria copertura, la consuma.</p><ol><li><a href="#c1">Il pericolo è passato, il problema no</a></li><li><a href="#c2">Chi è Hakan Gümüşoğlu, per chi arriva adesso</a></li><li><a href="#c3">Primo fronte: Betül ha davvero imparato?</a></li><li><a href="#c4">Secondo fronte: cosa se ne fa Hakan di quella fotografia</a></li><li><a href="#c5">Terzo fronte: i dubbi di Züleyha non si sono chiusi</a></li><li><a href="#c6">Quarto fronte: adesso lo sa anche Şermin</a></li><li><a href="#c7">Quinto fronte: Fikret non ha mai smesso di sospettare</a></li><li><a href="#c8">Quante persone possono sapere una cosa prima che smetta di essere un segreto?</a></li><li><a href="#c9">Il fronte che nessuno guarda: perché Betül non andrà dalla polizia</a></li><li><a href="#c10">Perché conta: quello che Hakan difende non è più un nome</a></li><li><a href="#c11">Dove vedere Terra Amara</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Terra Amara</strong> — Serie conclusa in Italia · tutte le puntate su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Cosa resta in gioco dopo il rapimento di Betül: la fotografia tornata a Hakan, i dubbi mai chiusi di Züleyha, il fatto che adesso lo sappia anche Şermin, e il motivo per cui una denuncia non arriverà mai. Perché ogni volta che Hakan difende la propria copertura, la consuma.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/qLPo8vqpcnI/maxresdefault.jpg" alt="Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/qLPo8vqpcnI/hqdefault.jpg 480w, https://i.ytimg.com/vi/qLPo8vqpcnI/sddefault.jpg 640w, https://i.ytimg.com/vi/qLPo8vqpcnI/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/qLPo8vqpcnI/hqdefault.jpg&quot;, &quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -359,60 +409,82 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </div>
   <div class="corpo">
   <p><strong>Betül è tornata a casa viva, e sembra finita. In realtà il rapimento ha lasciato aperti cinque fronti, e nessuno dei cinque dipende più da lei.</strong></p>
-  <h2>Il pericolo è passato, il problema no</h2>
+  <h2 id="c1">Il pericolo è passato, il problema no</h2>
 <p>Betül è tornata a casa viva. Su quel punto la vicenda è chiusa, e chi guarda tira il fiato. Ma una soap non chiude niente per davvero quando smette la tensione: chiude quando smettono le conseguenze.</p>
 <p>E qui le conseguenze non sono nemmeno cominciate. Alla fine di questa storia restano in piedi almeno cinque situazioni che possono esplodere in momenti diversi, e nessuna delle cinque dipende più dalla volontà di Betül.</p>
-<h2>Chi è Hakan Gümüşoğlu, per chi arriva adesso</h2>
+<h2 id="c2">Chi è Hakan Gümüşoğlu, per chi arriva adesso</h2>
 <p>A Çukurova si presenta come Mehmet Kara, imprenditore, arrivato quando la famiglia Yaman era rimasta senza Demir e la holding era il boccone più contendibile della zona. Il nome vero è Hakan Gümüşoğlu, ed è ricercato come trafficante d&#x27;armi.</p>
 <p>Non è arrivato lì per caso, e non è arrivato per gli affari. Con Demir aveva due conti aperti da anni: uno di soldi, perché avevano lavorato insieme e lui era rimasto sepolto dai debiti mentre l&#x27;altro ne usciva pulito; e uno molto più personale, perché Demir aveva sedotto e abbandonato sua sorella Hülya dopo averle promesso il matrimonio.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Il vero interrogativo su cui il personaggio si regge è però un altro, e conviene tenerlo in testa leggendo quello che segue: se l&#x27;uomo che era venuto a punire non c&#x27;è più, perché Hakan è rimasto a Çukurova?</p>
-<h2>Primo fronte: Betül ha davvero imparato?</h2>
+<h2 id="c3">Primo fronte: Betül ha davvero imparato?</h2>
 <p>La lezione è stata durissima, ma Betül non è un personaggio che impara dalle sconfitte: è un personaggio che aggiorna il metodo. È tornata a Çukurova con l&#x27;idea di prendersi quello che considerava suo e non ha mai indietreggiato davanti a niente, nemmeno quando la madre le consigliava prudenza.</p>
 <p>Il rapimento le ha tolto la prova e le ha fatto conoscere il prezzo. Non le ha tolto il movente, che resta identico: soldi e una posizione dentro una famiglia che continua a trattarla come un&#x27;ospite tollerata. Finché quel movente c&#x27;è, la domanda non è se ci riproverà, è contro chi.</p>
-<h2>Secondo fronte: cosa se ne fa Hakan di quella fotografia</h2>
+<h2 id="c4">Secondo fronte: cosa se ne fa Hakan di quella fotografia</h2>
 <p>Ha riavuto l&#x27;unico documento che lo inchioda. La strada ovvia è distruggerlo, e sarebbe la fine del problema.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Solo che quella fotografia non lo riguarda da solo: ritrae anche Demir, e certifica che i due si conoscevano da prima. Distruggerla significa cancellare pure la prova di un legame che, in mani diverse, potrebbe servire a spiegare cose che a Çukurova nessuno ha ancora messo insieme. Un uomo abituato a tenersi delle carte in mano di solito non brucia l&#x27;unica che spiega da dove viene.</p>
-<h2>Terzo fronte: i dubbi di Züleyha non si sono chiusi</h2>
+<h2 id="c5">Terzo fronte: i dubbi di Züleyha non si sono chiusi</h2>
 <p>La lettera in arabo ha funzionato, ma ha funzionato come funzionano i diversivi: ha spostato l&#x27;attenzione, non l&#x27;ha spenta. Züleyha ha visto arrivare una busta anonima, ha visto il marito reclamarla con una fretta che non gli somiglia, e ha ricevuto una spiegazione perfettamente confezionata.</p>
 <p>È il tipo di risposta che regge finché non arriva un secondo indizio a cui appoggiarsi. E Züleyha, con quest&#x27;uomo, ha già fatto un percorso preciso: prima l&#x27;ostilità, poi l&#x27;apertura, poi la decisione di fidarsi contro il parere di Fikret, che di quell&#x27;uomo non si è mai fidato e glielo ha detto in faccia. Ogni dubbio nuovo, adesso, non torna a zero: torna dentro una discussione già aperta con l&#x27;unica persona che la avvertiva.</p>
-<h2>Quarto fronte: adesso lo sa anche Şermin</h2>
+<h2 id="c6">Quarto fronte: adesso lo sa anche Şermin</h2>
 <p>Il rapimento ha aggiunto una persona alla lista di chi conosce il segreto, e nessuno l&#x27;ha decisa: Betül è tornata a casa e ha raccontato tutto alla madre.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Quinto fronte: Fikret non ha mai smesso di sospettare</h2>
+<h2 id="c7">Quinto fronte: Fikret non ha mai smesso di sospettare</h2>
 <p>C&#x27;è una persona a Çukurova che non ha bisogno di scoprire niente, perché non ci ha mai creduto dall&#x27;inizio. Fikret è convinto da sempre che dietro Mehmet ci sia un impostore con un piano, e lo ha ripetuto a Züleyha ogni volta che ne ha avuto l&#x27;occasione, guastandole sistematicamente i momenti di complicità con quell&#x27;uomo.</p>
 <p>Il punto è che Fikret ha già pagato per quella convinzione. Quando ha chiesto a Züleyha di scegliere e lei ha esitato, le ha detto che da quel momento non si sarebbe più occupato della sua sicurezza. È l&#x27;unico che cerca attivamente, l&#x27;unico che ha già formulato l&#x27;accusa giusta senza le prove, e adesso è anche l&#x27;unico che si è messo fuori gioco da solo. Perché una prova, in mano a Betül, per qualche settimana è esistita davvero.</p>
 <p>Şermin non ha mai tenuto un segreto per il gusto di tenerlo. Di quella famiglia ha soltanto il cognome, e ogni volta che le è passata per le mani un&#x27;informazione pesante l&#x27;ha spesa per guadagnare qualche centimetro dentro la villa. La differenza è che stavolta ha anche una figlia da proteggere, e quei due istinti la tireranno in direzioni opposte.</p>
-<h2>Quante persone possono sapere una cosa prima che smetta di essere un segreto?</h2>
+<h2 id="c8">Quante persone possono sapere una cosa prima che smetta di essere un segreto?</h2>
 <p>Questo è il vero conto da tenere. All&#x27;inizio della vicenda lo sapevano Vahap e Betül. Alla fine lo sanno Vahap, Betül, Şermin, gli uomini che hanno gestito il rapimento e l&#x27;impiegato che ha accompagnato Betül all&#x27;ufficio postale.</p>
 <p>Nessuno di loro parlerà nell&#x27;immediato, perché ciascuno ha una buona ragione per tacere. Ma un segreto tenuto in piedi dalla paura non è protetto: è soltanto rinviato, e il numero di persone che possono farlo saltare cresce a ogni operazione fatta per proteggerlo.</p>
-<h2>Il fronte che nessuno guarda: perché Betül non andrà dalla polizia</h2>
+<h2 id="c9">Il fronte che nessuno guarda: perché Betül non andrà dalla polizia</h2>
 <p>Sulla carta Betül ha subito un sequestro di persona con minaccia di morte, e avrebbe una denuncia in mano. Nella pratica non la farà mai.</p>
 <p>Per denunciare dovrebbe raccontare da dove è partito tutto, e da dove è partito tutto è un&#x27;estorsione da cinque milioni di lire firmata da lei. Ha una prova di quello che ha subito e non può usarla senza consegnare la prova di quello che ha fatto.</p>
 <p>È il meccanismo che rende Hakan così difficile da fermare in questa fase: non compra il silenzio delle persone, le mette in una posizione in cui il silenzio conviene a loro più che a lui.</p>
-<h2>Perché conta: quello che Hakan difende non è più un nome</h2>
+<h2 id="c10">Perché conta: quello che Hakan difende non è più un nome</h2>
 <p>Prima di questa vicenda la copertura di Mehmet Kara era un&#x27;identità, cioè una cosa che o regge o non regge. Dopo, è diventata un calendario.</p>
 <p>Perché il segreto è uscito in pubblico almeno una volta, e non è stato smentito: è stato soltanto reso poco credibile. Da adesso Hakan non deve più impedire che qualcuno scopra chi è — quel danno è già avvenuto — deve gestire il tempo che passa tra una scoperta e l&#x27;altra, sperando che nessuna delle persone che sanno incontri qualcuna delle altre.</p>
 <p>Ed è qui che il rapimento di Betül si rivela una mossa a doppio taglio. Ha recuperato la prova e ha spaventato chi lo minacciava, ma per farlo ha dovuto muovere uomini, coinvolgere Vahap e lasciare dietro di sé una donna che sa e una madre che sa. Ogni volta che difende la propria copertura, Hakan la consuma un po&#x27; di più.</p>
-<h2>Dove vedere Terra Amara</h2>
+<h2 id="c11">Dove vedere Terra Amara</h2>
 <p>Terra Amara si è conclusa in Italia dopo la messa in onda su Canale 5, e tutte le puntate sono disponibili in streaming su Mediaset Infinity, dove si può seguire l&#x27;intera vicenda di Mehmet Kara dall&#x27;inizio.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=OsF6H6VufLc" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/OsF6H6VufLc/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: Dopo la tragedia di Müjgan, cosa può succedere adesso 👀</span></a></li><li><a href="https://www.youtube.com/watch?v=PDYOO8jmGFY" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/PDYOO8jmGFY/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: Hakan si vendica di Betül — il ricatto che si ritorce contro</span></a></li><li><a href="https://www.youtube.com/watch?v=5E7aVSLQ5rw" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/5E7aVSLQ5rw/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: La mia reazione a caldo al rapimento di Betul 😱</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Secondo voi Betül tornerà a sfidare Hakan, e con quale carta? E quanto pensate che manchi prima che Züleyha metta insieme i pezzi da sola?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=qLPo8vqpcnI">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Terra Amara</h2><div class="griglia"><article class="scheda">
+  <a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/"><div class="foto"><img src="https://i.ytimg.com/vi/iU1luV0XVfo/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></h3>
+    <div class="quando">4 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/"><div class="foto"><img src="https://i.ytimg.com/vi/N5vkqLP9oFA/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/"><div class="foto"><img src="https://i.ytimg.com/vi/5E7aVSLQ5rw/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan — https://soapoperaitalia.com/terra-amara/terra-amara-betul-ricatta-mehmet-e-scopre-chi-e-davvero-hakan-gumusoglu/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/terra-amara/terra-amara-betul-ricatta-mehmet-e-scopre-chi-e-davvero-hakan-gumusoglu/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/terra-amara/terra-amara-betul-ricatta-mehmet-e-scopre-chi-e-davvero-hakan-gumusoglu/&text=Terra Amara: dopo il rapimento di Betül, i conti che restano aperti con Hakan" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">TERRA AMARA: Dopo il rapimento, cosa può succedere adesso a Betül e Hakan</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=qLPo8vqpcnI">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Terra Amara</h3><ol class="numerata"><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></li><li><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></li><li><a href="/terra-amara/terra-amara-prima-e-dopo-il-rapimento-cosi-cambiano-tutti-i-rapporti/">Terra Amara: Prima e dopo il rapimento — così cambiano tutti i rapporti</a></li><li><a href="/terra-amara/terra-amara-avevi-previsto-come-sarebbe-finito-il-ricatto-di-betul-mettiti-alla-prova/">Terra Amara: Avevi previsto come sarebbe finito il ricatto di Betul? Mettiti alla prova</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>TERRA AMARA: Dopo il rapimento, cosa può succedere adesso a Betül e Hakan</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Terra Amara</h3><ul><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></li><li><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></li><li><a href="/terra-amara/terra-amara-prima-e-dopo-il-rapimento-cosi-cambiano-tutti-i-rapporti/">Terra Amara: Prima e dopo il rapimento — così cambiano tutti i rapporti</a></li><li><a href="/terra-amara/terra-amara-avevi-previsto-come-sarebbe-finito-il-ricatto-di-betul-mettiti-alla-prova/">Terra Amara: Avevi previsto come sarebbe finito il ricatto di Betul? Mettiti alla prova</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

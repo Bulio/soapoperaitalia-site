@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/my-home-my-destiny/">My Home My Destiny</a> › MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/my-home-my-destiny/">My Home My Destiny</a>
   <h1>MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza</h1>
-  <div class="firma">Redazione Soap Opera Italia · lunedì 31 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-31">lunedì 31 agosto 2026</time></span><span>aggiornato il 3 settembre 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Il matrimonio a sorpresa tra Sultan e Ali Riza non è nato dal nulla. Cinque indizi, sparsi tra le puntate, raccontavano già che tra i due stava succedendo qualcosa di speciale, molto prima della proposta ufficiale. Oggi li ripercorriamo uno per uno. Restate fino alla fine per l&#x27;indizio più dolce di tutti, quello legato al ristorante di famiglia.</p><ol><li><a href="#c1">Perche&#x27; Ali Riza e&#x27; tornato vicino a Sultan</a></li><li><a href="#c2">Come Baris osservava Ali Riza e Sultan</a></li><li><a href="#c3">Come sono cresciuti i sentimenti passo dopo passo</a></li><li><a href="#c4">Chi ha fatto da testimone e da complice</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>My Home My Destiny</strong> — Serie conclusa in Italia · le puntate su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Il matrimonio a sorpresa tra Sultan e Ali Riza non è nato dal nulla. Cinque indizi, sparsi tra le puntate, raccontavano già che tra i due stava succedendo qualcosa di speciale, molto prima della proposta ufficiale. Oggi li ripercorriamo uno per uno. Restate fino alla fine per l&#x27;indizio più dolce di tutti, quello legato al ristorante di famiglia.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/R15uKdwn_Ps/maxresdefault.jpg" alt="MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/R15uKdwn_Ps/hqdefault.jpg 480w, https://i.ytimg.com/vi/R15uKdwn_Ps/sddefault.jpg 640w, https://i.ytimg.com/vi/R15uKdwn_Ps/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/R15uKdwn_Ps/hqdefault.jpg&quot;, &quot;/fallback/my-home-my-destiny.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -359,7 +409,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </div>
   <div class="corpo">
   <p><strong>Il matrimonio a sorpresa tra Sultan e Ali Riza non è nato dal nulla. Cinque indizi, sparsi tra le puntate, raccontavano già che tra i due stava succedendo qualcosa di speciale, molto prima della proposta ufficiale.</strong></p>
-  <h2>Perche&#x27; Ali Riza e&#x27; tornato vicino a Sultan</h2>
+  <h2 id="c1">Perche&#x27; Ali Riza e&#x27; tornato vicino a Sultan</h2>
 <p>Primo indizio: il legame di Ali Riza con la famiglia di Baris fin dall&#x27;infanzia. Un uomo che torna a Istanbul non per caso, ma per essere di nuovo un punto fermo per i suoi nipoti, si trova inevitabilmente sempre più vicino a chi si prende cura di quella stessa famiglia ogni giorno: Sultan.</p>
 <p>Secondo indizio: la dedizione di Sultan verso Savas nei momenti di sofferenza. Il modo in cui lei si prende cura di lui, cercando di alleviare le sue difficoltà, non passa inosservato agli occhi di Ali Riza, che comincia a notare quanto sia straordinaria questa donna ben prima di ammetterlo a se stesso.</p>
 <p>Terzo indizio: l&#x27;emergenza di Katy, la governante, che li costringe a collaborare fianco a fianco per aiutare la famiglia. Un episodio che, visto con attenzione, era già un segnale chiaro: quando due persone affrontano insieme un momento di difficoltà, il legame che nasce raramente resta solo amicizia.</p>
@@ -367,17 +417,17 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Quinto e ultimo indizio, forse il più dolce: il sogno condiviso di un ristorante. Il fatto che Sultan, insieme a Nermin e Sacchine, realizzi il sogno di un locale tutto loro, e che proprio quel luogo diventi la cornice del matrimonio con Ali Riza, racconta quanto le loro vite si fossero già intrecciate su più livelli: professionale, familiare, e infine sentimentale.</p>
 <p>Messi insieme, questi cinque indizi disegnano un quadro chiaro: un amore che cresce lentamente, fatto di gesti quotidiani, complicità e sostegno reciproco, prima ancora di trasformarsi in una dichiarazione ufficiale davanti a tutta la famiglia.</p>
-<h2>Come Baris osservava Ali Riza e Sultan</h2>
+<h2 id="c2">Come Baris osservava Ali Riza e Sultan</h2>
 <p>C&#x27;è anche un sesto indizio, meno evidente ma altrettanto significativo: il modo in cui Baris, fin dalle prime scene che vedono Ali Riza e Sultan interagire, sembra osservare con un mezzo sorriso quello che sta accadendo tra i due, quasi intuendo prima di chiunque altro dove sarebbe andata a finire questa storia. Non è un caso che sia proprio lui, alla fine, a essere scelto come testimone al matrimonio dello zio: un ruolo che sembra il naturale coronamento di un&#x27;intuizione coltivata silenziosamente fin dall&#x27;inizio.</p>
 <p>Settimo indizio: la naturalezza con cui Ali Riza si è inserito nella routine quotidiana della cucina di Sultan, un ambiente che in molte culture rappresenta il cuore pulsante della vita familiare. Non ha mai trattato quello spazio come estraneo, ma anzi ha iniziato a frequentarlo con una familiarità crescente, un dettaglio che, guardato con attenzione, raccontava già quanto si sentisse a proprio agio nella vita quotidiana che Sultan aveva costruito.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Ottavo e ultimo indizio, quello più emotivo: la delicatezza con cui Ali Riza ha sempre parlato del passato di Sultan, senza mai spingere, senza mai forzare confidenze che lei non fosse pronta a condividere. Questo rispetto per i tempi altrui, raro in molte storie d&#x27;amore raccontate in fretta, è probabilmente il segnale più forte che quello che stava nascendo tra loro fosse costruito su basi solide, capaci di reggere anche un matrimonio deciso e organizzato in tempi record come quello finale.</p>
-<h2>Come sono cresciuti i sentimenti passo dopo passo</h2>
+<h2 id="c3">Come sono cresciuti i sentimenti passo dopo passo</h2>
 <p>Proviamo ora a rileggere questi otto indizi non singolarmente, ma come un unico disegno complessivo. Quello che emerge è una progressione quasi perfetta: prima la vicinanza fisica dettata dalla convivenza familiare, poi la condivisione di responsabilità pratiche durante l&#x27;emergenza di Katy, poi l&#x27;ingresso di Ali Riza nella quotidianità domestica attraverso i pasti preparati da Sultan, e infine la costruzione lenta di una fiducia reciproca capace di reggere anche argomenti delicati come il passato di ciascuno. È una struttura che ricorda da vicino il modo in cui, nella vita reale, nascono spesso gli amori più duraturi: non con un colpo di fulmine improvviso, ma con un avvicinamento gomito a gomito, fatto di piccoli passi quotidiani.</p>
 <p>Vale la pena anche notare come nessuno di questi indizi, preso singolarmente, avrebbe potuto far prevedere con certezza un epilogo così romantico come quello del matrimonio a sorpresa. È solo la somma di tutti questi dettagli, osservati con la giusta attenzione, a disegnare il quadro completo. Ed è proprio questa caratteristica, la capacità di nascondere una storia d&#x27;amore intera dentro una serie di gesti quotidiani apparentemente slegati tra loro, a rendere la scrittura di My Home My Destiny particolarmente elegante in questo specifico arco narrativo, ben diversa dai colpi di scena più plateali che caratterizzano altre trame della stessa soap.</p>
 <p>Un sesto indizio, spesso sottovalutato: il modo in cui Sultan iniziò a dedicare più cura del solito alla propria immagine nelle settimane precedenti alla proposta, piccoli dettagli che i fan più attenti avevano notato nei commenti online molto prima che la storia diventasse ufficiale.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Chi ha fatto da testimone e da complice</h2>
+<h2 id="c4">Chi ha fatto da testimone e da complice</h2>
 <p>Un settimo indizio riguarda invece Baris, complice silenzioso di questa storia d&#x27;amore ben prima che venisse organizzata la sorpresa del matrimonio civile. La sua disponibilità a fare da testimone, la naturalezza con cui ha accolto l&#x27;idea di uno zio innamorato di Sultan, suggeriva già un&#x27;approvazione familiare che si era costruita nel tempo, lontano dai riflettori delle scene principali.</p>
 <p>E un ottavo indizio, forse il più dolce di tutti: i piccoli gesti quotidiani di attenzione reciproca tra Sultan e Ali Riza durante l&#x27;emergenza della governante Katy, quando i due si sono trovati a collaborare fianco a fianco per la prima volta in una situazione di reale difficoltà, gettando le basi silenziose di una fiducia che sarebbe sbocciata in amore solo qualche tempo dopo.</p>
 <p>Un nono indizio, forse il più tenero di tutti: la premura con cui Ali Riza iniziò a interessarsi ai piccoli dettagli della vita quotidiana di Sultan, dai suoi piatti preferiti alle sue abitudini più semplici, un tipo di attenzione che va ben oltre la semplice cortesia tra conoscenti e che tradiva già un interesse più profondo.</p>
@@ -388,19 +438,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=JvnRVhF2EhA" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/JvnRVhF2EhA/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>MY HOME MY DESTINY: Le teorie dei fan su Sultan e Ali Riza contro quello che è successo davvero</span></a></li><li><a href="https://www.youtube.com/watch?v=ztnbn8zDR_o" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/ztnbn8zDR_o/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>MY HOME MY DESTINY: Avevi previsto il matrimonio a sorpresa di Sultan? Mettiti alla prova 🤔</span></a></li><li><a href="https://www.youtube.com/watch?v=ng_xn-RJBug" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/ng_xn-RJBug/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>MY HOME MY DESTINY: La storia d&#x27;amore di Sultan e Ali Riza ricostruita passo dopo passo 😱</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Quale di questi cinque indizi vi aveva insospettito di più mentre guardavate le puntate? E vi aspettavate che il loro matrimonio si celebrasse proprio nel ristorante che avevano contribuito a realizzare insieme?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=R15uKdwn_Ps">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di My Home My Destiny</h2><div class="griglia"><article class="scheda">
+  <a href="/my-home-my-destiny/my-home-my-destiny-la-mia-reazione-a-caldo-al-matrimonio-di-sultan-e-ali-riza/"><div class="foto"><img src="https://i.ytimg.com/vi/xBUOj4tAXAc/hqdefault.jpg" alt="My Home My Destiny" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/my-home-my-destiny.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">My Home My Destiny</span>
+    <h3><a href="/my-home-my-destiny/my-home-my-destiny-la-mia-reazione-a-caldo-al-matrimonio-di-sultan-e-ali-riza/">MY Home MY Destiny: La mia reazione a caldo al matrimonio di Sultan e Ali Riza</a></h3>
+    <div class="quando">1 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/"><div class="foto"><img src="https://i.ytimg.com/vi/ng_xn-RJBug/hqdefault.jpg" alt="My Home My Destiny" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/my-home-my-destiny.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">My Home My Destiny</span>
+    <h3><a href="/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/">MY Home MY Destiny: La storia d&#x27;amore di Sultan e Ali Riza ricostruita passo dopo passo</a></h3>
+    <div class="quando">1 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/my-home-my-destiny/my-home-my-destiny-le-teorie-dei-fan-su-sultan-e-ali-riza-contro-quello-che-e-successo-dav/"><div class="foto"><img src="https://i.ytimg.com/vi/JvnRVhF2EhA/hqdefault.jpg" alt="My Home My Destiny" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/my-home-my-destiny.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">My Home My Destiny</span>
+    <h3><a href="/my-home-my-destiny/my-home-my-destiny-le-teorie-dei-fan-su-sultan-e-ali-riza-contro-quello-che-e-successo-dav/">MY Home MY Destiny: Le teorie dei fan su Sultan e Ali Riza contro quello che è successo davvero</a></h3>
+    <div class="quando">1 settembre 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza — https://soapoperaitalia.com/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/&text=MY Home MY Destiny: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">MY HOME MY DESTINY: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza 🤔</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=R15uKdwn_Ps">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di My Home My Destiny</h3><ol class="numerata"><li><a href="/my-home-my-destiny/my-home-my-destiny-la-mia-reazione-a-caldo-al-matrimonio-di-sultan-e-ali-riza/">MY Home MY Destiny: La mia reazione a caldo al matrimonio di Sultan e Ali Riza</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/">MY Home MY Destiny: La storia d&#x27;amore di Sultan e Ali Riza ricostruita passo dopo passo</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-le-teorie-dei-fan-su-sultan-e-ali-riza-contro-quello-che-e-successo-dav/">MY Home MY Destiny: Le teorie dei fan su Sultan e Ali Riza contro quello che è successo davvero</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-prima-e-dopo-il-matrimonio-cosi-cambiano-i-rapporti-nella-famiglia/">MY Home MY Destiny: Prima e dopo il matrimonio — così cambiano i rapporti nella famiglia</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-avevi-previsto-il-matrimonio-a-sorpresa-di-sultan-mettiti-alla-prova/">MY Home MY Destiny: Avevi previsto il matrimonio a sorpresa di Sultan? Mettiti alla prova</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>MY HOME MY DESTINY: 5 indizi che avevano già svelato l&#x27;amore tra Sultan e Ali Riza 🤔</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su My Home My Destiny</h3><ul><li><a href="/my-home-my-destiny/my-home-my-destiny-la-mia-reazione-a-caldo-al-matrimonio-di-sultan-e-ali-riza/">MY Home MY Destiny: La mia reazione a caldo al matrimonio di Sultan e Ali Riza</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-la-storia-damore-di-sultan-e-ali-riza-ricostruita-passo-dopo-passo/">MY Home MY Destiny: La storia d&#x27;amore di Sultan e Ali Riza ricostruita passo dopo passo</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-le-teorie-dei-fan-su-sultan-e-ali-riza-contro-quello-che-e-successo-dav/">MY Home MY Destiny: Le teorie dei fan su Sultan e Ali Riza contro quello che è successo davvero</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-prima-e-dopo-il-matrimonio-cosi-cambiano-i-rapporti-nella-famiglia/">MY Home MY Destiny: Prima e dopo il matrimonio — così cambiano i rapporti nella famiglia</a></li><li><a href="/my-home-my-destiny/my-home-my-destiny-avevi-previsto-il-matrimonio-a-sorpresa-di-sultan-mettiti-alla-prova/">MY Home MY Destiny: Avevi previsto il matrimonio a sorpresa di Sultan? Mettiti alla prova</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

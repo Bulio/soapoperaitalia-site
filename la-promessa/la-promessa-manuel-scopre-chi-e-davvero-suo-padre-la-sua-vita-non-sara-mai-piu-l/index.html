@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/la-promessa/">La Promessa</a> › La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/la-promessa/">La Promessa</a>
   <h1>La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa</h1>
-  <div class="firma">Redazione Soap Opera Italia · domenica 2 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-02">domenica 2 agosto 2026</time></span><span>aggiornato il 3 settembre 2026</span><span>6 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Immaginate di scoprire, da un giorno all&#x27;altro, che l&#x27;uomo che avete sempre chiamato padre non lo è mai stato davvero. È quello che sta per succedere a Manuel, il signorino che tutti alla tenuta credevano figlio del marchese Don Alonso. Dalla Spagna.</p><ol><li><a href="#c1">Chi è il vero padre di Manuel</a></li><li><a href="#c2">Cosa cambia tra Manuel e sua madre Cruz</a></li><li><a href="#c3">Perché Manuel rischia di perdere il posto nella tenuta</a></li><li><a href="#c4">Perché Jana guadagna quello che Manuel perde</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>La Promessa</strong> — Rete 4 · in streaming su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Immaginate di scoprire, da un giorno all&#x27;altro, che l&#x27;uomo che avete sempre chiamato padre non lo è mai stato davvero. È quello che sta per succedere a Manuel, il signorino che tutti alla tenuta credevano figlio del marchese Don Alonso. Dalla Spagna.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/tF5nNxdq4gI/maxresdefault.jpg" alt="La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/tF5nNxdq4gI/hqdefault.jpg 480w, https://i.ytimg.com/vi/tF5nNxdq4gI/sddefault.jpg 640w, https://i.ytimg.com/vi/tF5nNxdq4gI/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/tF5nNxdq4gI/hqdefault.jpg&quot;, &quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -360,7 +410,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Immaginate di scoprire, da un giorno all&#x27;altro, che l&#x27;uomo che avete sempre chiamato padre non lo è mai stato davvero. È quello che sta per succedere a Manuel, il signorino che tutti alla tenuta credevano figlio del marchese Don Alonso. Dalla Spagna arriva una notizia che ribalta la sua intera identità: sua madre, donna Cruz, è stata infedele, e il vero padre di Manuel è un altro uomo, un capitano con cui ha avuto una relazione tenuta segreta per anni. Ma la parte più sconvolgente arriva subito dopo, quando questa scoperta si intreccia con un altro segreto della famiglia, quello che riguarda Jana.</strong></p>
   <p>E ora entriamo nel vivo.</p>
-<h2>Chi è il vero padre di Manuel</h2>
+<h2 id="c1">Chi è il vero padre di Manuel</h2>
 <p>Mettiamoci per un attimo nei panni di Manuel. È cresciuto convinto di essere il figlio del marchese, con tutto quello che questo comporta: un nome, un ruolo nella tenuta, un&#x27;eredità che sentiva sua di diritto. E ora, all&#x27;improvviso, tutto questo vacilla. Le informazioni che arrivano dalla Spagna sono chiare: donna Cruz è stata infedele al marchese, e Manuel non è figlio suo. Il vero padre è il capitano Lorenzo de la Mata, l&#x27;uomo con cui Cruz ha avuto una relazione segreta, ingannando per anni il marito e lasciando credere a tutti che quel bambino fosse il suo.</p>
 <p>Provate a pensare al peso di una notizia simile. Non è solo scoprire un segreto di famiglia: è ritrovarsi a dover ridefinire chi si è, da dove si viene, e soprattutto cosa si ha ancora diritto di rivendicare all&#x27;interno della tenuta. Manuel non perde solo un padre sulla carta, rischia di perdere tutto quello che quella paternità gli garantiva.</p>
 <p>Ma c&#x27;è un motivo preciso per cui questa storia viene raccontata proprio ora, ed è legato a un&#x27;altra persona: Jana. Perché se Manuel fosse rimasto, sulla carta, figlio del marchese, la sua storia d&#x27;amore con Jana sarebbe stata un incesto, dato che nel frattempo emerge un&#x27;altra rivelazione enorme: il vero padre di Jana è proprio Don Alonso, lo stesso marchese. Jana e il fratello Curro sono figli di Alonso e di Dolores, la donzella con cui il marchese ha avuto una relazione molto prima di sposarsi.</p>
@@ -368,33 +418,55 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Ed è qui che il destino di Manuel si intreccia di nuovo, in modo quasi paradossale, con quello di Jana. La scoperta che lo priva di un padre è, allo stesso tempo, quella che salva la sua storia d&#x27;amore. Perché se non è figlio di Alonso, non è fratello di Jana, e i due possono continuare ad amarsi senza il peso di un legame di sangue che li avrebbe dovuti separare per sempre.</p>
 <p>Pensate alla contraddizione emotiva che Manuel si trova a vivere in queste ore: da una parte perde l&#x27;identità che credeva sua, la certezza di un nome e di un&#x27;eredità; dall&#x27;altra, proprio grazie a questa perdita, può continuare a stare accanto alla donna che ama senza ostacoli morali insormontabili. È il tipo di colpo di scena che solo una soap sa costruire così bene: una notizia devastante che, vista da un&#x27;altra angolazione, diventa una liberazione.</p>
 <p>E la domanda che resta aperta è cosa farà Manuel con questa nuova consapevolezza. Cercherà di scoprire di più sul capitano Lorenzo, il suo vero padre? Proverà a mantenere comunque il suo posto nella tenuta, nonostante tutto sia cambiato? O sarà proprio Jana, che nel frattempo sta affrontando la sua stessa rivoluzione familiare, la persona che lo aiuterà a ricostruire chi è, ora che il terreno sotto i suoi piedi si è spostato così bruscamente?</p>
-<h2>Cosa cambia tra Manuel e sua madre Cruz</h2>
+<h2 id="c2">Cosa cambia tra Manuel e sua madre Cruz</h2>
 <p>C&#x27;è un aspetto di questa vicenda che merita di essere approfondito, ed è il rapporto tra Manuel e sua madre, donna Cruz. Fino a ieri Manuel la vedeva come una figura solida, integra, la donna che lo aveva cresciuto al fianco del marchese con dedizione e discrezione. Ora deve fare i conti con l&#x27;idea che quella stessa donna gli abbia mentito per tutta la vita, che abbia costruito un&#x27;intera esistenza familiare su un inganno protratto per anni. Non è un dettaglio da poco: la fiducia che un figlio ripone nella propria madre è tra le più difficili da rimettere in discussione, ed è probabile che questa scoperta lasci in Manuel una ferita più profonda di quella legata alla semplice questione dell&#x27;eredità.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Proviamo anche a immaginare il capitano Lorenzo de la Mata dal punto di vista di Manuel. Un uomo che fino a questo momento era, nella migliore delle ipotesi, un nome sentito di sfuggita, forse nemmeno quello. Scoprire di avere un padre biologico completamente estraneo alla propria vita apre uno scenario carico di domande pratiche e emotive allo stesso tempo: chi è quest&#x27;uomo? Sa di avere un figlio? E se lo sa, perché non si è mai fatto vivo? Sono le stesse domande che, in altre storie simili, hanno portato a incontri carichi di tensione, di rabbia trattenuta, ma anche, a volte, di una strana e inaspettata complicità.</p>
-<h2>Perché Manuel rischia di perdere il posto nella tenuta</h2>
+<h2 id="c3">Perché Manuel rischia di perdere il posto nella tenuta</h2>
 <p>C&#x27;è poi il tema, altrettanto delicato, di cosa significhi per Manuel restare nella tenuta ora che il suo legame di sangue con la famiglia Luján non esiste più. Fino a oggi il suo posto lì era garantito dal nome del marchese. Se quella garanzia cade, cade anche la sicurezza di un futuro già scritto, fatto di titoli, responsabilità e aspettative. Manuel si trova quindi a dover scegliere se restare per amore di Jana, rischiando di essere visto come un ospite più che come un membro della famiglia, oppure se cercare altrove una nuova identità, lontano da un luogo che, di colpo, sente meno suo di quanto avesse sempre creduto.</p>
 <p>E non va sottovalutato il modo in cui questa rivelazione arriva a Manuel: non attraverso una confessione diretta e affettuosa, ma attraverso informazioni che arrivano dalla Spagna, quasi filtrate, come una notizia di cronaca più che come un segreto di famiglia condiviso con amore. Questo dettaglio racconta molto sulla dinamica interna di questa famiglia, dove le verità più importanti non vengono mai dette apertamente, ma emergono sempre da fuori, da lettere, da indagini, da terzi che sanno prima degli interessati stessi.</p>
 <p>Pensiamo anche a come cambierà, da qui in avanti, la posizione di Manuel agli occhi degli altri personaggi della tenuta. Fino a ieri era il signorino, trattato con tutti i riguardi dovuti al presunto figlio del marchese. Da oggi, chiunque venga a conoscenza della verità potrebbe iniziare a guardarlo diversamente, magari con un misto di pietà e distacco che lui stesso non avrà scelto e che dovrà comunque imparare a gestire. È uno degli aspetti più duri di rivelazioni come questa: non riguardano solo l&#x27;interiorità del personaggio coinvolto, ma anche il modo in cui l&#x27;intero ambiente sociale intorno a lui si riorganizza attorno alla nuova verità.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Perché Jana guadagna quello che Manuel perde</h2>
+<h2 id="c4">Perché Jana guadagna quello che Manuel perde</h2>
 <p>C&#x27;è poi da considerare il parallelo, quasi speculare, tra il percorso di Manuel e quello di Jana. Entrambi scoprono, nello stesso momento della trama, di non essere chi pensavano di essere. Ma mentre per Jana la scoperta porta con sé un&#x27;eredità e un riconoscimento sociale che prima non aveva, per Manuel accade l&#x27;esatto contrario: perde un&#x27;eredità e un riconoscimento che dava per scontati. È un gioco di specchi che la sceneggiatura costruisce con precisione, e che rende ancora più forte il legame narrativo tra i due personaggi, al di là della loro storia d&#x27;amore.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=roNqOujET5M" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/roNqOujET5M/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Le teorie dei fan sul padre di Jana contro quello che è successo davvero (Angolo </span></a></li><li><a href="https://www.youtube.com/watch?v=y9qMHskHiiM" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/y9qMHskHiiM/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Avevi capito chi era davvero il padre di Jana? Mettiti alla prova (Angolo 4: quiz</span></a></li><li><a href="https://www.youtube.com/watch?v=fIjVU68t1_o" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/fIjVU68t1_o/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Dopo la rivelazione sul padre di Jana, cosa può succedere adesso (Angolo 10: cons</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>E voi, come pensate che reagirà Manuel quando dovrà guardare in faccia il marchese sapendo che non è più suo padre? E soprattutto: pensate che questa scoperta lo avvicinerà ancora di più a Jana, ora che condividono entrambi un segreto di famiglia così enorme, oppure lo allontanerà, spingendolo a cercare risposte lontano dalla tenuta?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=tF5nNxdq4gI">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di La Promessa</h2><div class="griglia"><article class="scheda">
+  <a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/OYyHpOcfSKU/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/"><div class="foto"><img src="https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa — https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/&text=La Promessa, Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">LA PROMESSA — Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa (Angolo 2: punto di vista di un personaggio secondario)</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=tF5nNxdq4gI">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di La Promessa</h3><ol class="numerata"><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>LA PROMESSA — Manuel scopre chi è davvero suo padre: la sua vita non sarà mai più la stessa (Angolo 2: punto di vista di un personaggio secondario)</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su La Promessa</h3><ul><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

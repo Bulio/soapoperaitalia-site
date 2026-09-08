@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a> › Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/il-paradiso-delle-signore/">Il Paradiso delle Signore</a>
   <h1>Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026</h1>
-  <div class="firma">Redazione Soap Opera Italia · giovedì 13 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-13">giovedì 13 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>8 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Anticipazioni e trame delle puntate di Il Paradiso delle Signore da lunedì 17 a venerdì 21 agosto 2026.</p><ol><li><a href="#c1">Dalla notizia che più farà discutere i fan storici</a></li><li><a href="#c2">Non è finita qui, perché mentre Irene e Tancredi</a></li><li><a href="#c3">Un capitolo a parte merita Odile, che secondo le</a></li><li><a href="#c4">Mettendo insieme tutti questi elementi, quello che emerge è</a></li><li><a href="#c5">Anche il tema della memoria collettiva della soap gioca</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Il Paradiso delle Signore</strong> — Rai 1, dal lunedì al venerdì · in streaming su RaiPlay</span></div>
   
-  <p class="occhiello">Anticipazioni e trame delle puntate di Il Paradiso delle Signore da lunedì 17 a venerdì 21 agosto 2026.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -357,43 +407,65 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </div>
   <div class="corpo">
   <p><strong>Mentre tutti parlano della morte di Rosa Camilli e del ritorno shock di Riccardo Guarnieri, c&#x27;è una notizia che sta passando quasi in secondo piano, ma che in realtà cambierà il volto del grande magazzino più amato della televisione italiana molto più di quanto immaginate: due addii pesantissimi, un ritorno inatteso al bancone delle vendite, e un gruppo di volti nuovi pronti a stravolgere gli equilibri della stagione 11. Se pensavate che le sorprese fossero finite con il lutto della prima puntata, preparatevi, perché quello che sta per succedere al Paradiso riscriverà completamente le carte in tavola.</strong></p>
-  <h2>Dalla notizia che più farà discutere i fan storici</h2>
+  <h2 id="c1">Dalla notizia che più farà discutere i fan storici</h2>
 <p>Partiamo dalla notizia che più farà discutere i fan storici della soap: due personaggi che negli ultimi anni erano diventati parte integrante della quotidianità del grande magazzino, Irene e Tancredi, lasciano la scena. Non si tratta di un semplice passaggio secondario, di quelli che si risolvono con una battuta e una valigia in mano: per molti spettatori, questi due personaggi rappresentavano ormai un punto fermo della narrazione, un porto sicuro in mezzo a intrighi, tradimenti e colpi di scena continui. La loro uscita di scena apre inevitabilmente un vuoto narrativo che gli autori dovranno colmare con nuove dinamiche, nuove alleanze e probabilmente nuovi triangoli sentimentali per riempire lo spazio lasciato libero.</p>
 <p>E qui arriva il primo grande interrogativo per i fan: perché proprio ora? Un addio di questa portata, concentrato nella stessa stagione che si apre con la morte di Rosa Camilli, sembra rispondere a una scelta editoriale precisa, quella di rinnovare profondamente il cuore del racconto proprio mentre l&#x27;attenzione del pubblico è già altissima per il lutto della prima puntata. È una mossa rischiosa ma calcolata: eliminare più elementi consolidati nello stesso momento, per poi ricostruire tutto attorno a dinamiche completamente fresche, capaci di sorprendere anche chi segue la soap da anni e crede ormai di poter prevedere ogni mossa degli sceneggiatori.</p>
 <p>Vale la pena soffermarsi ancora un momento su cosa hanno rappresentato questi due personaggi per la storia recente della soap. Irene, in particolare, è stata per molte stagioni un punto di riferimento emotivo per diverse trame corali, un personaggio capace di restare al centro delle vicende senza mai diventare eccessivamente ingombrante, bilanciando momenti leggeri e altri più drammatici con naturalezza. Tancredi, dal canto suo, ha spesso rappresentato il contraltare più riflessivo rispetto agli intrighi più accesi del Circolo e della Galleria, un personaggio che il pubblico aveva imparato ad apprezzare proprio per la sua capacità di restare fuori dai giochi di potere più spregiudicati. Perderli entrambi nello stesso momento significa privare la narrazione di due prospettive molto diverse tra loro, e chi scrive le sceneggiature dovrà necessariamente trovare nuovi personaggi capaci di occupare, almeno in parte, quello spazio emotivo lasciato vuoto.</p>
-<h2>Non è finita qui, perché mentre Irene e Tancredi</h2>
+<h2 id="c2">Non è finita qui, perché mentre Irene e Tancredi</h2>
 <p>Ma non è finita qui, perché mentre Irene e Tancredi escono di scena, la stagione 11 riserva anche un ritorno che nessuno si aspettava: Marta, storica figura del grande magazzino, rimette piede al Paradiso, e con lei arriva anche Elisa nel ruolo di nuova capocommessa. Un doppio movimento che riequilibria improvvisamente i rapporti di forza tra il piano vendita e la direzione, con conseguenze dirette su chi, fino a ieri, si sentiva ormai al sicuro nella propria posizione. Chi ha lavorato per anni per scalare la gerarchia del Paradiso potrebbe ritrovarsi improvvisamente a fare i conti con superiori diretti che non si aspettava di rivedere, o con nuovi arrivi pronti a mettere in discussione equilibri consolidati.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>E a proposito di nuovi arrivi, la stagione 11 introduce anche Valter e un gruppo di nuove Veneri, pronte a portare freschezza al piano vendita ma anche, inevitabilmente, nuove tensioni. In una soap che ha sempre costruito gran parte del proprio fascino sulle dinamiche tra le commesse, sui piccoli favoritismi, sulle amicizie messe alla prova dalla competizione professionale, l&#x27;arrivo di volti nuovi significa quasi sempre l&#x27;inizio di nuove rivalità, nuove complicità inaspettate, e probabilmente anche i primi flirt della stagione, capaci di tenere incollato il pubblico nelle settimane in cui i grandi drammi familiari rallentano leggermente il ritmo.</p>
 <p>Non mancano poi gli sviluppi sul fronte sentimentale più ampio, con matrimoni e nuove tappe di coppia attese all&#x27;interno del Circolo, l&#x27;ambiente che da sempre rappresenta il contraltare elegante e aristocratico rispetto alla frizzante quotidianità del piano vendita. Chi segue la soap sa bene quanto gli eventi mondani del Circolo siano spesso il terreno perfetto per far esplodere tensioni rimaste sopite, con invitati che nascondono secondi fini dietro un sorriso di circostanza e brindisi che mascherano rancori mai sopiti.</p>
-<h2>Un capitolo a parte merita Odile, che secondo le</h2>
+<h2 id="c3">Un capitolo a parte merita Odile, che secondo le</h2>
 <p>Un capitolo a parte merita Odile, che secondo le anticipazioni diventa protagonista assoluta di nuovi segreti destinati a intrecciarsi con le vicende principali della stagione. Dopo essere già stata al centro di dinamiche complesse nelle stagioni precedenti, Odile sembra pronta a giocare un ruolo ancora più centrale, portando alla luce informazioni che potrebbero avere ripercussioni dirette su più famiglie del grande magazzino contemporaneamente. Chi la conosce sa che raramente le sue mosse sono innocenti, e questa stagione non sembra fare eccezione.</p>
 <p>Infine, la Galleria Milano Moda si conferma teatro di nuove tensioni, con new entry pronte a inserirsi nelle dinamiche commerciali e personali già esistenti. In un contesto dove business e vita privata si intrecciano costantemente, ogni nuovo arrivo nella Galleria porta inevitabilmente conseguenze sia sul piano professionale, con nuovi equilibri di potere tra i grandi magazzini rivali, sia su quello personale, con relazioni che nascono, si complicano o si rompono proprio a causa di interessi economici contrastanti.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>C&#x27;è poi un aspetto che i fan più attenti stanno già notando confrontando questa stagione con i rinnovamenti avvenuti in passato: raramente il Paradiso ha concentrato così tanti cambiamenti strutturali in un&#x27;unica finestra temporale. Solitamente gli autori preferiscono diluire gli addii e i nuovi arrivi lungo l&#x27;arco di più stagioni, per non disorientare un pubblico abituato a determinati equilibri. Il fatto che stavolta si sia scelto di agire tutto insieme, addii pesanti, ritorni strategici e ondata di volti nuovi, suggerisce che dietro questa stagione 11 ci sia una visione autoriale molto più ambiziosa del solito, quasi un tentativo di ripartire da zero pur mantenendo il marchio riconoscibile della soap.</p>
-<h2>Mettendo insieme tutti questi elementi, quello che emerge è</h2>
+<h2 id="c4">Mettendo insieme tutti questi elementi, quello che emerge è</h2>
 <p>Mettendo insieme tutti questi elementi, quello che emerge è una stagione 11 pensata per essere un vero e proprio spartiacque nella storia della soap: da un lato il dolore e le conseguenze della morte di Rosa, dall&#x27;altro un rinnovamento quasi totale del contesto attorno ai protagonisti storici, con addii pesanti, ritorni strategici e un&#x27;ondata di volti nuovi pronta a ridefinire equilibri che sembravano ormai consolidati da anni. Non sorprende che gli autori abbiano scelto il 7 settembre su Rai 1 come data di partenza per questo nuovo capitolo: serve tempo, e serve un pubblico già emotivamente coinvolto, per assorbire un cambiamento di queste proporzioni senza perdere il filo delle troppe storie che si intrecciano.</p>
 <p>Resta da capire se questo massiccio rinnovamento del cast riuscirà a mantenere lo stesso equilibrio che ha reso il Paradiso delle Signore un appuntamento fisso per milioni di spettatori, o se invece l&#x27;uscita di due personaggi così amati rischierà di allontanare parte dello zoccolo duro di fan più affezionati alla vecchia formazione. Una cosa però è certa: con addii, ritorni e nuovi arrivi concentrati tutti nella stessa stagione, il Paradiso non è mai stato così pronto a sorprendere il proprio pubblico.</p>
 <p>Non va inoltre sottovalutato l&#x27;effetto che questi cambiamenti avranno sul pubblico più giovane della soap, quello che si è avvicinato al Paradiso proprio negli ultimi anni grazie ai social e ai contenuti brevi che circolano online. Per questi spettatori, personaggi come le nuove Veneri e Valter potrebbero diventare rapidamente i preferiti, semplicemente perché arrivano senza il peso di anni di storia pregressa e possono essere scoperti fin dall&#x27;inizio insieme al pubblico. Allo stesso tempo, gli spettatori storici, quelli che seguono la soap sin dalle prime stagioni, si troveranno a dover accettare che il Paradiso che conoscevano sta cambiando pelle sotto i loro occhi, un processo mai semplice per chi si è affezionato a determinati volti nel corso degli anni.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Anche il tema della memoria collettiva della soap gioca</h2>
+<h2 id="c5">Anche il tema della memoria collettiva della soap gioca</h2>
 <p>Anche il tema della memoria collettiva della soap gioca un ruolo importante in questo passaggio. Ogni volta che un personaggio storico lascia la scena, gli sceneggiatori si trovano davanti a un bivio: chiudere la sua storia con un vero e proprio arco conclusivo, magari con un ultimo momento di grande impatto emotivo, oppure lasciarla aperta, con un semplice trasferimento o un cambio di vita che lascia la porta socchiusa per un eventuale ritorno futuro. Il modo in cui verranno gestiti gli addii di Irene e Tancredi dirà molto sulle intenzioni degli autori per gli anni a venire, e i fan più attenti sapranno leggere tra le righe fin dalle prime puntate della stagione.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=2s6mHizXbXs" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/2s6mHizXbXs/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo 👀</span></a></li><li><a href="https://www.youtube.com/watch?v=VtbVAOn5wjw" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/VtbVAOn5wjw/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9 — La mia reazione a caldo a questo finale di stagione (Angolo 8: re</span></a></li><li><a href="https://www.youtube.com/watch?v=gnA7DWwLqY0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/gnA7DWwLqY0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>IL PARADISO DELLE SIGNORE 9 — Dietro il finale di stagione più intenso di sempre (Angolo 5: die</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>E voi cosa ne pensate? Vi dispiace per l&#x27;addio di Irene e Tancredi, o pensate che questo rinnovamento fosse ormai necessario per dare nuova linfa alla soap? E tra tutti i nuovi arrivi, da Valter alle nuove Veneri fino al ritorno di Marta ed Elisa, chi pensate lascerà il segno maggiore in questa stagione 11?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=Y-cUcGFxnAs">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Il Paradiso delle Signore</h2><div class="griglia"><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/"><div class="foto"><img src="https://i.ytimg.com/vi/2s6mHizXbXs/hqdefault.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></h3>
+    <div class="quando">2 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/"><div class="foto"><img src="/img/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p/"><div class="foto"><img src="/img/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p.jpg" alt="Il Paradiso delle Signore" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/il-paradiso-delle-signore.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Il Paradiso delle Signore</span>
+    <h3><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p/">Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026 — https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/il-paradiso-delle-signore/il-paradiso-delle-signore-anticipazioni-dal-17-al-21-agosto-2026/&text=Il Paradiso delle Signore, anticipazioni dal 17 al 21 agosto 2026" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">IL PARADISO DELLE SIGNORE 11 — Addio Irene e Tancredi: la rivoluzione nel cast che cambia tutto</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=Y-cUcGFxnAs">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Il Paradiso delle Signore</h3><ol class="numerata"><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p/">Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang/">Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dopo-questo-finale-cosa-puo-succedere-nella-decima-sta/">Il Paradiso delle Signore, dopo questo finale, cosa può succedere nella decima stagione</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>IL PARADISO DELLE SIGNORE 11 — Addio Irene e Tancredi: la rivoluzione nel cast che cambia tutto</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Il Paradiso delle Signore</h3><ul><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-9-cosa-succede-adesso-il-futuro-di-rosa-enrico-e-mimmo/">IL Paradiso Delle Signore 9: Cosa succede adesso — il futuro di Rosa, Enrico e Mimmo</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-5-indizi-che-avevano-gia-svelato-il-finale-scioccante/">Il Paradiso delle Signore, 5 indizi che avevano già svelato il finale scioccante</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-avevi-previsto-questo-finale-scioccante-mettiti-alla-p/">Il Paradiso delle Signore, avevi previsto questo finale scioccante? Mettiti alla prova</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dietro-il-finale-di-stagione-piu-intenso-di-sempre-ang/">Il Paradiso delle Signore, dietro il finale di stagione più intenso di sempre</a></li><li><a href="/il-paradiso-delle-signore/il-paradiso-delle-signore-dopo-questo-finale-cosa-puo-succedere-nella-decima-sta/">Il Paradiso delle Signore, dopo questo finale, cosa può succedere nella decima stagione</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

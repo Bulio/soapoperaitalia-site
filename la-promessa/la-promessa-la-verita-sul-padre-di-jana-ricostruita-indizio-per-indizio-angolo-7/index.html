@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/la-promessa/">La Promessa</a> › La Promessa, la verità sul padre di Jana ricostruita indizio per indizio</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/la-promessa/">La Promessa</a>
   <h1>La Promessa, la verità sul padre di Jana ricostruita indizio per indizio</h1>
-  <div class="firma">Redazione Soap Opera Italia · domenica 2 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-02">domenica 2 agosto 2026</time></span><span>aggiornato il 3 settembre 2026</span><span>6 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all&#x27;improvviso: è il risultato di una catena precisa di eventi, che oggi.</p><ol><li><a href="#c1">Chi sono i figli segreti di Alonso</a></li><li><a href="#c2">Perché Jana e Manuel possono restare insieme</a></li><li><a href="#c3">Quanto tempo separa Alonso e Dolores dalla lettera</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>La Promessa</strong> — Rete 4 · in streaming su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Ogni grande rivelazione ha una sua cronologia nascosta, fatta di piccoli passi che portano al momento in cui tutto viene a galla. La verità sul padre di Jana non è arrivata all&#x27;improvviso: è il risultato di una catena precisa di eventi, che oggi.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: La Promessa, la verità sul padre di Jana ricostruita indizio per indizio" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg" alt="La Promessa, la verità sul padre di Jana ricostruita indizio per indizio" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/xouyPseF4u0/hqdefault.jpg 480w, https://i.ytimg.com/vi/xouyPseF4u0/sddefault.jpg 640w, https://i.ytimg.com/vi/xouyPseF4u0/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/xouyPseF4u0/hqdefault.jpg&quot;, &quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -362,13 +412,13 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p>Ricostruiamo insieme questa cronologia.</p>
 <p>Passo uno, il punto di partenza: il passato di Don Alonso da giovane, prima ancora di diventare marchese. Non essendo il primogenito della famiglia Luján, Alonso cresce senza il peso dell&#x27;eredità, e questo gli permette di vivere una giovinezza libera da responsabilità, fatta di relazioni che nessuno gli chiede mai di spiegare. È il primo tassello, quello che rende tutto il resto possibile.</p>
 <p>Passo due: l&#x27;incontro con Dolores, la donzella al servizio della famiglia. È da questa relazione, vissuta ben prima del matrimonio di Alonso, che nascono due figli: Mariana e Marcos, oggi conosciuti come Jana e Curro. Una relazione tenuta nascosta, come richiedeva l&#x27;epoca e la rigida gerarchia sociale tra nobiltà e servitù raccontata dalla serie.</p>
-<h2>Chi sono i figli segreti di Alonso</h2>
+<h2 id="c1">Chi sono i figli segreti di Alonso</h2>
 <p>Passo tre: la morte del fratello maggiore di Alonso, che lo costringe a diventare erede dei Luján da un giorno all&#x27;altro. È il momento in cui la sua vita cambia radicalmente, ma è anche il momento in cui il suo passato, con Dolores e con i due figli segreti, viene lasciato alle spalle, non affrontato, non risolto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Passo quattro, molto più recente: Dolores scrive una lettera, pensata per raggiungere Alonso in futuro, molti anni prima della sua morte. È la mossa che, con il tempo, farà esplodere l&#x27;intera vicenda: un documento che aspetta pazientemente il momento giusto per arrivare nelle mani del marchese.</p>
 <p>Passo cinque: arrivano dalla Spagna le informazioni sulla paternità del signorino Manuel. Si scopre che donna Cruz è stata infedele ad Alonso, e che il vero padre di Manuel è il capitano Lorenzo de la Mata. Questo passaggio, apparentemente slegato dalla storia di Jana, è in realtà decisivo: serve a escludere ogni possibile legame di sangue tra Manuel e Jana, prima che la verità su di lei venga svelata.</p>
 <p>Passo sei, il momento clou: la lettera di Dolores raggiunge finalmente Alonso. È lì che la verità esplode: il vero padre di Jana è lui, il marchese Don Alonso de Luján. Jana e Curro sono suoi figli, nati dalla relazione con Dolores prima del suo matrimonio.</p>
-<h2>Perché Jana e Manuel possono restare insieme</h2>
+<h2 id="c2">Perché Jana e Manuel possono restare insieme</h2>
 <p>Passo sette, la conseguenza più attesa da tutti: la storia tra Jana e Manuel. Grazie al passaggio numero cinque, sappiamo già che Manuel non è figlio di Alonso, quindi non è fratello di Jana. I due possono continuare ad amarsi, senza il peso di un legame di sangue che li avrebbe dovuti dividere per sempre.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Ricostruita così, passo dopo passo, questa vicenda mostra quanto la sceneggiatura abbia lavorato con precisione: ogni tassello, anche quelli apparentemente più lontani come la storia di Cruz e Manuel, era in realtà necessario per arrivare a questo punto in modo credibile.</p>
@@ -380,25 +430,47 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Ed è proprio questa doppia cronologia, quella visibile sullo schermo e quella nascosta nel passato dei personaggi, a rendere La Promessa una delle produzioni più solide del suo genere: ogni rivelazione non nasce dal nulla, ma è il frutto di una storia più lunga, scritta con l&#x27;obiettivo preciso di reggere fino a questo momento, e probabilmente anche oltre.</p>
 <p>Proviamo anche a immaginare come si intreccerà questa cronologia con quella di altri fili narrativi ancora aperti nella tenuta. Raramente, in una soap corale come questa, una rivelazione di questa portata resta isolata dal resto della trama: è più probabile che nelle prossime settimane vedremo questa cronologia intrecciarsi con altre vicende, altri segreti, altri personaggi che finora sono rimasti sullo sfondo. Ricostruire passo dopo passo come sono arrivate le rivelazioni ci aiuta anche a capire meglio come riconoscere, in tempo reale, i prossimi indizi che la sceneggiatura lascerà cadere lungo il cammino.</p>
 <p>Vale la pena anche notare come questa cronologia, se confrontata con quella di altre grandi rivelazioni della soap, segua uno schema ricorrente nella scrittura di La Promessa: un evento apparentemente secondario che si rivela poi cruciale, seguito da una rivelazione centrale, e infine da una serie di conseguenze a catena che si propagano su più personaggi contemporaneamente. Riconoscere questo schema aiuta anche a orientarsi meglio nelle prossime trame della serie, sapendo che ogni dettaglio apparentemente minore potrebbe nascondere un significato più profondo.</p>
-<h2>Quanto tempo separa Alonso e Dolores dalla lettera</h2>
+<h2 id="c3">Quanto tempo separa Alonso e Dolores dalla lettera</h2>
 <p>Un&#x27;ultima considerazione riguarda il ruolo del tempo in questa cronologia: mesi, forse anni, separano l&#x27;incontro tra Alonso e Dolores dal momento in cui la lettera raggiunge finalmente il marchese. È un lasso di tempo che permette alla sceneggiatura di costruire un vero senso di inevitabilità: qualunque cosa fosse successa nel frattempo, quella lettera era destinata ad arrivare, prima o poi, cambiando per sempre gli equilibri della tenuta.</p>
 <p>Chiudiamo questa cronologia con una riflessione finale: ricostruire gli eventi passo dopo passo, come abbiamo fatto oggi, non serve solo a capire come siamo arrivati fin qui, ma anche a prepararci meglio a leggere i prossimi sviluppi della trama, riconoscendo gli indizi prima ancora che diventino rivelazioni conclamate. È un esercizio che rende la visione di una soap come questa ancora più coinvolgente, quasi un gioco parallelo alla trama stessa.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=fIjVU68t1_o" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/fIjVU68t1_o/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Dopo la rivelazione sul padre di Jana, cosa può succedere adesso (Angolo 10: cons</span></a></li><li><a href="https://www.youtube.com/watch?v=gISqozNynU0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/gISqozNynU0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — La mia reazione a caldo alla rivelazione sul padre di Jana (Angolo 8: reazione/co</span></a></li><li><a href="https://www.youtube.com/watch?v=qcf7plyW-3k" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/qcf7plyW-3k/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>LA PROMESSA — Dietro la rivelazione sul padre di Jana: chi sono gli attori dietro questa trama </span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Guardando questa cronologia passo dopo passo, quale di questi sette momenti vi sembra il più decisivo per l&#x27;intera trama? E secondo voi, cosa succederà ora che Alonso dovrà affrontare Jana e Curro sapendo la verità?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=xouyPseF4u0">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di La Promessa</h2><div class="griglia"><article class="scheda">
+  <a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/"><div class="foto"><img src="https://i.ytimg.com/vi/OYyHpOcfSKU/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/"><div class="foto"><img src="https://i.ytimg.com/vi/LBj-wojhyEs/hqdefault.jpg" alt="La Promessa" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/la-promessa.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">La Promessa</span>
+    <h3><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></h3>
+    <div class="quando">29 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=La Promessa, la verità sul padre di Jana ricostruita indizio per indizio — https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/la-promessa/la-promessa-il-vero-padre-di-jana-la-rivelazione-che-cambia-tutto-angolo-1-recap/&text=La Promessa, la verità sul padre di Jana ricostruita indizio per indizio" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">LA PROMESSA — La verità sul padre di Jana ricostruita indizio per indizio (Angolo 7: timeline cronologica)</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=xouyPseF4u0">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di La Promessa</h3><ol class="numerata"><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>LA PROMESSA — La verità sul padre di Jana ricostruita indizio per indizio (Angolo 7: timeline cronologica)</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su La Promessa</h3><ul><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li><li><a href="/la-promessa/che-fine-fa-santos-in-la-promessa-come-finisce-la-storia-del-figlio-di-ricardo/">Che fine fa Santos in La Promessa: come finisce la storia del figlio di Ricardo</a></li><li><a href="/la-promessa/dove-e-girata-la-promessa-il-palazzo-vero-e-i-luoghi-della-serie/">Dove è girata La Promessa: il palazzo vero, i set e i luoghi che si possono visitare</a></li><li><a href="/la-promessa/la-promessa-5-indizi-che-avevano-gia-svelato-chi-era-il-vero-padre-di-jana-angol/">La Promessa, 5 indizi che avevano già svelato chi era il vero padre di Jana</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

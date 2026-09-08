@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/terra-amara/">Terra Amara</a> › Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/terra-amara/">Terra Amara</a>
   <h1>Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso</h1>
-  <div class="firma">Redazione Soap Opera Italia · giovedì 20 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-20">giovedì 20 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Ora che Züleyha è partita e Müjgan non c&#x27;è più, la domanda vera è: cosa succederà adesso a Çukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate.</p><ol><li><a href="#c1">Cosa succede a Fikret dopo la morte di Müjgan</a></li><li><a href="#c2">Come Fekeli gestirà Kerem Ali e Fikret</a></li><li><a href="#c3">Perché Züleyha potrebbe tornare a Çukurova</a></li><li><a href="#c4">Come cambierà la reputazione di Demir a Çukurova</a></li><li><a href="#c5">Quale ruolo avrà Füsun accanto a Şermin</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Terra Amara</strong> — Serie conclusa in Italia · tutte le puntate su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Ora che Züleyha è partita e Müjgan non c&#x27;è più, la domanda vera è: cosa succederà adesso a Çukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -348,7 +398,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
       aria-label="Riproduci il video: Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso" onclick="ytGo(this)">
       <img src="https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg" alt="Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso" width="1280" height="720"
         srcset="https://i.ytimg.com/vi/OsF6H6VufLc/hqdefault.jpg 480w, https://i.ytimg.com/vi/OsF6H6VufLc/sddefault.jpg 640w, https://i.ytimg.com/vi/OsF6H6VufLc/maxresdefault.jpg 1280w"
-        sizes="(max-width: 900px) calc(100vw - 36px), 804px"
+        sizes="(max-width: 900px) calc(100vw - 36px), 764px"
         decoding="async" fetchpriority="low" data-fb='[&quot;https://i.ytimg.com/vi/OsF6H6VufLc/hqdefault.jpg&quot;, &quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)">
       <span class="tasto" aria-hidden="true"></span>
     </button>
@@ -360,7 +410,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Ora che Züleyha è partita e Müjgan non c&#x27;è più, la domanda vera è: cosa succederà adesso a Çukurova? Una tragedia di questa portata non può restare senza conseguenze concrete per tutti i personaggi coinvolti.</strong></p>
   <p>Partiamo da quello che sappiamo: Şermin ha scoperto la vera identità di Ümit come figlia segreta di Sevda, una rivelazione che, una volta resa pubblica, potrebbe cambiare completamente gli equilibri di potere all&#x27;interno della tenuta.</p>
-<h2>Cosa succede a Fikret dopo la morte di Müjgan</h2>
+<h2 id="c1">Cosa succede a Fikret dopo la morte di Müjgan</h2>
 <p>La prima grande domanda aperta riguarda il futuro di Fikret. Riuscirà a superare il senso di colpa per la morte di Müjgan, o questa tragedia lo spingerà a tornare sui propri passi, riaccendendo la vendetta contro Demir che sembrava ormai abbandonata per sempre?</p>
 <p>Secondo fronte: cosa succederà tra Demir e Züleyha ora che lei è partita definitivamente con i figli. Demir tenterà di riconquistarla, o accetterà finalmente le conseguenze delle proprie azioni, lasciandola costruire una nuova vita lontano da lui?</p>
 <p>Terzo fronte: il destino del piccolo Kerem Ali, rimasto orfano di madre e affidato temporaneamente a Fekeli. Come cambierà la sua vita in una famiglia già segnata da tanto dolore?</p>
@@ -368,12 +418,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Quarto fronte, quello più delicato dal punto di vista sociale: come reagirà Sevda quando scoprirà che Şermin conosce ormai la verità su Ümit. Cercherà di comprare il suo silenzio, o la situazione degenererà in un confronto pubblico dalle conseguenze imprevedibili?</p>
 <p>Quinto fronte: il rapporto tra Ümit e Demir, ormai al centro di uno scandalo che coinvolge l&#x27;intera famiglia Yaman. Con Züleyha ormai lontana, la loro relazione potrà finalmente uscire allo scoperto, o si complicherà ulteriormente con la scoperta della vera identità di Ümit?</p>
 <p>Un ultimo fronte, quello con cui chiudiamo questa analisi: cosa ci racconta questa vicenda sul tema del destino in Terra Amara? La tragedia di Müjgan dimostra ancora una volta come, in questo universo narrativo, la felicità appena conquistata possa essere spazzata via in un istante, un tema che continuerà probabilmente a essere centrale per il resto della stagione.</p>
-<h2>Come Fekeli gestirà Kerem Ali e Fikret</h2>
+<h2 id="c2">Come Fekeli gestirà Kerem Ali e Fikret</h2>
 <p>Sesto fronte, spesso sottovalutato ma potenzialmente decisivo: il ruolo di Fekeli nei prossimi sviluppi. Con Fikret devastato dal dolore e Müjgan non più presente, Fekeli si ritrova a dover gestire contemporaneamente la crescita del piccolo Kerem Ali e il sostegno psicologico al nipote, un doppio impegno che potrebbe metterlo a dura prova nelle prossime settimane, considerando anche la sua età e i propri acciacchi di salute già accennati in puntate precedenti.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Settimo fronte: le conseguenze economiche della partenza di Züleyha sulla gestione della tenuta. Pur non essendo lei direttamente coinvolta nella gestione operativa dell&#x27;azienda agricola, la sua assenza potrebbe comunque influenzare gli equilibri familiari legati all&#x27;eredità e alla proprietà, temi che in Terra Amara non sono mai stati secondari rispetto alle vicende sentimentali dei personaggi.</p>
 <p>Ottavo fronte, quello più delicato dal punto di vista legale: cosa succederà quando, inevitabilmente, la verità sull&#x27;identità di Ümit come figlia di Sevda diventerà di dominio pubblico. Potrebbero aprirsi questioni legate all&#x27;eredità, al riconoscimento di parentela, e persino a vecchi segreti di famiglia mai del tutto chiariti riguardo all&#x27;abbandono della bambina anni prima.</p>
-<h2>Perché Züleyha potrebbe tornare a Çukurova</h2>
+<h2 id="c3">Perché Züleyha potrebbe tornare a Çukurova</h2>
 <p>Nono fronte: il possibile ritorno di Züleyha a Çukurova, anche solo temporaneo, magari legato a questioni pratiche riguardanti Adnan o la gestione di beni lasciati in sospeso. Un ritorno del genere potrebbe riaprire ferite ancora fresche, sia con Demir che con l&#x27;intera comunità della tenuta.</p>
 <p>Decimo fronte, quello più speculativo tra tutti: l&#x27;ipotesi, circolata anche tra alcuni fan più attenti, che l&#x27;incidente aereo possa nascondere risvolti ancora sconosciuti, magari legati a nemici storici della famiglia Yaman mai completamente sconfitti nelle stagioni precedenti. Al momento si tratta solo di un&#x27;ipotesi non confermata, ma la storia di Terra Amara ci ha insegnato a non escludere mai nulla del tutto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -382,10 +432,10 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Tredicesimo fronte, legato più da vicino alla dimensione economica della trama: cosa ne sarà del progetto lavorativo che aveva portato Müjgan a Istanbul. È possibile che questa opportunità professionale, rimasta ormai orfana della persona che avrebbe dovuto realizzarla, venga in qualche modo ripresa o raccontata nelle puntate successive, magari attraverso un personaggio a lei vicino che decide di portarla avanti in sua memoria.</p>
 <p>Quattordicesimo fronte: le conseguenze psicologiche a lungo termine per Adnan, il figlio di Züleyha, costretto ad affrontare contemporaneamente la separazione dei genitori e il trasferimento in un contesto di vita completamente nuovo. Come reagirà un ragazzo della sua età a un cambiamento così radicale, e quanto influenzerà questo trauma il suo rapporto futuro con Demir?</p>
 <p>Quindicesimo fronte, quello che chiude questa lunga rassegna di possibili sviluppi: il modo in cui Sevda deciderà di affrontare Ümit una volta che la verità sarà emersa del tutto. Sceglierà finalmente di rivelarle la verità di propria iniziativa, anticipando Şermin, oppure continuerà a nascondersi dietro bugie sempre più difficili da sostenere, rischiando che sia qualcun altro a svelare tutto al posto suo?</p>
-<h2>Come cambierà la reputazione di Demir a Çukurova</h2>
+<h2 id="c4">Come cambierà la reputazione di Demir a Çukurova</h2>
 <p>Sedicesimo fronte: come cambierà la percezione pubblica di Demir all&#x27;interno della comunità di Çukurova dopo questi eventi. Un uomo abituato a essere temuto e rispettato potrebbe ora trovarsi a fare i conti con una crescente compassione mista a giudizio, un cambiamento di percezione sociale che potrebbe influenzare anche i suoi rapporti d&#x27;affari nelle prossime puntate, considerando quanto in questa comunità la reputazione personale sia spesso legata a doppio filo con il successo economico.</p>
 <p>Diciassettesimo fronte, dedicato al futuro sentimentale di Züleyha: una volta ricostruita una nuova vita lontano da Çukurova, quanto tempo impiegherà prima di aprirsi a un nuovo capitolo sentimentale, e quanto influenzerà questa scelta, se mai arriverà, gli equilibri familiari legati ad Adnan e al rapporto ormai compromesso con Demir?</p>
-<h2>Quale ruolo avrà Füsun accanto a Şermin</h2>
+<h2 id="c5">Quale ruolo avrà Füsun accanto a Şermin</h2>
 <p>Diciottesimo fronte: il possibile coinvolgimento di Füsun nelle prossime mosse di Şermin riguardo al segreto su Ümit. Le due donne dovranno decidere insieme come e quando utilizzare questa informazione, un processo decisionale che potrebbe generare tensioni anche all&#x27;interno della loro stessa alleanza, specialmente se dovessero emergere interessi divergenti tra loro.</p>
 <p>Diciannovesimo fronte, quasi conclusivo: il ruolo che la memoria di Müjgan continuerà a giocare nella vita di Fikret, anche a distanza di tempo. Spesso, in Terra Amara, i personaggi scomparsi restano comunque presenti attraverso ricordi, oggetti simbolici o scelte future ispirate dalla loro eredità emotiva, ed è probabile che anche in questo caso la sceneggiatura scelga di onorare Müjgan in questo modo, piuttosto che lasciarla semplicemente alle spalle come un capitolo chiuso.</p>
 <p>Ventesimo e ultimo fronte di questa lunga analisi: quanto tempo impiegherà Çukurova, come comunità intera, a tornare a una parvenza di normalità dopo una giornata così carica di eventi drammatici. La risposta a questa domanda, probabilmente, arriverà solo con il passare delle prossime puntate, ma è chiaro fin da ora che nulla, a Çukurova, potrà tornare esattamente come prima.</p>
@@ -394,19 +444,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=_GD745xzv-w" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/_GD745xzv-w/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: Züleyha lascia Demir, la tragica morte di Müjgan sconvolge Çukurova 😢</span></a></li><li><a href="https://www.youtube.com/watch?v=Nc8J3gaKLE4" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/Nc8J3gaKLE4/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: Dietro la tragedia di Müjgan — come nasce una scena così straziante 😢</span></a></li><li><a href="https://www.youtube.com/watch?v=X6SMBavjw5k" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/X6SMBavjw5k/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>TERRA AMARA: Avevi previsto la tragedia di Müjgan? Mettiti alla prova 🤔</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Secondo voi, Fikret tornerà alla vendetta contro Demir dopo questa tragedia? E come pensate che reagirà Sevda quando scoprirà che il suo segreto su Ümit è stato svelato?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=OsF6H6VufLc">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Terra Amara</h2><div class="griglia"><article class="scheda">
+  <a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/"><div class="foto"><img src="https://i.ytimg.com/vi/iU1luV0XVfo/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></h3>
+    <div class="quando">4 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/"><div class="foto"><img src="https://i.ytimg.com/vi/N5vkqLP9oFA/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/"><div class="foto"><img src="https://i.ytimg.com/vi/5E7aVSLQ5rw/hqdefault.jpg" alt="Terra Amara" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/terra-amara.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Terra Amara</span>
+    <h3><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso — https://soapoperaitalia.com/terra-amara/terra-amara-zuleyha-lascia-demir-la-tragica-morte-di-mujgan-sconvolge-cukurova/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/terra-amara/terra-amara-zuleyha-lascia-demir-la-tragica-morte-di-mujgan-sconvolge-cukurova/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/terra-amara/terra-amara-zuleyha-lascia-demir-la-tragica-morte-di-mujgan-sconvolge-cukurova/&text=Terra Amara: Dopo la tragedia di Müjgan, cosa può succedere adesso" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">TERRA AMARA: Dopo la tragedia di Müjgan, cosa può succedere adesso 👀</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=OsF6H6VufLc">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Terra Amara</h3><ol class="numerata"><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></li><li><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></li><li><a href="/terra-amara/terra-amara-prima-e-dopo-il-rapimento-cosi-cambiano-tutti-i-rapporti/">Terra Amara: Prima e dopo il rapimento — così cambiano tutti i rapporti</a></li><li><a href="/terra-amara/terra-amara-avevi-previsto-come-sarebbe-finito-il-ricatto-di-betul-mettiti-alla-prova/">Terra Amara: Avevi previsto come sarebbe finito il ricatto di Betul? Mettiti alla prova</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>TERRA AMARA: Dopo la tragedia di Müjgan, cosa può succedere adesso 👀</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Terra Amara</h3><ul><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/terra-amara/terra-amara-il-ricatto-e-la-vendetta-di-hakan-ricostruiti-passo-dopo-passo/">Terra Amara: Il ricatto e la vendetta di Hakan ricostruiti passo dopo passo</a></li><li><a href="/terra-amara/terra-amara-la-mia-reazione-a-caldo-al-rapimento-di-betul/">Terra Amara: La mia reazione a caldo al rapimento di Betul</a></li><li><a href="/terra-amara/terra-amara-prima-e-dopo-il-rapimento-cosi-cambiano-tutti-i-rapporti/">Terra Amara: Prima e dopo il rapimento — così cambiano tutti i rapporti</a></li><li><a href="/terra-amara/terra-amara-avevi-previsto-come-sarebbe-finito-il-ricatto-di-betul-mettiti-alla-prova/">Terra Amara: Avevi previsto come sarebbe finito il ricatto di Betul? Mettiti alla prova</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

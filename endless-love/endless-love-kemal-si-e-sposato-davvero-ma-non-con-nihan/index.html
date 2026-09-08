@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/endless-love/">Endless Love</a> › ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/endless-love/">Endless Love</a>
   <h1>ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</h1>
-  <div class="firma">Redazione Soap Opera Italia · giovedì 3 settembre 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-09-03">giovedì 3 settembre 2026</time></span><span>aggiornato il 4 settembre 2026</span><span>8 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Anticipazioni e trame delle puntate di Endless Love da lunedì 7 a venerdì 11 settembre 2026.</p><ol><li><a href="#c1">Il vero sposo di Kemal Soydere</a></li><li><a href="#c2">Kara Sevda conquista il mondo</a></li><li><a href="#c3">Come Neslihan Atagül ha costruito la sua carriera</a></li><li><a href="#c4">Perché Burak Özçivit ha conquistato il pubblico internazionale</a></li><li><a href="#c5">Cosa è successo a Kaan Urgancıoğlu dopo Endless Love</a></li><li><a href="#c6">Quale percorso ha seguito Hazal Filiz Küçükköse dopo Zeynep</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Endless Love</strong> — Serie conclusa in Italia · le puntate su Mediaset Infinity</span></div>
   
-  <p class="occhiello">Anticipazioni e trame delle puntate di Endless Love da lunedì 7 a venerdì 11 settembre 2026.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -359,7 +409,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p><strong>Kemal Soydere non è mai esistito, ma Burak Özçivit si è sposato davvero — con un&#x27;altra
 donna, non Nihan. Nihan Sezin nemmeno lei è mai esistita, ma Neslihan Atagül aveva già un
 anello vero al dito, di un uomo che con Kara Sevda non ha mai avuto niente a che fare.</strong></p>
-  <h2>Il vero sposo di Kemal Soydere</h2>
+  <h2 id="c1">Il vero sposo di Kemal Soydere</h2>
 <p>&quot;Che fine hanno fatto&quot; — biografia reale dei due attori protagonisti (Burak Özçivit /
 Kemal, Neslihan Atagül / Nihan) più i comprimari (Kaan Urgancıoğlu / Emir, Hazal Filiz
 Küçükköse / Zeynep). Evergreen, nessuna anticipazione, nessuna data di puntata.</p>
@@ -377,7 +427,7 @@ sua stessa struttura &quot;scena negata&quot; (che fine ha fatto), fact-checkata
 3. (chiusura) &quot;Preferite la storia scritta per Kemal e Nihan, o quella vera vissuta da
    Burak Özçivit e Neslihan Atagül lontano dal set?&quot;</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Kara Sevda conquista il mondo</h2>
+<h2 id="c2">Kara Sevda conquista il mondo</h2>
 <p>Voci di fan su un possibile progetto futuro che riunisca Neslihan Atagül e Burak Özçivit:
 dichiarato esplicitamente come ipotesi non confermata da nessuno dei due.</p>
 <p>- Wikipedia EN, &quot;Neslihan Atagül&quot; (nascita, Araf/Tokyo 2012, fidanzamento/matrimonio con
@@ -400,19 +450,19 @@ dichiarato esplicitamente come ipotesi non confermata da nessuno dei due.</p>
   (fuori scope, nessuna azione distruttiva su contenuti live), ma va usato qui giusto.
 - Nessuna fonte fra i canali banditi (LA PROMESSA SPOILER, UNIVERSO FORBIDDEN FRUIT,
   Velmire/Marcelli/Brixton TV): non pertinenti a questo tema.</p>
-<h2>Come Neslihan Atagül ha costruito la sua carriera</h2>
+<h2 id="c3">Come Neslihan Atagül ha costruito la sua carriera</h2>
 <p>Prima di diventare celebre in tutto il mondo interpretando la tormentata Nihan Sezin in Endless Love, l&#x27;attrice Neslihan Atagül aveva già conquistato grande considerazione nel cinema internazionale grazie al film Araf diretto da Yeşim Ustaoğlu nel duemiladodici, una pellicola che le permise di farsi notare persino al prestigioso festival di Tokyo. Sul piano personale, il cuore della star turca era già occupato da tempo, poiché portava un anello di fidanzamento legato a un uomo completamente estraneo alle dinamiche di Kara Sevda. Si tratta dell&#x27;attore Kadir Doğulu, nato a Mersin il diciannove aprile del millenovecentottantadue e noto per il suo esordio nella serie tv Küçük Sırlar, con il quale la protagonista ha poi costruito un solido matrimonio lontano dal set.</p>
 <p>Dopo la conclusione della soap opera che l&#x27;ha resa famosa a livello globale, Neslihan Atagül ha proseguito la sua attività lavorativa partecipando a produzioni di rilievo come Sefirin Kızı, un progetto importante che purtroppo ha dovuto abbandonare prima del previsto a causa di seri motivi di salute che le impedivano di continuare le riprese. Successivamente è tornata sui set televisivi recitando nella serie Gecenin Ucunda, confermando la sua versatilità recitativa di fronte al pubblico. Nella vita di tutti i giorni, la storia d&#x27;amore con Kadir Doğulu ha vissuto un momento di grandissima gioia con la nascita del loro primo figlio nel duemilaventicinque, dimostrando come la realtà quotidiana dell&#x27;attrice fosse nettamente distinta dalle tragiche vicissitudini d&#x27;amore raccontate sul piccolo schermo.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Tra i fan di tutto il mondo si rincorrono frequentemente voci riguardanti un possibile progetto futuro destinato a riunire di nuovo sullo stesso set Neslihan Atagül e il collega Burak Özçivit. Tuttavia si tratta esclusivamente di un&#x27;ipotesi del tutto priva di conferme ufficiali da parte dei due diretti interessati, i quali si godono i frutti dello straordinario successo di Kara Sevda. La famosa fiction è riuscita infatti a conquistare il pubblico globale con i suoi centoquattordici episodi complessivi, ottenendo numeri eccezionali sui canali YouTube ufficiali e trovando una vastissima diffusione internazionale attraverso importanti reti come la televisione americana Univision, trasformando i suoi interpreti principali in star acclamate ovunque.</p>
-<h2>Perché Burak Özçivit ha conquistato il pubblico internazionale</h2>
+<h2 id="c4">Perché Burak Özçivit ha conquistato il pubblico internazionale</h2>
 <p>L&#x27;interprete che ha prestato il volto al coraggioso Kemal Soydere ha intrapreso un percorso professionale ricco di tappe significative prima di raggiungere la consacrazione definitiva con Endless Love. Burak Özçivit ha mosso i primi passi nel mondo dello spettacolo lavorando con grande successo nell&#x27;ambito del modellismo, per poi dedicarsi completamente alla recitazione e farsi apprezzare in varie serie televisive come Zoraki Koca, Muhteşem Yüzyıl e Çalıkuşu. Proprio durante quest&#x27;ultima produzione ha conosciuto la collega Fahriye Evcen, con la quale ha stretto un legame affettivo culminato nel fidanzamento e nel successivo matrimonio reale. La coppia ha poi allargato la famiglia con la nascita dei loro figli, mostrando una vita sentimentale stabile e del tutto distante dai drammi del personaggio.</p>
 <p>Il cammino artistico dell&#x27;attore turco si è arricchito di importanti produzioni subito dopo l&#x27;esperienza trascorsa nei panni di Kemal. Burak Özçivit si è infatti distinto come protagonista nella celebre serie d&#x27;epoca Kuruluş: Osman, un ruolo imponente che gli ha consentito di consolidare la sua popolarità in campo internazionale e di dimostrare le proprie capacità recitative in contesti storici complessi. In seguito l&#x27;artista ha ampliato ulteriormente i propri orizzonti lavorativi prendendo parte a progetti cinematografici e televisivi quali Yolki undici o Güneşin Doğduğu Yer, mantenendo sempre costante la sua presenza al centro della scena dello spettacolo e confermandosi uno dei volti più amati e richiesti dalla produzione cinematografica turca moderna.</p>
-<h2>Cosa è successo a Kaan Urgancıoğlu dopo Endless Love</h2>
+<h2 id="c5">Cosa è successo a Kaan Urgancıoğlu dopo Endless Love</h2>
 <p>Interpretare il malvagio e ossessivo Emir Kozcuoğlu ha rappresentato una sfida professionale estremamente complessa per Kaan Urgancıoğlu, il quale ha dovuto profondere un enorme sforzo emotivo per dare corpo e voce a un antagonista così cupo. L&#x27;impatto psicologico di un personaggio tanto oscuro e negativo si è rivelato talmente pesante da spingere l&#x27;attore a ricorrere a un percorso di terapia al fine di smaltire la carica emotiva accumulata durante le riprese. Diversi quotidiani e testate specializzate hanno infatti evidenziato la difficoltà incontrata dall&#x27;interprete nel liberarsi del peso drammatico di Emir, dimostrando quanto sia stato impegnativo separare la propria personalità reale dalla finzione scenica vissuta quotidianamente sul set della soap opera.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Superata l&#x27;intensa fase recitativa dedicata al villain di Kara Sevda, Kaan Urgancıoğlu ha saputo rilanciare con successo la propria carriera attraverso ruoli completamente differenti che ne hanno messo in luce il grande talento drammatico. Tra i suoi impegni successivi più rilevanti spiccano la partecipazione alla serie giovanile Aşk centouno e l&#x27;ingresso nel cast del film cinematografico Operazione Fortuna, senza dimenticare lo straordinario riscontro ottenuto con la produzione Yargı, nota al pubblico italiano con il titolo di Segreti di Famiglia. Grazie a queste nuove interpretazioni, l&#x27;attore è riuscito a mostrare una versatilità eccezionale, dimostrando di saper spaziare tra generi diversi e lasciandosi definitivamente alle spalle l&#x27;ombra ingombrante del perfido avversario di Kemal.</p>
-<h2>Quale percorso ha seguito Hazal Filiz Küçükköse dopo Zeynep</h2>
+<h2 id="c6">Quale percorso ha seguito Hazal Filiz Küçükköse dopo Zeynep</h2>
 <p>Nel cast di Endless Love ha trovato grande spazio anche il personaggio di Zeynep, interpretato da Hazal Filiz Küçükköse. L&#x27;attrice è nata a Mersin il nove febbraio del millenovecentoottantotto e ha saputo regalare un&#x27;interpretazione intensa e ricca di sfumature, capace di catturare l&#x27;attenzione sia dei telespettatori sia della critica televisiva. La sua prova recitativa nei panni della sorella di Kemal le ha permesso di ottenere un prestigioso riconoscimento come miglior attrice non protagonista, confermando le sue doti fisiche ed espressive. Dopo l&#x27;esperienza maturata nella soap turca, l&#x27;artista ha proseguito il proprio cammino professionale prendendo parte a differenti produzioni, consolidando il suo nome tra le figure più promettenti del panorama dello spettacolo.</p>
 <p>Le storie reali degli interpreti di Kara Sevda mostrano come la vita vera abbia preso strade ben diverse rispetto alle vicende ricche di ostacoli narrate nella soap opera. Se sullo schermo il pubblico ha seguito con il fiato sospeso gli inganni di Emir o le traversie sentimentali vissute da Zeynep, nella realtà tutti i membri del cast hanno continuato le rispettive carriere ottenendo importanti successi in nuovi progetti televisivi e cinematografici. Tra riconoscimenti professionali, ruoli impegnativi e amori coronati da matrimoni duraturi, gli attori principali continuano ad affascinare gli appassionati che hanno amato le avventure di Kemal e Nihan, testimoniando la grande vitalità dell&#x27;industria televisiva turca sul mercato globale.</p>
   </div>
@@ -422,19 +472,41 @@ dichiarato esplicitamente come ipotesi non confermata da nessuno dei due.</p>
    personaggio, Burak Özçivit o Neslihan Atagül?&quot;
 3. (chiusura) &quot;Preferite la storia scritta per Kemal e Nihan, o quella vera vissuta da
    Burak Özçivit e Neslihan Atagül lontano dal set?&quot;</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=aY0u-rItwx8">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Endless Love</h2><div class="griglia"><article class="scheda">
+  <a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/endless-love/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere/"><div class="foto"><img src="/img/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere.jpg" alt="Endless Love" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/endless-love.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere/">Endless Love, 5 scene che la censura turca non voleva farvi vedere</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/"><div class="foto"><img src="/img/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo.jpg" alt="Endless Love" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/endless-love.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan — https://soapoperaitalia.com/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/&text=ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">ENDLESS LOVE: chi ha sposato DAVVERO Kemal (e non è Nihan) 😱</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=aY0u-rItwx8">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Endless Love</h3><ol class="numerata"><li><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></li><li><a href="/endless-love/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere/">Endless Love, 5 scene che la censura turca non voleva farvi vedere</a></li><li><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></li><li><a href="/endless-love/endless-love-cosa-resta-oggi-di-kemal-e-nihan-e-perche-se-ne-parla-ancora/">Endless Love, cosa resta oggi di Kemal e Nihan, e perché se ne parla ancora</a></li><li><a href="/endless-love/endless-love-la-cronologia-completa-della-censura-dallinizio-alla-fine/">Endless Love, la cronologia completa della censura, dall&#x27;inizio alla fine</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>ENDLESS LOVE: chi ha sposato DAVVERO Kemal (e non è Nihan) 😱</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Endless Love</h3><ul><li><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></li><li><a href="/endless-love/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere/">Endless Love, 5 scene che la censura turca non voleva farvi vedere</a></li><li><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></li><li><a href="/endless-love/endless-love-cosa-resta-oggi-di-kemal-e-nihan-e-perche-se-ne-parla-ancora/">Endless Love, cosa resta oggi di Kemal e Nihan, e perché se ne parla ancora</a></li><li><a href="/endless-love/endless-love-la-cronologia-completa-della-censura-dallinizio-alla-fine/">Endless Love, la cronologia completa della censura, dall&#x27;inizio alla fine</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

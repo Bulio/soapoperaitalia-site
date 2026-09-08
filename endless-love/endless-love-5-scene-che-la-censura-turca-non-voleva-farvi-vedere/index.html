@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/endless-love/">Endless Love</a> › Endless Love, 5 scene che la censura turca non voleva farvi vedere</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/endless-love/">Endless Love</a>
   <h1>Endless Love, 5 scene che la censura turca non voleva farvi vedere</h1>
-  <div class="firma">Redazione Soap Opera Italia · lunedì 3 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-03">lunedì 3 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Oltre al famoso bacio sotto la pioggia, ci sono altre scene tra Kemal e Nihan che la censura turca ha deciso di tagliare o ridimensionare. Oggi vi raccontiamo cinque momenti che il pubblico turco non ha mai potuto vedere nella loro versione.</p><ol><li><a href="#c1">Quali scene tra Kemal e Nihan sono state censurate</a></li><li><a href="#c2">Come venivano tagliate le scene nella versione turca</a></li><li><a href="#c3">Quali scene di silenzio tra Kemal e Nihan sono sparite</a></li><li><a href="#c4">Cosa hanno visto i fan nelle anteprime turche</a></li><li><a href="#c5">Perché i tagli non hanno indebolito Kemal e Nihan</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Endless Love</strong> — Serie conclusa in Italia · le puntate su Mediaset Infinity</span></div>
   <figure class="copertina"><img src="/img/endless-love-5-scene-che-la-censura-turca-non-voleva-farvi-vedere.jpg" alt="Endless Love"><figcaption>Endless Love (foto ufficiale)</figcaption></figure>
-  <p class="occhiello">Oltre al famoso bacio sotto la pioggia, ci sono altre scene tra Kemal e Nihan che la censura turca ha deciso di tagliare o ridimensionare. Oggi vi raccontiamo cinque momenti che il pubblico turco non ha mai potuto vedere nella loro versione.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -360,13 +410,13 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p>Prima scena censurata: il bacio al maneggio, un momento di intimità così autentica da essere considerato troppo intenso per gli standard televisivi turchi, ridotto significativamente rispetto alla versione mostrata al pubblico internazionale.</p>
 <p>Seconda scena: il celebre bacio sotto la pioggia, probabilmente la sequenza più iconica di tutta la serie, drasticamente tagliato fino a diventare un semplice gesto affettuoso nella versione trasmessa in Turchia.</p>
 <p>Terza scena: alcuni abbracci prolungati tra i due protagonisti nei momenti di massima vicinanza emotiva, considerati eccessivamente carichi di tensione romantica per gli standard delle norme culturali del paese.</p>
-<h2>Quali scene tra Kemal e Nihan sono state censurate</h2>
+<h2 id="c1">Quali scene tra Kemal e Nihan sono state censurate</h2>
 <p>Quarta scena: momenti di contatto fisico ravvicinato durante le sequenze più drammatiche della storia, in cui la vicinanza tra Kemal e Nihan veniva giudicata troppo esplicita rispetto al contesto narrativo.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Quinta scena, forse la più sorprendente: alcune inquadrature più lunghe sui volti dei due protagonisti durante i momenti di massima intensità emotiva, tagliate non tanto per il contenuto esplicito quanto per l&#x27;intensità dello sguardo scambiato tra i due attori.</p>
 <p>Un sesto elemento da considerare: la censura non ha colpito solo le scene romantiche, ma ha avuto un impatto anche sulla produzione stessa, comportando costi aggiuntivi e lunghe negoziazioni con le autorità televisive che hanno costretto i produttori a ripensare interi segmenti della sceneggiatura originale.</p>
 <p>Approfondendo la prima scena, quella al maneggio, va detto che la location stessa era stata scelta con grande cura dalla produzione: un ambiente aperto, naturale, lontano dagli interni sontuosi ma soffocanti delle case delle due famiglie protagoniste, pensato apposta per dare respiro visivo a un momento che doveva sembrare il più spontaneo possibile agli occhi dello spettatore.</p>
-<h2>Come venivano tagliate le scene nella versione turca</h2>
+<h2 id="c2">Come venivano tagliate le scene nella versione turca</h2>
 <p>Tornando alla seconda scena, quella del bacio sotto la pioggia, è interessante notare come la sequenza completa includesse anche diversi secondi di solo sguardo tra i due protagonisti prima del bacio vero e proprio, un momento di tensione costruita che nella versione turca veniva accorciato drasticamente, privando la scena di parte del crescendo emotivo che la rendeva così potente nella sua forma integrale.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Per quanto riguarda la terza scena, gli abbracci prolungati, va sottolineato che spesso non si trattava di un singolo taglio netto, ma di una serie di micro-interventi distribuiti lungo l&#x27;intera sequenza: pochi secondi qui, pochi secondi là, che sommati riducevano sensibilmente la durata complessiva del momento senza che lo spettatore turco si accorgesse immediatamente di un vero e proprio salto di montaggio.</p>
@@ -375,35 +425,57 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Va aggiunta anche una sesta considerazione, meno legata a una scena specifica: il modo in cui la censura ha influenzato indirettamente anche il ritmo narrativo di interi episodi, costringendo talvolta il montaggio a inserire transizioni diverse o inquadrature alternative per compensare la durata ridotta delle scene più intense, un lavoro creativo aggiuntivo che difficilmente il pubblico percepisce guardando il risultato finale.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Infine, è interessante notare come proprio queste cinque scene, insieme a questi dettagli meno noti, siano diventate negli anni un vero e proprio catalogo di riferimento per i fan più appassionati, che continuano a confrontare le versioni disponibili online cercando ogni differenza, ogni secondo mancante, ogni sfumatura persa nel passaggio da una versione all&#x27;altra della stessa storia.</p>
-<h2>Quali scene di silenzio tra Kemal e Nihan sono sparite</h2>
+<h2 id="c3">Quali scene di silenzio tra Kemal e Nihan sono sparite</h2>
 <p>Va aggiunta anche una settima scena, meno citata ma comunque significativa: alcuni momenti di silenzio condiviso tra Kemal e Nihan, semplici scene in cui i due protagonisti si limitano a stare vicini senza dialogo, che nella versione internazionale mantenevano una durata più estesa rispetto alla versione turca, dove venivano accorciate per lasciare più spazio alla progressione narrativa della trama principale.</p>
 <p>Un&#x27;ottava scena degna di nota riguarda alcuni momenti di gelosia e tensione romantica tra i due protagonisti, sequenze cariche di sguardi intensi e vicinanza fisica che, pur non contenendo baci o abbracci espliciti, sono state comunque oggetto di piccoli interventi di montaggio, a testimonianza di quanto la censura turca valutasse anche la sola intensità emotiva trasmessa da una scena, indipendentemente dal contatto fisico effettivo tra gli attori.</p>
-<h2>Cosa hanno visto i fan nelle anteprime turche</h2>
+<h2 id="c4">Cosa hanno visto i fan nelle anteprime turche</h2>
 <p>Vale la pena approfondire anche il modo in cui queste scene venivano annunciate al pubblico prima della messa in onda: spesso i canali turchi diffondevano brevi anteprime promozionali che includevano fotogrammi tratti proprio dalle sequenze più intense, generando aspettative che talvolta non trovavano poi piena corrispondenza nella versione effettivamente trasmessa, un disallineamento che ha contribuito ad alimentare ulteriormente la curiosità dei fan più attenti.</p>
 <p>Un&#x27;altra considerazione riguarda il lavoro di chi si occupava della distribuzione internazionale della serie: dover gestire contemporaneamente più versioni dello stesso materiale, ciascuna calibrata sulle norme del paese di destinazione, richiedeva un coordinamento logistico complesso, con archivi separati per ogni mercato e un controllo qualità rigoroso per evitare che le versioni si mescolassero durante la fase di distribuzione.</p>
 <p>È interessante anche notare come, nel tempo, la conoscenza di queste differenze tra versioni sia diventata quasi un elemento di cultura generale tra gli appassionati di serie turche, un bagaglio di informazioni che i fan più esperti condividono volentieri con chi si avvicina per la prima volta a questo tipo di produzioni, contribuendo a creare una vera e propria comunità di appassionati informati e critici.</p>
 <p>Infine, ripercorrendo tutte queste scene e questi dettagli, emerge un quadro complessivo che va ben oltre la semplice curiosità: capire quali momenti sono stati tagliati, perché e con quali modalità, ci aiuta a comprendere meglio il contesto culturale e normativo in cui una produzione come Endless Love ha dovuto muoversi, senza però mai perdere la capacità di emozionare un pubblico internazionale sempre più vasto.</p>
 <p>Vale la pena aggiungere anche un ultimo dettaglio produttivo, spesso trascurato: la differenza tra le versioni non riguardava solo la durata delle scene, ma talvolta anche l&#x27;angolazione delle inquadrature scelte in fase di montaggio, con la produzione che selezionava, tra i vari ciak disponibili, quelli meno esposti dal punto di vista visivo per la versione destinata al pubblico turco, mantenendo invece le inquadrature più ravvicinate per la distribuzione internazionale.</p>
 <p>Un altro elemento interessante riguarda il modo in cui questi tagli venivano documentati internamente dalla produzione, con veri e propri elenchi dettagliati di ogni modifica richiesta dall&#x27;autorità di regolamentazione, un archivio che permetteva di tenere traccia delle differenze tra le varie versioni e di applicare gli stessi criteri in modo coerente lungo tutta la durata della serie, evitando incongruenze tra un episodio e l&#x27;altro.</p>
-<h2>Perché i tagli non hanno indebolito Kemal e Nihan</h2>
+<h2 id="c5">Perché i tagli non hanno indebolito Kemal e Nihan</h2>
 <p>Chiudendo questo elenco di scene e dettagli censurati, resta comunque fondamentale ricordare che, nonostante tutti questi interventi, la forza narrativa ed emotiva della storia tra Kemal e Nihan non ne è mai uscita compromessa, un merito che va riconosciuto tanto alla sceneggiatura quanto all&#x27;interpretazione dei due attori protagonisti, capaci di trasmettere intensità anche nelle versioni più ridotte delle scene più celebri.</p>
 <p>Va menzionato anche un ultimo elemento che i fan più attenti hanno notato nel tempo: in alcune delle scene elencate, la versione turca non si limitava a tagliare i secondi più intensi, ma modificava leggermente anche l&#x27;inquadratura di apertura o di chiusura della sequenza, per rendere il passaggio da una scena all&#x27;altra meno brusco agli occhi dello spettatore. Un accorgimento di montaggio quasi invisibile, pensato per mantenere la fluidità narrativa dell&#x27;episodio nonostante la riduzione della scena centrale, che dimostra quanto lavoro tecnico si nascondesse dietro ogni singolo taglio applicato alla serie.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=qNYc4F20QB0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/qNYc4F20QB0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE — Le scene censurate tra Kemal e Nihan: la verità mai raccontata</span></a></li><li><a href="https://www.youtube.com/watch?v=nJWKDRyKMak" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/nJWKDRyKMak/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE — Come nasce la censura in una produzione turca di successo</span></a></li><li><a href="https://www.youtube.com/watch?v=aY0u-rItwx8" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/aY0u-rItwx8/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE: chi ha sposato DAVVERO Kemal (e non è Nihan) 😱</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Quale di queste scene censurate vi avrebbe interessato di più vedere nella versione integrale? E secondo voi, quanto ha influenzato la percezione internazionale della serie il fatto che alcune versioni fossero più complete di altre?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=KJHzbJtIQ4Y">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Endless Love</h2><div class="griglia"><article class="scheda">
+  <a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/"><div class="foto"><img src="https://i.ytimg.com/vi/aY0u-rItwx8/hqdefault.jpg" alt="Endless Love" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/endless-love.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></h3>
+    <div class="quando">3 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/"><div class="foto"><img src="/img/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo.jpg" alt="Endless Love" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/endless-love.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Endless Love</span>
+    <h3><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></h3>
+    <div class="quando">3 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Endless Love, 5 scene che la censura turca non voleva farvi vedere — https://soapoperaitalia.com/endless-love/endless-love-le-scene-censurate-tra-kemal-e-nihan-la-verita-mai-raccontata/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/endless-love/endless-love-le-scene-censurate-tra-kemal-e-nihan-la-verita-mai-raccontata/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/endless-love/endless-love-le-scene-censurate-tra-kemal-e-nihan-la-verita-mai-raccontata/&text=Endless Love, 5 scene che la censura turca non voleva farvi vedere" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">ENDLESS LOVE — 5 scene che la censura turca non voleva farvi vedere</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=KJHzbJtIQ4Y">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Endless Love</h3><ol class="numerata"><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li><li><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></li><li><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></li><li><a href="/endless-love/endless-love-cosa-resta-oggi-di-kemal-e-nihan-e-perche-se-ne-parla-ancora/">Endless Love, cosa resta oggi di Kemal e Nihan, e perché se ne parla ancora</a></li><li><a href="/endless-love/endless-love-la-cronologia-completa-della-censura-dallinizio-alla-fine/">Endless Love, la cronologia completa della censura, dall&#x27;inizio alla fine</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>ENDLESS LOVE — 5 scene che la censura turca non voleva farvi vedere</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Endless Love</h3><ul><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li><li><a href="/endless-love/endless-love-la-trama-completa-perche-nihan-sposa-emir-e-come-finisce/">Endless Love, la trama completa: perché Nihan sposa Emir e come finisce</a></li><li><a href="/endless-love/endless-love-come-nasce-la-censura-in-una-produzione-turca-di-successo/">Endless Love, come nasce la censura in una produzione turca di successo</a></li><li><a href="/endless-love/endless-love-cosa-resta-oggi-di-kemal-e-nihan-e-perche-se-ne-parla-ancora/">Endless Love, cosa resta oggi di Kemal e Nihan, e perché se ne parla ancora</a></li><li><a href="/endless-love/endless-love-la-cronologia-completa-della-censura-dallinizio-alla-fine/">Endless Love, la cronologia completa della censura, dall&#x27;inizio alla fine</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -319,7 +368,7 @@ if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=nu
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -332,57 +381,83 @@ if(l.length){el.src=l.shift();el.dataset.fb=JSON.stringify(l)}else{el.onerror=nu
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/hercai/">Hercai</a> › Chi è Miran in Hercai: la vendetta, Reyyan e la verità sul suo vero padre</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/hercai/">Hercai</a>
   <h1>Chi è Miran in Hercai: la vendetta, Reyyan e la verità sul suo vero padre</h1>
-  <div class="firma">Redazione Soap Opera Italia · sabato 29 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-29">sabato 29 agosto 2026</time></span><span>9 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Da dove viene Miran, che patto lo porta dentro la casa dei Şadoğlu, che cosa lo lega a Reyyan e chi sono davvero i suoi: la storia del personaggio interpretato da Akın Akınözü raccontata dall&#x27;inizio, senza saltare il passaggio che ribalta tutto. Perché in Hercai la vendetta e la parentela non sono due trame separate: sono la stessa trama vista da due lati diversi.</p><ol><li><a href="#c1">Chi ha cresciuto Miran e cosa gli ha raccontato dei suoi genitori</a></li><li><a href="#c2">Perché Miran sposa Reyyan se il suo scopo è distruggere i Şadoğlu</a></li><li><a href="#c3">Quando Miran capisce che Hazar non ha ucciso sua madre</a></li><li><a href="#c4">Chi rivela che Miran non è un Aslanbey</a></li><li><a href="#c5">Chi è davvero la famiglia di Miran, alla fine</a></li><li><a href="#c6">Chi interpreta Miran e in quante stagioni si racconta la sua storia</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Hercai</strong> — Serie conclusa in Italia · andata in onda su Real Time, in streaming su discovery+</span></div>
   <figure class="copertina"><img src="/fallback/hercai.svg" alt="Hercai" width="1280" height="720"><figcaption>Hercai</figcaption></figure>
-  <p class="occhiello">Da dove viene Miran, che patto lo porta dentro la casa dei Şadoğlu, che cosa lo lega a Reyyan e chi sono davvero i suoi: la storia del personaggio interpretato da Akın Akınözü raccontata dall&#x27;inizio, senza saltare il passaggio che ribalta tutto. Perché in Hercai la vendetta e la parentela non sono due trame separate: sono la stessa trama vista da due lati diversi.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   
   <div class="corpo">
   <p><strong>Miran Aslanbey è il protagonista maschile di Hercai: l&#x27;erede di una famiglia potente di Midyat, cresciuto dalla nonna Azize nella certezza che i Şadoğlu gli abbiano ucciso i genitori. Per vendicarli conquista Reyyan, la sposa e la ripudia. Solo che la sua famiglia non è quella che crede: il suo vero padre è Hazar Şadoğlu, l&#x27;uomo che ha giurato di distruggere.</strong></p>
   <p>Miran è il ragazzo che arriva in scena con un piano già scritto da qualcun altro. Vive a Midyat, nel sud-est della Turchia, ed è l&#x27;erede degli Aslanbey, una delle due famiglie che si contendono terra e prestigio in quella parte di mondo. L&#x27;altra è quella dei Şadoğlu, cognome che in Italia si trova scritto anche nella forma semplificata Sadoglu, così come Reyyan diventa spesso Reyan. Da bambino Miran ha imparato una sola versione della propria storia: i suoi genitori sono morti ammazzati, e il colpevole si chiama Hazar Şadoğlu. A ripetergliela ogni giorno è stata sua nonna Azize. Tutto quello che Miran fa nella prima parte della serie discende da lì. E tutto quello che gli succede nella seconda parte serve a smontare quella versione pezzo per pezzo, fino alla frase che nessuno si aspettava: Hazar non è l&#x27;assassino di suo padre, Hazar è suo padre.</p>
-<h2>Chi ha cresciuto Miran e cosa gli ha raccontato dei suoi genitori</h2>
+<h2 id="c1">Chi ha cresciuto Miran e cosa gli ha raccontato dei suoi genitori</h2>
 <p>La donna che tiene in mano l&#x27;infanzia di Miran è Azize Aslanbey, la matriarca. Non è una nonna affettuosa che ogni tanto ricorda il passato: è una donna che ha trasformato un lutto in un programma educativo. A Miran viene detto che sua madre Dilşah è stata violentata e uccisa, che suo padre Mehmet Aslanbey è morto per la stessa mano, e che il responsabile è il rampollo della famiglia rivale. Il compito del nipote non è piangere: è riportare in alto il nome degli Aslanbey e presentare il conto ai Şadoğlu.</p>
 <p>Vale la pena capire come funziona questa educazione, perché spiega il personaggio meglio di qualsiasi descrizione caratteriale. Miran non è un uomo cattivo che decide di fare del male: è un uomo a cui è stato consegnato un dolore preconfezionato, con dentro già il nome del colpevole. Azize gli lascia la rabbia e si tiene le prove. Quando più avanti quelle prove verranno cercate sul serio, si scoprirà che non esistono, o che sono state costruite: il verbale della polizia sulla violenza subita da Dilşah risulterà comprato, scritto su ordinazione. Miran ha passato una vita a odiare sulla base di un documento falso.</p>
 <p>C&#x27;è un dettaglio che rende la cosa ancora più amara. Miran cresce credendo di non avere più nessuno dalla parte materna. Anche questo non è vero: sua nonna Şükran, la madre di Dilşah, è viva, e ritrovarla sarà il primo mattone della ricostruzione.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Perché Miran sposa Reyyan se il suo scopo è distruggere i Şadoğlu</h2>
+<h2 id="c2">Perché Miran sposa Reyyan se il suo scopo è distruggere i Şadoğlu</h2>
 <p>Il patto di vendetta con cui Miran entra nella storia è preciso e crudele. Non prevede sangue, prevede vergogna: guadagnarsi la fiducia dei Şadoğlu, chiedere in moglie Reyyan, la nipote del patriarca Nasuh, celebrare le nozze e poi abbandonarla il mattino successivo. In un contesto dove l&#x27;onore di una casata si misura sulla reputazione delle sue donne, quel gesto vale più di un agguato: umilia i Şadoğlu davanti a tutta Midyat, senza sparare un colpo.</p>
 <p>Il piano ha però un difetto strutturale, ed è il motore di tutta la serie: Miran e Reyyan si sono già incontrati per caso, e lui si è già innamorato. Il primo incontro avviene all&#x27;alba, con lei a cavallo e lui alla guida di un&#x27;auto che per poco non la travolge; Reyyan cade, perde i sensi, e Miran la riaccompagna a casa. Da quel momento l&#x27;uomo che deve fingere sentimenti si ritrova a provarli davvero, e la vendetta smette di essere un compito e diventa una condanna. Miran esegue comunque il piano, ed è il punto che rende il personaggio discutibile e non un eroe, poi passa stagioni intere a pagarne il prezzo.</p>
 <p>Attorno a loro si muove Yaren, figlia di Cihan e quindi cugina di Reyyan, innamorata di Miran e disposta a molto pur di togliersi di mezzo la rivale. Sarà proprio lei, per dispetto, a far cadere una delle rivelazioni più pesanti della storia.</p>
-<h2>Quando Miran capisce che Hazar non ha ucciso sua madre</h2>
+<h2 id="c3">Quando Miran capisce che Hazar non ha ucciso sua madre</h2>
 <p>La svolta non arriva da una confessione, arriva da un&#x27;indagine fatta in due. Reyyan e Miran cercano insieme la verità sulla morte dei suoi genitori, e la ricerca li porta prima da Şükran, la nonna materna che Miran credeva morta, poi a Istanbul. Emerge il primo buco: il racconto della violenza subita da Dilşah è stato fabbricato, e a fabbricarlo è stata Azize corrompendo chi doveva scrivere il rapporto.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Azize regge il colpo con la freddezza di sempre. Ammette la falsificazione e sposta la linea di difesa di un passo indietro: va bene, non c&#x27;è stata violenza, ma Dilşah è stata comunque uccisa da Hazar. Miran, che ha bisogno di crederle, le concede ancora fiducia. Reyyan no: capisce che la nonna sta ancora mentendo, e si scontra a lungo con l&#x27;incapacità di Miran di staccarsi da lei.</p>
 <p>A chiudere la questione è un nastro. In casa di Şükran i due trovano la registrazione di una conversazione fra Dilşah e un&#x27;amica: dentro c&#x27;è l&#x27;amore di Dilşah per Hazar, e la confessione che Azize la sta costringendo a sposare suo figlio. Miran accetta finalmente che Hazar non ha ammazzato sua madre. E scopre una cosa peggiore: chi tentò di uccidere Dilşah e Hazar fu proprio Mehmet Aslanbey, l&#x27;uomo che credeva suo padre, che poi si tolse la vita.</p>
-<h2>Chi rivela che Miran non è un Aslanbey</h2>
+<h2 id="c4">Chi rivela che Miran non è un Aslanbey</h2>
 <p>La rivelazione vera e propria non arriva da Azize, che l&#x27;avrebbe tenuta per sé in eterno, né da Hazar. A dirla ad alta voce, davanti a tutti, è Füsun Aslanbey, cognata di Azize: Miran non è un Aslanbey, suo padre biologico è Hazar Şadoğlu. Il colpo è doppio, perché significa che l&#x27;uomo odiato per una vita intera è suo padre, e che la famiglia che ha cercato di distruggere è la sua.</p>
 <p>La conferma gliela dà sua madre, in differita. Miran torna sul nastro e ascolta la parte che si era fermato prima di sentire: Dilşah dice all&#x27;amica di aspettare un figlio da Hazar, di sperare che sia un maschio, e di volerlo chiamare Miran. Il nome con cui ha firmato ogni atto della vendetta gliel&#x27;ha scelto sua madre pensando a suo padre. Hazar prova ad avvicinarsi al figlio ritrovato e all&#x27;inizio trova un muro; Miran lo accetterà come padre solo dopo aver visto Reyyan perdonare il proprio.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Chi vuole ripercorrere questo passaggio momento per momento lo trova ricostruito nel nostro pezzo dedicato alla verità su Miran. Qui interessa la conseguenza, che è ancora più grossa della rivelazione: perché la catena non si ferma a Hazar.</p>
-<h2>Chi è davvero la famiglia di Miran, alla fine</h2>
+<h2 id="c5">Chi è davvero la famiglia di Miran, alla fine</h2>
 <p>Il secondo strato lo scopre Nasuh Şadoğlu, il patriarca, andando a cercare il motivo per cui Azize odia la sua casata con quella intensità. La donna che si fa chiamare Azize Aslanbey in realtà si chiama Ayşe, ed è stata il primo amore di Nasuh. Avevano avuto un figlio e sarebbero dovuti sposarsi. Poi un incendio, il fumo, giorni di incoscienza, e al risveglio la madre di Nasuh che le dice che sono morti tutti, bambino compreso, che la colpa è sua e che Nasuh si è risposato. A Nasuh era stata raccontata la versione speculare: Ayşe è morta nell&#x27;incendio.</p>
 <p>Quel figlio non era morto. Quel figlio è Hazar. Il che vuol dire che Azize ha passato decenni a costruire la rovina del proprio figlio, e ha cresciuto Miran come nipote credendo di usarlo come arma: era davvero suo nipote, ma per la linea di sangue che voleva cancellare. Ed è sempre Azize, per farsi perdonare, a rivelare l&#x27;ultima cosa che teneva chiusa: Dilşah è viva, tenuta lontana dal mondo per anni.</p>
 <p>Resta la domanda che si fanno tutti quando sentono che Miran è figlio di Hazar: allora Miran e Reyyan sono fratelli? No. Reyyan non è figlia biologica di Hazar — è Yaren a gettarle in faccia la verità — e il suo vero padre è Mahfuz, che tornerà per aiutarla contro Azize. Hazar l&#x27;ha cresciuta come figlia, ma fra Miran e Reyyan non c&#x27;è sangue in comune. La serie costruisce il sospetto e poi lo scioglie, ed è esattamente per questo che i due segreti vengono svelati nello stesso arco di puntate.</p>
 <p>Sul finale diciamo solo l&#x27;essenziale, perché è il tipo di cosa che rovina la visione a chi arriva adesso: Miran e Reyyan diventano genitori, la faida fra le due case si chiude, e il prezzo lo paga proprio il legame appena ricucito fra Miran e suo padre.</p>
-<h2>Chi interpreta Miran e in quante stagioni si racconta la sua storia</h2>
+<h2 id="c6">Chi interpreta Miran e in quante stagioni si racconta la sua storia</h2>
 <p>Miran è interpretato da Akın Akınözü, accanto a Ebru Şahin nel ruolo di Reyyan. Azize è Ayda Aksel, Hazar Şadoğlu è Serhat Tutumluer e il patriarca Nasuh è Macit Sonkan. La serie originale si intitola Hercai, è prodotta da Mia Yapım ed è andata in onda sull&#x27;emittente turca ATV: prima puntata il 15 marzo 2019, ultima il 25 aprile 2021, per un totale di tre stagioni e 69 episodi da circa 150 minuti l&#x27;uno. Le riprese sono state fatte a Midyat, la cittadina della provincia di Mardin in cui la storia è ambientata, e quel paesaggio di pietra chiara è una parte non secondaria del successo del titolo.</p>
 <p>La distribuzione internazionale ha fatto il resto: i diritti sono stati venduti in molti mercati, e negli Stati Uniti e in buona parte dell&#x27;America Latina la serie è passata su Telemundo a partire dal giugno 2021, con un titolo che punta esplicitamente sulla coppia amore e vendetta. È anche per questo che, a distanza di anni dalla conclusione, il nome di Miran continua a essere cercato: la storia è chiusa, la domanda su chi fosse davvero no.</p>
 <p>Se dovessimo riassumere il personaggio in una riga, sarebbe questa: Miran è un uomo a cui hanno messo in mano la vendetta sbagliata contro la famiglia sbagliata, e che per rimettere le cose a posto deve rinunciare all&#x27;unica identità che gli avevano lasciato. Non è un eroe e non è un cattivo. È uno che scopre tardi di aver combattuto contro il proprio stesso cognome.</p>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=3xmOfQLAAe4" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/3xmOfQLAAe4/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>HERCAI: Dopo il finale, cosa resta della storia di Miran e Reyyan 👀</span></a></li><li><a href="https://www.youtube.com/watch?v=sdx53xbywXs" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/sdx53xbywXs/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>HERCAI: Avevi previsto come finisce la storia di Miran e Reyyan? Mettiti alla prova 🤔</span></a></li><li><a href="https://www.youtube.com/watch?v=vVP5MFejzjA" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/vVP5MFejzjA/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>HERCAI — Le teorie dei fan sul padre di Miran contro quello che è successo davvero</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Quando avete capito che Miran stava combattendo dalla parte sbagliata: al nastro di Dilşah, o molto prima?</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Hercai</h2><div class="griglia"><article class="scheda">
+  <a href="/hercai/hercai-la-trama-completa-e-come-finisce/"><div class="foto"></div></a>
+  <div class="corpo">
+    <span class="serie">Hercai</span>
+    <h3><a href="/hercai/hercai-la-trama-completa-e-come-finisce/">Hercai: la trama completa e come finisce</a></h3>
+    <div class="quando">30 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/hercai/hercai-la-mia-reazione-a-caldo-al-finale-di-serie/"><div class="foto"><img src="https://i.ytimg.com/vi/U8NHl1Wyzrg/hqdefault.jpg" alt="Hercai" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/hercai.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Hercai</span>
+    <h3><a href="/hercai/hercai-la-mia-reazione-a-caldo-al-finale-di-serie/">Hercai: La mia reazione a caldo al finale di serie</a></h3>
+    <div class="quando">15 agosto 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/hercai/hercai-prima-e-dopo-il-finale-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/"><div class="foto"><img src="https://i.ytimg.com/vi/SoX3QfQlTk0/hqdefault.jpg" alt="Hercai" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/hercai.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Hercai</span>
+    <h3><a href="/hercai/hercai-prima-e-dopo-il-finale-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/">Hercai: Prima e dopo il finale — così cambiano tutti i rapporti nella famiglia Şadoğlu</a></h3>
+    <div class="quando">15 agosto 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Chi è Miran in Hercai: la vendetta, Reyyan e la verità sul suo vero padre — https://soapoperaitalia.com/hercai/chi-e-miran-in-hercai-la-vendetta-reyyan-e-la-verita-sul-suo-vero-padre/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/hercai/chi-e-miran-in-hercai-la-vendetta-reyyan-e-la-verita-sul-suo-vero-padre/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/hercai/chi-e-miran-in-hercai-la-vendetta-reyyan-e-la-verita-sul-suo-vero-padre/&text=Chi è Miran in Hercai: la vendetta, Reyyan e la verità sul suo vero padre" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  
-  <div class="box"><h3>Ancora su Hercai</h3><ul><li><a href="/hercai/hercai-la-trama-completa-e-come-finisce/">Hercai: la trama completa e come finisce</a></li><li><a href="/hercai/hercai-la-mia-reazione-a-caldo-al-finale-di-serie/">Hercai: La mia reazione a caldo al finale di serie</a></li><li><a href="/hercai/hercai-prima-e-dopo-il-finale-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/">Hercai: Prima e dopo il finale — così cambiano tutti i rapporti nella famiglia Şadoğlu</a></li><li><a href="/hercai/hercai-dopo-la-verita-su-miran-cosa-puo-succedere-adesso/">HERCAI — Dopo la verità su Miran, cosa può succedere adesso</a></li><li><a href="/hercai/hercai-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/">HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Şadoğlu</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="box"><h3>Ultime di Hercai</h3><ol class="numerata"><li><a href="/hercai/hercai-la-trama-completa-e-come-finisce/">Hercai: la trama completa e come finisce</a></li><li><a href="/hercai/hercai-la-mia-reazione-a-caldo-al-finale-di-serie/">Hercai: La mia reazione a caldo al finale di serie</a></li><li><a href="/hercai/hercai-prima-e-dopo-il-finale-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/">Hercai: Prima e dopo il finale — così cambiano tutti i rapporti nella famiglia Şadoğlu</a></li><li><a href="/hercai/hercai-dopo-la-verita-su-miran-cosa-puo-succedere-adesso/">HERCAI — Dopo la verità su Miran, cosa può succedere adesso</a></li><li><a href="/hercai/hercai-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-famiglia-sadoglu/">HERCAI — Prima e dopo la rivelazione: così cambiano tutti i rapporti nella famiglia Şadoğlu</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>Ogni anticipazione, prima in video sul canale Soap Opera Italia</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
+  </div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>

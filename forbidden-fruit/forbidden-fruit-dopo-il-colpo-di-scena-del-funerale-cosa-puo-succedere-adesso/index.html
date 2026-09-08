@@ -143,12 +143,61 @@ main { padding: 26px 0 40px; }
   letter-spacing: .4px; }
 
 /* articolo */
-.articolo { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+.articolo { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; }
 @media (max-width: 900px) { .articolo { grid-template-columns: minmax(0, 1fr); } }
 .articolo h1 { font-family: var(--serif); font-size: clamp(29px, 3.8vw, 38px);
   line-height: 1.22; margin: 0 0 12px; letter-spacing: -0.01em; }
 .firma { font-size: 14px; color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
   padding-bottom: 14px; margin-bottom: 20px; }
+
+/* ── Pagina articolo, disegno Stitch «A» (8/09/2026, SITI_SOAP/STITCH.md §7) ──
+   Etichetta serie sopra il titolo, riga dati sotto, riquadro «In breve» prima
+   del video, correlati della serie come schede con miniatura nella colonna
+   centrale, barra laterale a 340 px con la lista numerata e il riquadro
+   YouTube scuro. Le misure sono quelle del mockup; i colori restano quelli di
+   DESIGN_<sito>.md (Stitch metteva lo sfondo rosato e i webfont: qui no). */
+.etichetta-serie { display: inline-block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: #fff; background: var(--brand);
+  padding: 4px 9px; border-radius: 4px; margin: 0 0 12px; }
+.etichetta-serie:hover { text-decoration: none; background: var(--brand-dark); }
+.meta-articolo { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px;
+  color: var(--testo-tenue); border-bottom: 1px solid var(--bordo);
+  padding-bottom: 14px; margin: 0 0 20px; }
+.meta-articolo span::before { content: "•"; color: var(--brand); margin-right: 7px; }
+.meta-articolo span:first-child::before { content: none; }
+@media (max-width: 600px) { .meta-articolo { gap: 4px 12px; }
+  .meta-articolo span::before { content: none; } }
+.in-breve { background: var(--sfondo-tenue); border: 1px solid var(--bordo);
+  border-radius: 10px; padding: 16px 20px 14px; margin: 0 0 22px; }
+.in-breve h2 { margin: 0 0 8px; font-family: inherit; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .7px; color: var(--brand); }
+.in-breve .sommario { margin: 0 0 12px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.in-breve ol { margin: 0; padding-left: 22px; }
+.in-breve li { margin: 0 0 5px; font-size: 15.5px; line-height: 1.45; }
+.in-breve li:last-child { margin-bottom: 0; }
+.correlati-serie { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--bordo); }
+.correlati-serie h2 { font-family: var(--serif); font-size: 23px; margin: 0 0 14px; }
+.correlati-serie .griglia { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.correlati-serie .scheda h3 { font-size: 17px; }
+aside .numerata { list-style: none; padding: 0; counter-reset: n; }
+aside .numerata li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--bordo); margin: 0; }
+aside .numerata li:last-child { border-bottom: 0; padding-bottom: 0; }
+aside .numerata li::before { content: counter(n); flex: 0 0 22px; height: 22px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+aside .numerata a { color: var(--testo); }
+aside .numerata a:hover { color: var(--brand); }
+aside .yt-box { background: #111; color: #fff; text-align: center; border-radius: 10px;
+  padding: 22px 18px 20px; margin-bottom: 22px; }
+aside .yt-box .tondo { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 10px;
+  border: 2px solid var(--brand); position: relative; }
+aside .yt-box .tondo::after { content: ""; position: absolute; left: 12px; top: 8px;
+  border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #fff; }
+aside .yt-box h3 { color: #fff; font-family: var(--serif); font-size: 19px; text-transform: none;
+  letter-spacing: 0; margin: 0 0 6px; }
+aside .yt-box p { font-size: 13.5px; color: #ffffffb8; margin: 0 0 14px; }
+aside .yt-box .bottone { display: block; }
 .copertina figcaption { font-size: 13px; color: var(--testo-tenue); padding: 8px 2px; }
 .occhiello { font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0 0 22px; }
 .corpo h2 { font-family: var(--serif); font-size: 24px; margin: 34px 0 10px;
@@ -323,7 +372,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <span class="oggi">domenica 6 settembre 2026</span>
+  <span class="oggi">martedì 8 settembre 2026</span>
   
   <span class="cerca"><input type="search" id="q" placeholder="Cerca…" aria-label="Cerca nel sito"></span>
 </div></div>
@@ -336,11 +385,12 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <div class="briciole"><a href="/">Home</a> › <a href="/serie/forbidden-fruit/">Forbidden Fruit</a> › Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso</div>
 <div class="articolo">
 <article>
+  <a class="etichetta-serie" href="/serie/forbidden-fruit/">Forbidden Fruit</a>
   <h1>Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso</h1>
-  <div class="firma">Redazione Soap Opera Italia · lunedì 3 agosto 2026</div>
+  <div class="meta-articolo"><span><time datetime="2026-08-03">lunedì 3 agosto 2026</time></span><span>aggiornato il 29 agosto 2026</span><span>7 min di lettura</span><span>Redazione Soap Opera Italia</span></div>
+  <div class="in-breve"><h2>In breve</h2><p class="sommario">Ora che Yıldız è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.</p><ol><li><a href="#c1">Chi è l&#x27;erede segreto rivelato da Mert</a></li><li><a href="#c2">Perché i soci di Halit potrebbero abbandonare Yıldız</a></li><li><a href="#c3">Come Halit potrebbe muoversi se tornasse</a></li><li><a href="#c4">Quale ruolo avrà Kaya in casa Argun</a></li><li><a href="#c5">Chi potrebbe approfittare del caos in famiglia Argun</a></li></ol></div>
   <div class="onda"><span class="tv">📺</span><span><strong>Forbidden Fruit</strong> — Canale 5 · in streaming su Mediaset Infinity</span></div>
   <figure class="copertina"><img src="/img/forbidden-fruit-dopo-il-colpo-di-scena-del-funerale-cosa-puo-succedere-adesso.jpg" alt="Forbidden Fruit"><figcaption>Forbidden Fruit (foto ufficiale)</figcaption></figure>
-  <p class="occhiello">Ora che Yıldız è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a.</p>
   <div class="annuncio riservato"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="video">
   <div class="telaio">
@@ -359,7 +409,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <p><strong>Ora che Yıldız è diventata erede designata e il mistero sulla sorte di Halit aleggia su tutta la famiglia, la domanda vera è: cosa succederà adesso? Un colpo di scena di questa portata non può restare senza conseguenze concrete. Oggi proviamo a ragionare insieme su cosa potrebbe accadere nelle prossime puntate.</strong></p>
   <p>Partiamo da quello che sappiamo: Yıldız detiene ufficialmente il controllo dell&#x27;impero Argun, ma la sua posizione resta estremamente fragile, circondata da rivali pronti ad approfittare di ogni segno di debolezza.</p>
 <p>La prima grande domanda aperta riguarda proprio Ender e Şahika. Riusciranno a trovare un&#x27;alleanza, seppur temporanea, pur di riprendersi almeno una parte del potere perduto, o la rabbia reciproca le porterà a distruggersi a vicenda accusandosi di aver fallito nel proteggere la propria posizione?</p>
-<h2>Chi è l&#x27;erede segreto rivelato da Mert</h2>
+<h2 id="c1">Chi è l&#x27;erede segreto rivelato da Mert</h2>
 <p>Secondo fronte: la carta dell&#x27;erede segreto giocata da Mert. Chi è davvero questa persona, e quale ruolo avrà nelle prossime puntate? La sua rivelazione potrebbe ribaltare ancora una volta tutti gli equilibri di potere costruiti fino a questo momento.</p>
 <p>Terzo fronte, quello più inquietante: la possibilità che Halit sia davvero ancora vivo. Se così fosse, quale sarebbe la sua prossima mossa? Tornare all&#x27;improvviso per riprendersi tutto con la forza, o lasciare che il caos consumi la propria famiglia come ultima e definitiva vendetta?</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
@@ -368,19 +418,19 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
 <p>Un ultimo fronte, quello con cui chiudiamo questa analisi: cosa ci racconta questa vicenda sul significato più ampio di eredità e potere in una famiglia costruita su segreti e inganni come quella di Forbidden Fruit? La parola eredità, in questa storia, non ha mai significato solo denaro e proprietà, ma controllo assoluto sulle vite di chi resta.</p>
 <p>Prima di addentrarci in ogni singolo fronte aperto da questo colpo di scena, vale la pena ricordare che raramente una sceneggiatura lascia così tante domande irrisolte contemporaneamente. Di solito le grandi produzioni preferiscono dosare i propri misteri uno alla volta, ma qui ci troviamo davanti a un vero e proprio ventaglio di possibilità che si intrecciano tra loro, rendendo particolarmente difficile prevedere con certezza quale direzione prenderà la trama nelle prossime settimane.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<h2>Perché i soci di Halit potrebbero abbandonare Yıldız</h2>
+<h2 id="c2">Perché i soci di Halit potrebbero abbandonare Yıldız</h2>
 <p>Tornando al primo fronte, quello della posizione di Yıldız, è importante sottolineare quanto la sua fragilità non riguardi solo gli attacchi diretti degli altri eredi, ma anche la gestione pratica di un impero fatto di rapporti commerciali costruiti da Halit in decenni di attività. Se non riuscirà a dimostrare rapidamente di essere all&#x27;altezza del compito, anche i soci più fedeli al patriarca potrebbero iniziare a cercare altrove garanzie di stabilità, mettendo a rischio l&#x27;intera struttura economica della famiglia.</p>
 <p>Sul secondo fronte, quello di Ender e Şahika, vale la pena considerare anche uno scenario alternativo rispetto alla semplice alleanza o alla reciproca distruzione: e se una delle due decidesse di tradire l&#x27;altra proprio nel momento di massima vulnerabilità, sfruttando la disperazione comune per ottenere un vantaggio personale? Conoscendo la storia della famiglia Argun, fatta di lealtà sempre instabili e alleanze di comodo, questo scenario non sembra affatto improbabile.</p>
-<h2>Come Halit potrebbe muoversi se tornasse</h2>
+<h2 id="c3">Come Halit potrebbe muoversi se tornasse</h2>
 <p>Approfondendo il terzo fronte, quello dell&#x27;erede segreto rivelato da Mert, ci si può chiedere anche quale sarà il suo impatto sulla percezione pubblica della famiglia, al di là delle sole dinamiche interne. Se questa persona dovesse rivelarsi legata a segreti particolarmente scomodi del passato di Halit, la reputazione stessa dell&#x27;impero Argun potrebbe subire un colpo difficile da riparare, con conseguenze che andrebbero ben oltre la semplice successione patrimoniale.</p>
 <p>Sul quarto fronte, quello riguardante il possibile ritorno di Halit, merita attenzione anche uno scenario meno discusso finora: e se il patriarca, tornando, non cercasse affatto di riprendersi il controllo con la forza, ma decidesse invece di osservare in silenzio come si evolve la situazione, intervenendo solo nel momento più strategico possibile, magari proprio quando Yıldız sarà più vulnerabile agli attacchi degli altri eredi? Sarebbe coerente con il suo modo di operare, sempre calcolato e mai impulsivo.</p>
 <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <p>Approfondendo il quinto fronte, quello del futuro di Halit Can, vale la pena considerare come la sua eventuale alleanza con Yıldız, di cui abbiamo già parlato, potrebbe rappresentare la chiave per la sua crescita personale all&#x27;interno della trama. Trovarsi costretto a scegliere un ruolo attivo potrebbe trasformarlo, nel giro di poche puntate, da personaggio secondario a uno dei protagonisti più interessanti da seguire, proprio per la sua natura ancora incerta e non del tutto corrotta dalle logiche di potere della famiglia.</p>
 <p>Sul sesto fronte, quello delle conseguenze esterne, è interessante anche considerare il ruolo che potrebbero giocare le autorità competenti, qualora emergessero elementi concreti a supporto dell&#x27;ipotesi che la morte di Halit sia stata effettivamente una messinscena. Un&#x27;indagine ufficiale aggiungerebbe un ulteriore livello di pressione sulla famiglia, costringendo Yıldız e gli altri eredi a gestire contemporaneamente sia le lotte di potere interne sia uno scrutinio esterno decisamente scomodo.</p>
-<h2>Quale ruolo avrà Kaya in casa Argun</h2>
+<h2 id="c4">Quale ruolo avrà Kaya in casa Argun</h2>
 <p>Vale infine la pena aggiungere un settimo fronte, forse il più trasversale di tutti: il ruolo di Kaya nelle prossime puntate. Il suo rapporto teso con Ender, unito alla distanza mantenuta durante la cerimonia funebre, lo rende una sorta di jolly nella partita che si sta giocando in casa Argun, capace potenzialmente di ribaltare gli equilibri a favore di chiunque riuscisse a guadagnarsi la sua fiducia nelle settimane a venire.</p>
 <p>Un ottavo fronte, meno evidente ma comunque significativo, riguarda il rapporto tra Yıldız e il personale della villa nelle settimane a venire. Guadagnarsi la lealtà di chi per anni ha risposto esclusivamente agli ordini di Halit non sarà affatto semplice, e ogni singola decisione presa dalla nuova erede verrà osservata con attenzione da uno staff ancora incerto su chi rappresenti davvero l&#x27;autorità in casa Argun. Un errore di gestione, anche piccolo, potrebbe minare ulteriormente una posizione già di per sé fragile.</p>
-<h2>Chi potrebbe approfittare del caos in famiglia Argun</h2>
+<h2 id="c5">Chi potrebbe approfittare del caos in famiglia Argun</h2>
 <p>Un nono fronte da considerare riguarda invece il possibile coinvolgimento di figure esterne alla famiglia, penso ad esempio ad avvocati o consulenti che potrebbero approfittare della confusione generale per inserirsi nelle dinamiche di potere, offrendo consigli a Yıldız o agli altri eredi in cambio di un ruolo di influenza all&#x27;interno della gestione futura dell&#x27;impero. In situazioni di crisi come questa, raramente mancano opportunisti pronti a proporsi come salvatori.</p>
 <p>Infine, un decimo e ultimo fronte riguarda il modo in cui questa vicenda potrebbe influenzare la percezione pubblica dell&#x27;intera famiglia Argun al di fuori della cerchia più stretta di soci e collaboratori. Un nome storicamente associato a potere e rispetto, seppur ottenuto con metodi non sempre limpidi, rischia ora di essere macchiato da scandali, sospetti e voci incontrollate, e ricostruire questa reputazione potrebbe rivelarsi tanto complicato quanto vincere la battaglia interna per il controllo dell&#x27;eredità.</p>
 <p>Mettendo insieme tutti questi fronti, appare chiaro che il colpo di scena del funerale non sia un punto di arrivo, ma piuttosto un punto di partenza per una fase completamente nuova della storia della famiglia Argun, una fase in cui ogni singolo personaggio dovrà ridefinire priorità, alleanze e persino la propria identità all&#x27;interno di equilibri di potere ormai completamente stravolti.</p>
@@ -389,19 +439,41 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=dLr3mrBsVu0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/dLr3mrBsVu0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>FORBIDDEN FRUIT: Dietro il colpo di scena del funerale di Halit 😱</span></a></li><li><a href="https://www.youtube.com/watch?v=tDjPIsKKJHk" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/tDjPIsKKJHk/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>FORBIDDEN FRUIT: Avevi previsto il colpo di scena al funerale di Halit? Mettiti alla prova 🤔</span></a></li><li><a href="https://www.youtube.com/watch?v=VvTng98L7tY" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/VvTng98L7tY/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>FORBIDDEN FRUIT: Il colpo di scena del funerale ricostruito passo dopo passo 😱</span></a></li></ul></div>
   <div class="riquadro"><h3>E secondo voi?</h3><p>Secondo voi, Halit è davvero ancora vivo e osserva tutto da lontano? E come pensate che reagirà Yıldız quando scoprirà chi è davvero l&#x27;erede segreto rivelato da Mert?</p><p style="margin-top:8px"><a href="https://www.youtube.com/watch?v=CDIIeK_Iz9k">Dite la vostra nei commenti al video</a>.</p></div>
+  <section class="correlati-serie"><h2>Altre anticipazioni di Forbidden Fruit</h2><div class="griglia"><article class="scheda">
+  <a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/"><div class="foto"><img src="https://i.ytimg.com/vi/ADtMQ_wzpiA/hqdefault.jpg" alt="Forbidden Fruit" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/forbidden-fruit.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Forbidden Fruit</span>
+    <h3><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></h3>
+    <div class="quando">5 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/"><div class="foto"><img src="https://i.ytimg.com/vi/VvTng98L7tY/hqdefault.jpg" alt="Forbidden Fruit" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/forbidden-fruit.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Forbidden Fruit</span>
+    <h3><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></h3>
+    <div class="quando">4 settembre 2026</div>
+  </div>
+</article><article class="scheda">
+  <a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/"><div class="foto"><img src="https://i.ytimg.com/vi/UsHJchBN9DY/hqdefault.jpg" alt="Forbidden Fruit" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/forbidden-fruit.svg&quot;]' onerror="imgFb(this)"></div></a>
+  <div class="corpo">
+    <span class="serie">Forbidden Fruit</span>
+    <h3><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></h3>
+    <div class="quando">4 settembre 2026</div>
+  </div>
+</article></div></section>
   <div class="condividi"><span>Condividi</span>
   <a class="wa" href="https://wa.me/?text=Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso — https://soapoperaitalia.com/forbidden-fruit/forbidden-fruit-sono-vivo-il-funerale-di-halit-che-sconvolge-tutti/" rel="nofollow noopener" target="_blank">WhatsApp</a>
   <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://soapoperaitalia.com/forbidden-fruit/forbidden-fruit-sono-vivo-il-funerale-di-halit-che-sconvolge-tutti/" rel="nofollow noopener" target="_blank">Facebook</a>
   <a class="tg" href="https://t.me/share/url?url=https://soapoperaitalia.com/forbidden-fruit/forbidden-fruit-sono-vivo-il-funerale-di-halit-che-sconvolge-tutti/&text=Forbidden Fruit, dopo il colpo di scena del funerale, cosa può succedere adesso" rel="nofollow noopener" target="_blank">Telegram</a>
 </div>
-  <p><a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale YouTube</a></p>
 </article>
 <aside>
-  <div class="box"><h3>Il video di questa settimana</h3>
-    <p style="font-size:15px;margin:0 0 12px">FORBIDDEN FRUIT: Dopo il colpo di scena del funerale, cosa può succedere adesso</p>
-    <a class="bottone" href="https://www.youtube.com/watch?v=CDIIeK_Iz9k">Guarda su YouTube</a>
+  <div class="box"><h3>Ultime di Forbidden Fruit</h3><ol class="numerata"><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/forbidden-fruit/forbidden-fruit-dietro-il-colpo-di-scena-del-funerale-di-halit/">Forbidden Fruit: Dietro il colpo di scena del funerale di Halit</a></li><li><a href="/forbidden-fruit/forbidden-fruit-avevi-previsto-il-colpo-di-scena-al-funerale-di-halit-mettiti-alla-prova/">Forbidden Fruit: Avevi previsto il colpo di scena al funerale di Halit? Mettiti alla prova</a></li></ol></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li></ul></div>
+  <div class="yt-box"><div class="tondo" aria-hidden="true"></div>
+    <h3>Seguici su YouTube</h3>
+    <p>FORBIDDEN FRUIT: Dopo il colpo di scena del funerale, cosa può succedere adesso</p>
+    <a class="bottone" href="https://www.youtube.com/channel/UCjid0Q5NC0No3HRHIF2_tdg?sub_confirmation=1">Iscriviti al canale</a>
   </div>
-  <div class="box"><h3>Ancora su Forbidden Fruit</h3><ul><li><a href="/forbidden-fruit/forbidden-fruit-prima-e-dopo-il-funerale-cosi-cambiano-tutti-i-rapporti-in-casa-argun/">Forbidden Fruit: Prima e dopo il funerale — così cambiano tutti i rapporti in casa Argun</a></li><li><a href="/forbidden-fruit/forbidden-fruit-il-colpo-di-scena-del-funerale-ricostruito-passo-dopo-passo/">Forbidden Fruit: Il colpo di scena del funerale ricostruito passo dopo passo</a></li><li><a href="/forbidden-fruit/forbidden-fruit-le-teorie-dei-fan-sulleredita-di-halit-contro-quello-che-e-successo-davver/">Forbidden Fruit: Le teorie dei fan sull&#x27;eredità di Halit contro quello che è successo davvero</a></li><li><a href="/forbidden-fruit/forbidden-fruit-dietro-il-colpo-di-scena-del-funerale-di-halit/">Forbidden Fruit: Dietro il colpo di scena del funerale di Halit</a></li><li><a href="/forbidden-fruit/forbidden-fruit-avevi-previsto-il-colpo-di-scena-al-funerale-di-halit-mettiti-alla-prova/">Forbidden Fruit: Avevi previsto il colpo di scena al funerale di Halit? Mettiti alla prova</a></li></ul></div><div class="box"><h3>Dalle altre serie</h3><ul><li><a href="/terra-amara/terra-amara-5-indizi-che-avevano-gia-svelato-il-piano-contro-demir/">Terra Amara: 5 indizi che avevano già svelato il piano contro Demir</a></li><li><a href="/endless-love/endless-love-kemal-si-e-sposato-davvero-ma-non-con-nihan/">ENDLESS LOVE: Kemal si è sposato DAVVERO, ma non con Nihan</a></li><li><a href="/la-promessa/la-promessa-anticipazioni-dal-1-al-6-settembre-2026/">La Promessa, anticipazioni dal 1 al 6 settembre 2026</a></li><li><a href="/la-promessa/la-promessa-prima-e-dopo-la-rivelazione-cosi-cambiano-tutti-i-rapporti-nella-tenuta/">LA Promessa: Prima e dopo la rivelazione — così cambiano tutti i rapporti nella tenuta</a></li></ul></div>
   <aside class="affiliato"><h2>Un regalo per i nipoti a Halloween</h2><p>Li pubblichiamo noi: <strong>80 disegni</strong> a linea spessa, pagine grandi 21,6&nbsp;cm e <strong>stampa solo fronte</strong>, così i pennarelli non passano sul disegno dopo. Per bambini dai 4 anni — e per chi vuole colorare con loro.</p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG2WTM8T?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Halloween</a></p><p><a class="bottone-affiliato" href="https://www.amazon.it/dp/B0HG6K5Q4M?tag=kdplibri-21&ascsubtag=sito-soi" rel="sponsored nofollow noopener" target="_blank">Dinosauri di Natale</a></p><p class="nota-affiliato">In qualità di Affiliato Amazon, riceviamo un guadagno dagli acquisti idonei. Il prezzo per te non cambia. <a href="/privacy/">Come funziona</a>.</p></aside>
   <div class="annuncio"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7778653397776213" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
   <div class="box"><h3>Le serie che seguiamo</h3><ul>
