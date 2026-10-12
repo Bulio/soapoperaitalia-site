@@ -303,6 +303,19 @@ aside li { margin-bottom: 9px; font-size: 15px; line-height: 1.4; }
 .bottone:hover { background: var(--brand-dark); text-decoration: none;
   box-shadow: 0 4px 14px rgba(0,0,0,.18); }
 
+/* riquadro del nostro libro (12/10/2026): dentro l'articolo, leggero, senza Tailwind */
+.libro-box { display: flex; gap: 14px; align-items: center; border: 1px solid var(--bordo);
+  border-left: 4px solid var(--accento); border-radius: 8px; padding: 14px 16px; margin: 22px 0;
+  background: #fcfcfc; }
+.libro-box img { width: 72px; height: auto; flex: none; border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.libro-box p { margin: 0 0 8px; font-size: 15.5px; line-height: 1.45; }
+.libro-box .libro-arrivo { font-size: 13.5px; color: var(--testo-tenue); margin: 8px 0 0; }
+.libro-box .libro-bt { display: inline-block; background: #b3262e; color: #fff; padding: 10px 16px;
+  border-radius: 6px; font-weight: 700; font-size: 15px; }
+.libro-box .libro-bt:hover { background: #98202a; text-decoration: none; }
+.libro-box.breve { margin: 22px 0 6px; }
+@media (max-width: 480px) { .libro-box { flex-direction: column; text-align: center; } }
 /* archivio completo: la scala che porta il crawler in fondo al catalogo */
 .archivio { max-width: 900px; }
 .archivio .salti { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 18px 0 30px;
@@ -413,6 +426,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   <div class="corpo">
   <p><strong>Zeynep Soydere ama Emir Kozcuoğlu in segreto da anni, da prima ancora di sposare Ozan Sezin, il fratello di Nihan — e accetta quel matrimonio solo per restargli vicina. Quando una busta di fotografie arriva sia a Ozan sia a Nihan, i due matrimoni crollano nello stesso giorno. Da lì: la gravidanza, il tentativo di Emir di usarla come capro espiatorio per la morte di Ozan, la proposta di matrimonio del commissario Hakan, e il matrimonio finale con Emir.</strong></p>
   <p>Zeynep Soydere ama Emir Kozcuoğlu in segreto da anni, da prima ancora di sposare Ozan Sezin, il fratello di Nihan — e accetta quel matrimonio solo per restargli vicina. Quando una busta di fotografie arriva sia a Ozan sia a Nihan, i due matrimoni crollano nello stesso giorno. Da lì: la gravidanza, il tentativo di Emir di usarla come capro espiatorio per la morte di Ozan, la proposta di matrimonio del commissario Hakan, e il matrimonio finale con Emir.</p>
+<div class="libro-box"><img src="/img/libro-natale-20-regioni-mini.jpg" alt="Copertina di Il Natale delle 20 Regioni" width="72" height="104" loading="lazy" decoding="async"><div><p><strong>Sostenete il nostro lavoro:</strong> è uscito il nostro libro «Il Natale delle 20 Regioni». 31 ricette dalla Vigilia all&#x27;Epifania, le ricette delle nonne di tutte le regioni, con una foto per ogni piatto.</p><a class="libro-bt" href="https://www.amazon.it/dp/B0HMRR78YV" rel="sponsored noopener" target="_blank">Compralo su Amazon</a><p class="libro-arrivo">In arrivo: le ricette delle soap turche.</p></div></div>
 <h2 id="c1">La stanza d&#x27;albergo che nessuno doveva vedere</h2>
 <p>Mesi dopo le nozze con Ozan, Zeynep incontra Emir in un salone privato di un albergo, lontano da chiunque li conosca. Emir le dice che con lei non deve fingere niente, e i due cedono alla passione sapendo di rischiare tutto. Il perché pesa più della scena: Zeynep frequentava la villa dei Kozcuoğlu come amica di famiglia già prima di sposare il fratello di Nihan, e secondo la ricostruzione di questo racconto aveva accettato proprio quel matrimonio perché le sembrava il modo più semplice per restare vicina a Emir. La stanza d&#x27;albergo dimostra che le nozze con Ozan erano per lei una copertura, non una scelta d&#x27;amore.</p>
 <h2 id="c2">La busta di fotografie che arriva a Ozan</h2>
@@ -454,6 +468,7 @@ f.allowFullscreen=true;b.parentNode.replaceChild(f,b);f.focus()}</script>
   </div>
   <div class="altri-video"><h2>Guarda anche sul nostro canale</h2><ul><li><a href="https://www.youtube.com/watch?v=H-skgCP2euM" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/H-skgCP2euM/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE: Emir non ha sposato Zeynep per amore, ma per vendicarsi di Kemal 😱</span></a></li><li><a href="https://www.youtube.com/watch?v=x6SbRM5Uzj4" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/x6SbRM5Uzj4/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE: Hakan umilia Zeynep davanti a tutti in chiesa, ma il motivo è un ricatto di Emir </span></a></li><li><a href="https://www.youtube.com/watch?v=qNYc4F20QB0" rel="noopener" target="_blank"><img src="https://i.ytimg.com/vi/qNYc4F20QB0/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async"><span>ENDLESS LOVE — Le scene censurate tra Kemal e Nihan: la verità mai raccontata</span></a></li></ul></div>
   
+  <div class="libro-box breve"><img src="/img/libro-natale-20-regioni-mini.jpg" alt="Copertina di Il Natale delle 20 Regioni" width="72" height="104" loading="lazy" decoding="async"><div><p><strong>Il nostro libro «Il Natale delle 20 Regioni»</strong>: ogni copia ci aiuta a continuare questo lavoro.</p><a class="libro-bt" href="https://www.amazon.it/dp/B0HMRR78YV" rel="sponsored noopener" target="_blank">Compralo su Amazon</a><p class="libro-arrivo">In arrivo: le ricette delle soap turche.</p></div></div>
   <section class="correlati-serie"><h2>Altre anticipazioni di Endless Love</h2><div class="griglia"><article class="scheda">
   <a href="/endless-love/emir-non-ha-sposato-zeynep-per-amore-ma-per-vendicarsi-di-kemal/"><div class="foto"><img src="https://i.ytimg.com/vi/H-skgCP2euM/hqdefault.jpg" alt="Endless Love" loading="lazy" width="480" height="270" data-fb='[&quot;/fallback/endless-love.svg&quot;]' onerror="imgFb(this)"></div></a>
   <div class="corpo">
