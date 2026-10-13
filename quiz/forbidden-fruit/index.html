@@ -483,6 +483,8 @@ function snd(k){if(S.mute)return;try{AC=AC||new(window.AudioContext||window.webk
  const o=AC.createOscillator(),g=AC.createGain();o.type=k==='ko'?'triangle':'sine';o.frequency.value=f;g.gain.setValueAtTime(0,t+d);
  g.gain.linearRampToValueAtTime(.16,t+d+.01);g.gain.exponentialRampToValueAtTime(.001,t+d+(k==='win'?.35:.18));o.connect(g).connect(AC.destination);o.start(t+d);o.stop(t+d+.4)})}catch(e){}
  try{navigator.vibrate&&navigator.vibrate(k==='ko'?[60,40,60]:k==='win'?[30,30,30,30,80]:15)}catch(e){}}
+/* 13/10: conteggio di chi GIOCA davvero: ogni tappa carica una paginetta vuota /quiz/_p/<evento>/ che Cloudflare conta come visita */
+const PING={};function ping(n){if(PING[n])return;PING[n]=1;try{const f=document.createElement('iframe');f.style.display='none';f.src='/quiz/_p/'+n+'/';document.body.appendChild(f);setTimeout(()=>f.remove(),8000)}catch(e){}}
 function ev(n){/* 13/10: contatori in Microsoft Clarity (Eventi personalizzati), senza cookie */try{window.clarity&&clarity('event',n)}catch(e){}}
 function toast(t){const d=document.createElement('div');d.className='qz-toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
 function confetti(){for(let i=0;i<28;i++){const c=document.createElement('div');c.className='qz-conf';c.textContent='★♥✿★♥'[i%5];
@@ -529,11 +531,11 @@ function renderQuiz(){const q=quiz.qs[quiz.i];
  q.o.forEach((o,i)=>{let c='';if(quiz.ans!=null){if(i===q.a)c='ok';else if(i===quiz.ans)c='ko'}h+=`<button class="qz-opt ${c}" onclick="QZG.ans(${i})">${esc(o)}</button>`});
  if(quiz.ans!=null){const ok=quiz.ans===q.a;h+=`<div class="qz-fb ${ok?'ok':'ko'}"><b>${ok?(quiz.kind==='day'?'✅ Giusto! +20 XP':'✅ Giusto! +10 XP'):'❌ Non era questa'}</b><p>${esc(q.x)}</p>${q.v?`<a href="https://www.youtube.com/watch?v=${q.v}${q.s?'&t='+q.s+'s':''}" target="_blank" rel="noopener" onclick="QZG.ev('rivedi')">▶️ Rivedi questo momento nel nostro video</a>`:`<a href="/serie/${Q.slug}/" onclick="QZG.ev('rivedi_serie')">▶️ Guarda i nostri video su ${esc(Q.serie)}</a>`}</div><button class="qz-btn" onclick="QZG.next()">Continua</button>`}
  app.innerHTML=h}
-function answer(i){if(quiz.ans!=null)return;quiz.ans=i;const q=quiz.qs[quiz.i],ok=i===q.a;
+function answer(i){if(quiz.ans!=null)return;quiz.ans=i;ping('gioca-'+Q.slug);const q=quiz.qs[quiz.i],ok=i===q.a;
  if(ok){quiz.ok++;S.xp+=quiz.kind==='day'?20:10;if(!S.giusti.includes(q.d))S.giusti.push(q.d)}save();snd(ok?'ok':'ko');renderQuiz()}
 function next(){quiz.i++;quiz.ans=null;if(quiz.i<quiz.qs.length)return renderQuiz();
  const r=quiz.ok/quiz.qs.length;let msg;
- if(quiz.kind==='lez'){if(r>=.5){if(!S.done.includes(quiz.meta))S.done.push(quiz.meta);S.xp+=20;msg='Livello superato! '+quiz.ok+'/'+quiz.qs.length}else msg='Solo '+quiz.ok+'/'+quiz.qs.length+': ne servono almeno metà, riprova!'}
+ if(quiz.kind==='lez'){if(r>=.5){ping(Q.slug+'-livello'+(quiz.meta+1));if(!S.done.includes(quiz.meta))S.done.push(quiz.meta);S.xp+=20;msg='Livello superato! '+quiz.ok+'/'+quiz.qs.length}else msg='Solo '+quiz.ok+'/'+quiz.qs.length+': ne servono almeno metà, riprova!'}
  if(quiz.kind==='day'){S.dayDone=today;msg=quiz.ok?'Domanda del giorno vinta! Torna domani 🔥':'Domani ci riprovi!'}
  if(S.lastDay!==today){S.streak++;S.lastDay=today}
  save();checkBadges();if(r>=.75){confetti();snd('win')}ev('quiz_fine_'+quiz.kind);quiz=null;toast(msg);render();app.scrollIntoView({behavior:'smooth'})}
