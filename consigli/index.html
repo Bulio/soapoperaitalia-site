@@ -7,11 +7,26 @@
 <link rel="canonical" href="https://soapoperaitalia.com/consigli/">
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "41c3eca4ff2b438c8cb2f7ccc37d9077"}'></script>
 <script>(function(){var f=0;function go(){if(f)return;f=1;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y3rrqcrvqb");}["pointerdown","keydown","touchstart","scroll"].forEach(function(v){addEventListener(v,go,{once:1,passive:1})});setTimeout(go,2500)})();</script>
-<script>/* ogni clic verso Amazon accende una sonda che Cloudflare conta, e un evento Clarity */
-document.addEventListener('click',function(ev){var a=ev.target.closest('a.vc,a.vs,a.cbt');if(!a)return;
-var c=a.getAttribute('data-cat')||'altro';
-try{if(window.clarity)clarity('event','amazon_'+c)}catch(e){}
-try{var f=document.createElement('iframe');f.style.display='none';f.src='/consigli/_p/'+c+'/';document.body.appendChild(f);setTimeout(function(){f.remove()},8000)}catch(e){}});</script>
+<script>/* ogni clic verso Amazon accende una sonda che Cloudflare conta, e un evento Clarity.
+20/10: la sonda parte quando il dito TOCCA il link (non al clic) e, sul telefono, Amazon si apre
+solo dopo che l'evento e' partito verso Cloudflare (al massimo 0,9 s). Prima la pagina se ne andava
+subito e da telefono la sonda non arrivava mai: SOI segnava zero clic con 36 visite. */
+(function(){var S='a.vc,a.vs,a.cbt',fatte={};
+function sonda(a){var c=a.getAttribute('data-cat')||'altro',k=c+'|'+a.href,now=Date.now();
+ if(fatte[k]&&now-fatte[k].t<3000)return fatte[k].f;
+ try{if(window.clarity)clarity('event','amazon_'+c)}catch(e){}
+ var f=null;try{f=document.createElement('iframe');f.style.display='none';f.src='/consigli/_p/'+c+'/';document.body.appendChild(f);
+  setTimeout(function(){try{f.remove()}catch(e){}},10000)}catch(e){}
+ fatte[k]={t:now,f:f};return f}
+function partita(f){try{return f.contentWindow.performance.getEntriesByType('resource').some(function(r){return r.name.indexOf('/cdn-cgi/rum')>-1})}catch(e){return false}}
+document.addEventListener('pointerdown',function(ev){var a=ev.target.closest(S);if(a)sonda(a)},true);
+document.addEventListener('click',function(ev){var a=ev.target.closest(S);if(!a)return;var f=sonda(a);
+ /* computer (mouse): la scheda nuova lascia viva questa pagina, la sonda finisce da sola */
+ if(!f||(window.matchMedia&&matchMedia('(pointer:fine)').matches)||ev.metaKey||ev.ctrlKey||ev.shiftKey)return;
+ ev.preventDefault();var u=a.href,t0=Date.now(),via=false;
+ function vai(){if(via)return;via=true;location.href=u}
+ (function guarda(){if(partita(f)||Date.now()-t0>900)return setTimeout(vai,60);setTimeout(guarda,50)})()});
+})();</script>
 <style>
 /* 14/10 sera: aria moderna ma leggibile. ⛔ Il contrasto resta alto e il testo grande:
    il pubblico ha 65 anni, un "futuristico" illeggibile e' solo un sito perso. */
