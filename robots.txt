@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /quiz/_p/
 Disallow: /consigli/_p/
 Sitemap: https://soapoperaitalia.com/sitemap.xml
